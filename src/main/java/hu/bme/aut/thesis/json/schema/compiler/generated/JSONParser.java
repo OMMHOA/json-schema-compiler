@@ -1,5 +1,5 @@
 // Generated from JSON.g4 by ANTLR 4.7.1
-package hu.bme.aut.thesis.json.schema.compiler;
+package hu.bme.aut.thesis.json.schema.compiler.generated;
 import org.antlr.v4.runtime.atn.*;
 import org.antlr.v4.runtime.dfa.DFA;
 import org.antlr.v4.runtime.*;
@@ -17,8 +17,8 @@ public class JSONParser extends Parser {
 	protected static final PredictionContextCache _sharedContextCache =
 		new PredictionContextCache();
 	public static final int
-		T__0=1, T__1=2, T__2=3, T__3=4, T__4=5, T__5=6, T__6=7, T__7=8, T__8=9, 
-		STRING=10, NUMBER=11, INT=12, WS=13;
+		T__0=1, T__1=2, T__2=3, T__3=4, T__4=5, T__5=6, STRING=7, NUMBER=8, INT=9, 
+		BOOLEAN=10, TRUE=11, FALSE=12, NULL=13, WS=14;
 	public static final int
 		RULE_json = 0, RULE_obj = 1, RULE_pair = 2, RULE_array = 3, RULE_value = 4;
 	public static final String[] ruleNames = {
@@ -26,11 +26,12 @@ public class JSONParser extends Parser {
 	};
 
 	private static final String[] _LITERAL_NAMES = {
-		null, "'{'", "','", "'}'", "':'", "'['", "']'", "'true'", "'false'", "'null'"
+		null, "'{'", "','", "'}'", "':'", "'['", "']'", null, null, null, null, 
+		"'true'", "'false'", "'null'"
 	};
 	private static final String[] _SYMBOLIC_NAMES = {
-		null, null, null, null, null, null, null, null, null, null, "STRING", 
-		"NUMBER", "INT", "WS"
+		null, null, null, null, null, null, null, "STRING", "NUMBER", "INT", "BOOLEAN", 
+		"TRUE", "FALSE", "NULL", "WS"
 	};
 	public static final Vocabulary VOCABULARY = new VocabularyImpl(_LITERAL_NAMES, _SYMBOLIC_NAMES);
 
@@ -344,6 +345,8 @@ public class JSONParser extends Parser {
 		public TerminalNode STRING() { return getToken(JSONParser.STRING, 0); }
 		public TerminalNode NUMBER() { return getToken(JSONParser.NUMBER, 0); }
 		public TerminalNode INT() { return getToken(JSONParser.INT, 0); }
+		public TerminalNode BOOLEAN() { return getToken(JSONParser.BOOLEAN, 0); }
+		public TerminalNode NULL() { return getToken(JSONParser.NULL, 0); }
 		public ObjContext obj() {
 			return getRuleContext(ObjContext.class,0);
 		}
@@ -373,7 +376,7 @@ public class JSONParser extends Parser {
 		ValueContext _localctx = new ValueContext(_ctx, getState());
 		enterRule(_localctx, 8, RULE_value);
 		try {
-			setState(54);
+			setState(53);
 			_errHandler.sync(this);
 			switch (_input.LA(1)) {
 			case STRING:
@@ -397,39 +400,32 @@ public class JSONParser extends Parser {
 				match(INT);
 				}
 				break;
-			case T__0:
+			case BOOLEAN:
 				enterOuterAlt(_localctx, 4);
 				{
 				setState(49);
+				match(BOOLEAN);
+				}
+				break;
+			case NULL:
+				enterOuterAlt(_localctx, 5);
+				{
+				setState(50);
+				match(NULL);
+				}
+				break;
+			case T__0:
+				enterOuterAlt(_localctx, 6);
+				{
+				setState(51);
 				obj();
 				}
 				break;
 			case T__4:
-				enterOuterAlt(_localctx, 5);
-				{
-				setState(50);
-				array();
-				}
-				break;
-			case T__6:
-				enterOuterAlt(_localctx, 6);
-				{
-				setState(51);
-				match(T__6);
-				}
-				break;
-			case T__7:
 				enterOuterAlt(_localctx, 7);
 				{
 				setState(52);
-				match(T__7);
-				}
-				break;
-			case T__8:
-				enterOuterAlt(_localctx, 8);
-				{
-				setState(53);
-				match(T__8);
+				array();
 				}
 				break;
 			default:
@@ -448,22 +444,22 @@ public class JSONParser extends Parser {
 	}
 
 	public static final String _serializedATN =
-		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\17;\4\2\t\2\4\3\t"+
+		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\20:\4\2\t\2\4\3\t"+
 		"\3\4\4\t\4\4\5\t\5\4\6\t\6\3\2\3\2\3\3\3\3\3\3\3\3\7\3\23\n\3\f\3\16\3"+
 		"\26\13\3\3\3\3\3\3\3\3\3\5\3\34\n\3\3\4\3\4\3\4\3\4\3\5\3\5\3\5\3\5\7"+
 		"\5&\n\5\f\5\16\5)\13\5\3\5\3\5\3\5\3\5\5\5/\n\5\3\6\3\6\3\6\3\6\3\6\3"+
-		"\6\3\6\3\6\5\69\n\6\3\6\2\2\7\2\4\6\b\n\2\2\2@\2\f\3\2\2\2\4\33\3\2\2"+
-		"\2\6\35\3\2\2\2\b.\3\2\2\2\n8\3\2\2\2\f\r\5\n\6\2\r\3\3\2\2\2\16\17\7"+
-		"\3\2\2\17\24\5\6\4\2\20\21\7\4\2\2\21\23\5\6\4\2\22\20\3\2\2\2\23\26\3"+
-		"\2\2\2\24\22\3\2\2\2\24\25\3\2\2\2\25\27\3\2\2\2\26\24\3\2\2\2\27\30\7"+
-		"\5\2\2\30\34\3\2\2\2\31\32\7\3\2\2\32\34\7\5\2\2\33\16\3\2\2\2\33\31\3"+
-		"\2\2\2\34\5\3\2\2\2\35\36\7\f\2\2\36\37\7\6\2\2\37 \5\n\6\2 \7\3\2\2\2"+
-		"!\"\7\7\2\2\"\'\5\n\6\2#$\7\4\2\2$&\5\n\6\2%#\3\2\2\2&)\3\2\2\2\'%\3\2"+
+		"\6\3\6\5\68\n\6\3\6\2\2\7\2\4\6\b\n\2\2\2>\2\f\3\2\2\2\4\33\3\2\2\2\6"+
+		"\35\3\2\2\2\b.\3\2\2\2\n\67\3\2\2\2\f\r\5\n\6\2\r\3\3\2\2\2\16\17\7\3"+
+		"\2\2\17\24\5\6\4\2\20\21\7\4\2\2\21\23\5\6\4\2\22\20\3\2\2\2\23\26\3\2"+
+		"\2\2\24\22\3\2\2\2\24\25\3\2\2\2\25\27\3\2\2\2\26\24\3\2\2\2\27\30\7\5"+
+		"\2\2\30\34\3\2\2\2\31\32\7\3\2\2\32\34\7\5\2\2\33\16\3\2\2\2\33\31\3\2"+
+		"\2\2\34\5\3\2\2\2\35\36\7\t\2\2\36\37\7\6\2\2\37 \5\n\6\2 \7\3\2\2\2!"+
+		"\"\7\7\2\2\"\'\5\n\6\2#$\7\4\2\2$&\5\n\6\2%#\3\2\2\2&)\3\2\2\2\'%\3\2"+
 		"\2\2\'(\3\2\2\2(*\3\2\2\2)\'\3\2\2\2*+\7\b\2\2+/\3\2\2\2,-\7\7\2\2-/\7"+
-		"\b\2\2.!\3\2\2\2.,\3\2\2\2/\t\3\2\2\2\609\7\f\2\2\619\7\r\2\2\629\7\16"+
-		"\2\2\639\5\4\3\2\649\5\b\5\2\659\7\t\2\2\669\7\n\2\2\679\7\13\2\28\60"+
-		"\3\2\2\28\61\3\2\2\28\62\3\2\2\28\63\3\2\2\28\64\3\2\2\28\65\3\2\2\28"+
-		"\66\3\2\2\28\67\3\2\2\29\13\3\2\2\2\7\24\33\'.8";
+		"\b\2\2.!\3\2\2\2.,\3\2\2\2/\t\3\2\2\2\608\7\t\2\2\618\7\n\2\2\628\7\13"+
+		"\2\2\638\7\f\2\2\648\7\17\2\2\658\5\4\3\2\668\5\b\5\2\67\60\3\2\2\2\67"+
+		"\61\3\2\2\2\67\62\3\2\2\2\67\63\3\2\2\2\67\64\3\2\2\2\67\65\3\2\2\2\67"+
+		"\66\3\2\2\28\13\3\2\2\2\7\24\33\'.\67";
 	public static final ATN _ATN =
 		new ATNDeserializer().deserialize(_serializedATN.toCharArray());
 	static {

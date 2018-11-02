@@ -26,11 +26,10 @@ value
    : STRING
    | NUMBER
    | INT
+   | BOOLEAN
+   | NULL
    | obj
    | array
-   | 'true'
-   | 'false'
-   | 'null'
    ;
 
 
@@ -75,6 +74,22 @@ fragment EXP
    ;
 
 // \- since - means "range" inside [...]
+
+BOOLEAN
+   : TRUE | FALSE
+   ;
+
+TRUE
+   : 'true'
+   ;
+
+FALSE
+   : 'false'
+   ;
+
+NULL
+   : 'null'
+   ;
 
 WS
    : [ \t\n\r] + -> skip

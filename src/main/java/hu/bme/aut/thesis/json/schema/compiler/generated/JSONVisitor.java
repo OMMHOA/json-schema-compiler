@@ -1,5 +1,5 @@
 // Generated from JSON.g4 by ANTLR 4.7.1
-package hu.bme.aut.thesis.json.schema.compiler;
+package hu.bme.aut.thesis.json.schema.compiler.generated;
 import org.antlr.v4.runtime.tree.ParseTreeVisitor;
 
 /**
