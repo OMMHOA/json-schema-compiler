@@ -1,7 +1,6 @@
-package hu.bme.aut.thesis.json.schema.compiler.model.booleantype;
+package hu.bme.aut.thesis.json.schema.compiler.restriction;
 
 import com.fasterxml.jackson.databind.JsonNode;
-import hu.bme.aut.thesis.json.schema.compiler.model.Restriction;
 
 public class BooleanRestriction implements Restriction {
     @Override

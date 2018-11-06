@@ -4,6 +4,11 @@
 // Derived from http://json.org
 grammar JSON;
 
+jsonwa
+   : EOF+ json
+   | json
+   ;
+
 json
    : value
    ;

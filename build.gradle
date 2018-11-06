@@ -24,7 +24,7 @@ dependencies {
     testCompile 'junit:junit:4.12'
 }
 
-def generatedDir = new File("src/main/java/hu/bme/aut/thesis/json/schema/compiler/generated");
+def generatedDir = new File("src/main/java/hu/bme/aut/thesis/json/schema/compiler/generated")
 
 generateGrammarSource {
     maxHeapSize = "64m"

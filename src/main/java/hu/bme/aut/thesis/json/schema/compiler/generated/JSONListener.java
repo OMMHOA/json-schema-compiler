@@ -8,6 +8,16 @@ import org.antlr.v4.runtime.tree.ParseTreeListener;
  */
 public interface JSONListener extends ParseTreeListener {
 	/**
+	 * Enter a parse tree produced by {@link JSONParser#jsonwa}.
+	 * @param ctx the parse tree
+	 */
+	void enterJsonwa(JSONParser.JsonwaContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link JSONParser#jsonwa}.
+	 * @param ctx the parse tree
+	 */
+	void exitJsonwa(JSONParser.JsonwaContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link JSONParser#json}.
 	 * @param ctx the parse tree
 	 */

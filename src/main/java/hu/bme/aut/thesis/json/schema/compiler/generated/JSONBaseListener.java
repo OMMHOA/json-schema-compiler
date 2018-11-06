@@ -16,6 +16,18 @@ public class JSONBaseListener implements JSONListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterJsonwa(JSONParser.JsonwaContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitJsonwa(JSONParser.JsonwaContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterJson(JSONParser.JsonContext ctx) { }
 	/**
 	 * {@inheritDoc}

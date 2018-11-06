@@ -1,4 +1,4 @@
-package hu.bme.aut.thesis.json.schema.compiler.model;
+package hu.bme.aut.thesis.json.schema.compiler.restriction;
 
 
 import com.fasterxml.jackson.databind.JsonNode;

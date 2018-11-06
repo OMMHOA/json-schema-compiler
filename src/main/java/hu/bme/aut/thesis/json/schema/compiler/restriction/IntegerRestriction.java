@@ -1,7 +1,6 @@
-package hu.bme.aut.thesis.json.schema.compiler.model.integertype;
+package hu.bme.aut.thesis.json.schema.compiler.restriction;
 
 import com.fasterxml.jackson.databind.JsonNode;
-import hu.bme.aut.thesis.json.schema.compiler.model.Restriction;
 
 
 public class IntegerRestriction implements Restriction {
