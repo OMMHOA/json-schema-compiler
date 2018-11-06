@@ -1,9 +1,12 @@
 package hu.bme.aut.thesis.json.schema.compiler.restrictionmapper;
 
 import hu.bme.aut.thesis.json.schema.compiler.generated.JSONParser;
+import hu.bme.aut.thesis.json.schema.compiler.model.SchemaException;
 import hu.bme.aut.thesis.json.schema.compiler.restriction.*;
 
 import java.util.Objects;
+
+import static hu.bme.aut.thesis.json.schema.compiler.Utils.getWithQuotes;
 
 public class TypeRestrictionMapper extends RestrictionMapper{
     @Override
@@ -13,18 +16,17 @@ public class TypeRestrictionMapper extends RestrictionMapper{
 
     @Override
     protected Restriction getRestriction(JSONParser.ValueContext value) {
-        if (Objects.isNull(value.STRING())) return null;
-        String type = value.STRING().getText();
-        switch (type) {
-            case "array": new ArrayRestriction();
-            case "boolean": new BooleanRestriction();
-            case "integer": new IntegerRestriction();
-            case "null": new NullRestriction();
-            case "number": new NumberRestriction();
-            case "object": new ObjectRestriction();
-            case "string": new StringRestriction();
+        if (value.STRING() == null) return null;
+        switch (value.STRING().getText()) {
+            case "\"array\"": return new ArrayRestriction();
+            case "\"boolean\"": return new BooleanRestriction();
+            case "\"integer\"": return new IntegerRestriction();
+            case "\"null\"": return new NullRestriction();
+            case "\"number\"": return new NumberRestriction();
+            case "\"object\"": return new ObjectRestriction();
+            case "\"string\"": return new StringRestriction();
         }
-        // TODO: log error msg
-        return null;
+        throw new SchemaException("Value of key " + getKeywordWithQuote() + " should be" +
+                " array/boolean/integer/null/number/object/string");
     }
 }

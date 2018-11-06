@@ -21,11 +21,11 @@ public class SchemaJsonVisitor extends JSONBaseVisitor<SchemaNode> {
         } else {
             LOGGER.debug("ERROR: Top level element of json schema is not an object.");
             LOGGER.debug("Is array: " + Objects.nonNull(value.array()));
-//            LOGGER.debug("Is INT: " + Objects.nonNull(value.INT()));
+            LOGGER.debug("Is INT: " + Objects.nonNull(value.INT()));
             LOGGER.debug("Is NUMBER: " + Objects.nonNull(value.NUMBER()));
             LOGGER.debug("Is STRING: " + Objects.nonNull(value.STRING()));
-//            LOGGER.debug("Is BOOLEAN: " + Objects.nonNull(value.BOOLEAN()));
-//            LOGGER.debug("Is NULL: " + Objects.nonNull(value.NULL()));
+            LOGGER.debug("Is BOOLEAN: " + Objects.nonNull(value.BOOLEAN()));
+            LOGGER.debug("Is NULL: " + Objects.nonNull(value.NULL()));
             throw new SchemaException("Top level element of json schema should be an object!");
         }
     }
