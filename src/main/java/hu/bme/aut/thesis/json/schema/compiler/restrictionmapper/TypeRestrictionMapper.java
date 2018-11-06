@@ -4,10 +4,6 @@ import hu.bme.aut.thesis.json.schema.compiler.generated.JSONParser;
 import hu.bme.aut.thesis.json.schema.compiler.model.SchemaException;
 import hu.bme.aut.thesis.json.schema.compiler.restriction.*;
 
-import java.util.Objects;
-
-import static hu.bme.aut.thesis.json.schema.compiler.Utils.getWithQuotes;
-
 public class TypeRestrictionMapper extends RestrictionMapper{
     @Override
     protected String getKeyword() {

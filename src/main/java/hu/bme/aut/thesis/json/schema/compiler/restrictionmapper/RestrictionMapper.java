@@ -25,7 +25,7 @@ public abstract class RestrictionMapper {
         return Arrays.asList(new TypeRestrictionMapper());
     }
 
-    private String getKeywordWithQuote() {
+    protected String getKeywordWithQuote() {
         return "\"" + getKeyword() + "\"";
     }
 
