@@ -10,7 +10,7 @@ import java.io.IOException;
 
 import static org.junit.Assert.*;
 
-public class ParserTest {
+public class ParserTest extends TestFixture {
 
     @Test
     public void parseSchema1() throws IOException {
@@ -80,9 +80,5 @@ public class ParserTest {
     @Test(expected = SchemaException.class)
     public void parseException() {
         Parser.parse("0");
-    }
-
-    private String getResource(String resource) throws IOException {
-        return IOUtils.toString(getClass().getClassLoader().getResourceAsStream(resource));
     }
 }

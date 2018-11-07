@@ -3,8 +3,7 @@ package hu.bme.aut.thesis.json.schema.compiler.visitor;
 import hu.bme.aut.thesis.json.schema.compiler.generated.JSONBaseVisitor;
 import hu.bme.aut.thesis.json.schema.compiler.generated.JSONParser;
 import hu.bme.aut.thesis.json.schema.compiler.model.SchemaNode;
-import hu.bme.aut.thesis.json.schema.compiler.restriction.Restriction;
-import hu.bme.aut.thesis.json.schema.compiler.restriction.TypeRestriction;
+import hu.bme.aut.thesis.json.schema.compiler.restriction.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -27,6 +26,10 @@ public class SchemaObjectVisitor extends JSONBaseVisitor<SchemaNode> {
 
     static {
         restrictionMap.put(TYPE, TypeRestriction::new);
+        restrictionMap.put(MINIMUM, MinimumRestriction::new);
+        restrictionMap.put(MAXIMUM, MaximumRestriction::new);
+        restrictionMap.put(MIN_LENGTH, MinLengthRestriction::new);
+        restrictionMap.put(MAX_LENGTH, MaxLengthRestriction::new);
     }
 
     @Override

@@ -23,7 +23,7 @@ public class TypeRestriction implements Restriction {
     }
 
     @Override
-    public Boolean validate(JsonNode jsonNode) {
-        return null;
+    public boolean validate(JsonNode jsonNode) {
+        return false;
     }
 }
