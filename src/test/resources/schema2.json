@@ -1,0 +1,15 @@
+{
+  "title": "Example2",
+  "description": "A little about arrays",
+  "type": "object",
+  "properties": {
+    "top_grades": {
+      "type": "array",
+      "items": {
+        "type": "number",
+        "minimum": 0,
+        "maximum": 100
+      }
+    }
+  }
+}

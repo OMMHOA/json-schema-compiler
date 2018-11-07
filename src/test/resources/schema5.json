@@ -1,0 +1,10 @@
+{
+  "title": "Example5",
+  "description": "UniqueItems and multipleOf was left out",
+  "type": "array",
+  "items": {
+    "type": "integer",
+    "multipleOf": 3
+  },
+  "uniqueItems": true
+}

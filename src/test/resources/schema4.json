@@ -1,0 +1,15 @@
+{
+  "title": "Example4",
+  "description": "The idea: exactItems",
+  "type": "array",
+  "exactItems": [
+    {
+      "title": "Name",
+      "type": "string"
+    },
+    {
+      "title": "Goal Count",
+      "type": "integer"
+    }
+  ]
+}
