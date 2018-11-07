@@ -2,6 +2,7 @@ package hu.bme.aut.thesis.json.schema.compiler;
 
 import hu.bme.aut.thesis.json.schema.compiler.model.SchemaException;
 import hu.bme.aut.thesis.json.schema.compiler.model.SchemaNode;
+import hu.bme.aut.thesis.json.schema.compiler.restriction.TypeRestriction;
 import org.apache.commons.io.IOUtils;
 import org.junit.Test;
 
@@ -54,6 +55,26 @@ public class ParserTest {
         SchemaNode json = Parser.parse(jsonSchema);
         assertNotNull(json);
         assertNull(json.getChildren());
+    }
+
+    @Test
+    public void parseSchema6() throws IOException {
+        String one = "\"one\"";
+        String two = "\"two\"";
+        String three = "\"three\"";
+        String jsonSchema = getResource("schema6.json");
+        SchemaNode json = Parser.parse(jsonSchema);
+        assertNotNull(json);
+        assertNotNull(json.getChildren());
+        assertNotNull(json.getChildren().get(one));
+        assertNotNull(json.getChildren().get(one).getChildren());
+        assertNotNull(json.getChildren().get(one).getChildren().get(two));
+        assertNotNull(json.getChildren().get(one).getChildren().get(two).getPatternChildren());
+        assertNotNull(json.getChildren().get(one).getChildren().get(two).getPatternChildren().get(three));
+        SchemaNode threeNode = json.getChildren().get(one).getChildren().get(two).getPatternChildren().get(three);
+        assertNotNull(threeNode.getRestrictions());
+        assertEquals(1, threeNode.getRestrictions().size());
+        assertTrue(threeNode.getRestrictions().get(0) instanceof TypeRestriction);
     }
 
     @Test(expected = SchemaException.class)

@@ -1,0 +1,15 @@
+{
+  "properties": {
+    "one": {
+      "properties": {
+        "two": {
+          "patternProperties": {
+            "three": {
+              "type": "object"
+            }
+          }
+        }
+      }
+    }
+  }
+}
