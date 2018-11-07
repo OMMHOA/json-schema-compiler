@@ -63,16 +63,17 @@ fragment SAFECODEPOINT
    ;
 
 
-NUMBER
-   : '-'? INT ('.' [0-9] +)? EXP?
-   ;
-
+// no leading zeros
 
 INT
    : '0' | [1-9] [0-9]*
    ;
 
-// no leading zeros
+
+NUMBER
+   : '-'? INT ('.' [0-9] +)? EXP?
+   ;
+
 
 fragment EXP
    : [Ee] [+\-]? INT

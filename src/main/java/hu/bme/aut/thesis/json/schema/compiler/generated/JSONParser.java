@@ -17,7 +17,7 @@ public class JSONParser extends Parser {
 	protected static final PredictionContextCache _sharedContextCache =
 		new PredictionContextCache();
 	public static final int
-		T__0=1, T__1=2, T__2=3, T__3=4, T__4=5, T__5=6, STRING=7, NUMBER=8, INT=9, 
+		T__0=1, T__1=2, T__2=3, T__3=4, T__4=5, T__5=6, STRING=7, INT=8, NUMBER=9, 
 		BOOLEAN=10, TRUE=11, FALSE=12, NULL=13, WS=14;
 	public static final int
 		RULE_jsonwa = 0, RULE_json = 1, RULE_obj = 2, RULE_pair = 3, RULE_array = 4, 
@@ -31,7 +31,7 @@ public class JSONParser extends Parser {
 		"'true'", "'false'", "'null'"
 	};
 	private static final String[] _SYMBOLIC_NAMES = {
-		null, null, null, null, null, null, null, "STRING", "NUMBER", "INT", "BOOLEAN", 
+		null, null, null, null, null, null, null, "STRING", "INT", "NUMBER", "BOOLEAN", 
 		"TRUE", "FALSE", "NULL", "WS"
 	};
 	public static final Vocabulary VOCABULARY = new VocabularyImpl(_LITERAL_NAMES, _SYMBOLIC_NAMES);
@@ -142,8 +142,8 @@ public class JSONParser extends Parser {
 			case T__0:
 			case T__4:
 			case STRING:
-			case NUMBER:
 			case INT:
+			case NUMBER:
 			case BOOLEAN:
 			case NULL:
 				enterOuterAlt(_localctx, 2);
@@ -544,7 +544,7 @@ public class JSONParser extends Parser {
 		")\7\t\2\2)*\7\6\2\2*+\5\f\7\2+\t\3\2\2\2,-\7\7\2\2-\62\5\f\7\2./\7\4\2"+
 		"\2/\61\5\f\7\2\60.\3\2\2\2\61\64\3\2\2\2\62\60\3\2\2\2\62\63\3\2\2\2\63"+
 		"\65\3\2\2\2\64\62\3\2\2\2\65\66\7\b\2\2\66:\3\2\2\2\678\7\7\2\28:\7\b"+
-		"\2\29,\3\2\2\29\67\3\2\2\2:\13\3\2\2\2;C\7\t\2\2<C\7\n\2\2=C\7\13\2\2"+
+		"\2\29,\3\2\2\29\67\3\2\2\2:\13\3\2\2\2;C\7\t\2\2<C\7\13\2\2=C\7\n\2\2"+
 		">C\7\f\2\2?C\7\17\2\2@C\5\6\4\2AC\5\n\6\2B;\3\2\2\2B<\3\2\2\2B=\3\2\2"+
 		"\2B>\3\2\2\2B?\3\2\2\2B@\3\2\2\2BA\3\2\2\2C\r\3\2\2\2\t\21\25\37&\629"+
 		"B";
