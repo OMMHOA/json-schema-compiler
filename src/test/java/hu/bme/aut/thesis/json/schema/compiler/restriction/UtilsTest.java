@@ -1,8 +1,8 @@
-package hu.bme.aut.thesis.json.schema.compiler.model;
+package hu.bme.aut.thesis.json.schema.compiler.restriction;
 
 import org.junit.Test;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 public class UtilsTest {
 

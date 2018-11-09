@@ -1,7 +1,6 @@
 package hu.bme.aut.thesis.json.schema.compiler.restriction;
 
 import hu.bme.aut.thesis.json.schema.compiler.generated.JSONParser;
-import hu.bme.aut.thesis.json.schema.compiler.model.Utils;
 
 class ValueConverter {
     static Integer toInt(JSONParser.ValueContext value) {

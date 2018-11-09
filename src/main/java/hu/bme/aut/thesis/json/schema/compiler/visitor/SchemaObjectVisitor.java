@@ -30,13 +30,13 @@ public class SchemaObjectVisitor extends JSONBaseVisitor<SchemaNode> {
         restrictionMap.put(MAXIMUM, MaximumRestriction::new);
         restrictionMap.put(MIN_LENGTH, MinLengthRestriction::new);
         restrictionMap.put(MAX_LENGTH, MaxLengthRestriction::new);
+        restrictionMap.put(PATTERN, PatternRestriction::new);
+        restrictionMap.put(PROPERTIES, PropertiesRestriction::new);
     }
 
     @Override
     public SchemaNode visitObj(JSONParser.ObjContext obj) {
         obj.pair().forEach(this::processPairs);
-        addChildren(childObjects, schemaNode::addChild);
-        addChildren(patternChildObjects, schemaNode::addPatternChild);
         return schemaNode;
     }
 
@@ -44,39 +44,9 @@ public class SchemaObjectVisitor extends JSONBaseVisitor<SchemaNode> {
         String pairKey = pair.STRING().getText();
         if (restrictionMap.containsKey(pairKey)) {
             schemaNode.addRestriction(restrictionMap.get(pairKey).initiate(pair.value()));
-        } else if (PROPERTIES.equals(pairKey)) {
-            addChildObject(pair.value().obj());
-        } else if (PATTERN_PROPERTIES.equals(pairKey)) {
-            addPatternChildObject(pair.value().obj());
+            LOGGER.debug("Adding restriction for " + pairKey);
         } else {
             LOGGER.warn("Key {} not recognized!", pairKey);
-        }
-    }
-
-    private void addChildObject(JSONParser.ObjContext childObj) {
-        if (childObjects == null)
-            childObjects = new ArrayList<>();
-        childObjects.add(childObj);
-    }
-
-    private void addPatternChildObject(JSONParser.ObjContext childObj) {
-        if (patternChildObjects == null)
-            patternChildObjects = new ArrayList<>();
-        patternChildObjects.add(childObj);
-    }
-
-    @FunctionalInterface
-    private interface ObjectWithAddChild {
-        void addChild(String name, SchemaNode child);
-    }
-
-    private void addChildren(List<JSONParser.ObjContext> childObjects, ObjectWithAddChild schemaNode) {
-        if (childObjects != null) {
-            for (JSONParser.ObjContext childObj : childObjects) {
-                for (JSONParser.PairContext pair : childObj.pair()) {
-                    schemaNode.addChild(pair.STRING().getText(), pair.value().obj().accept(new SchemaObjectVisitor()));
-                }
-            }
         }
     }
 }

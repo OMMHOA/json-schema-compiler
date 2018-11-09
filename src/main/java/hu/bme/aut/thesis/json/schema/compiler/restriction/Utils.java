@@ -1,4 +1,4 @@
-package hu.bme.aut.thesis.json.schema.compiler.model;
+package hu.bme.aut.thesis.json.schema.compiler.restriction;
 
 public class Utils {
     public static String unquote(String text) {

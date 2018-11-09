@@ -8,11 +8,11 @@ public class Constants {
     public static final String EXCLUSIVE_MINIMUM = "\"exclusiveMinimum\"";
     public static final String ITEMS = "\"items\"";
     public static final String MAXIMUM = "\"maximum\"";
-    public static final String MAXPROPERTIES = "\"maxProperties\"";
+    public static final String MAX_PROPERTIES = "\"maxProperties\"";
     public static final String MAX_ITEMS = "\"maxItems\"";
     public static final String MAX_LENGTH = "\"maxLength\"";
     public static final String MINIMUM = "\"minimum\"";
-    public static final String MINPROPERTIES = "\"minProperties\"";
+    public static final String MIN_PROPERTIES = "\"minProperties\"";
     public static final String MIN_ITEMS = "\"minItems\"";
     public static final String MIN_LENGTH = "\"minLength\"";
     public static final String MULTIPLE_OF = "\"multipleOf\"";
