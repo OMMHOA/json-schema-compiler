@@ -1,7 +1,6 @@
 package hu.bme.aut.thesis.json.schema.compiler.restriction;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.JsonNode;
 import hu.bme.aut.thesis.json.schema.compiler.Parser;
 import hu.bme.aut.thesis.json.schema.compiler.model.SchemaNode;
 import org.junit.Before;
