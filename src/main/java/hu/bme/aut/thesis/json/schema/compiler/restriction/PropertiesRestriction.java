@@ -11,7 +11,7 @@ import java.util.stream.Collectors;
 
 import static hu.bme.aut.thesis.json.schema.compiler.restriction.Utils.unquote;
 
-public class PropertiesRestriction extends AbstractRestriction<Map<String, SchemaNode>> {
+public class PropertiesRestriction extends ARestriction<Map<String, SchemaNode>> {
     @Override
     protected Map<String, SchemaNode> convertValue(JSONParser.ValueContext value) {
         return value.obj().pair().stream()

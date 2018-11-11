@@ -3,7 +3,7 @@ package hu.bme.aut.thesis.json.schema.compiler.restriction;
 import com.fasterxml.jackson.databind.JsonNode;
 import hu.bme.aut.thesis.json.schema.compiler.generated.JSONParser;
 
-public class MaxLengthRestriction extends AbstractRestriction<Integer> {
+public class MaxLengthRestriction extends ARestriction<Integer> {
     public MaxLengthRestriction(JSONParser.ValueContext value) {
         super(value);
     }

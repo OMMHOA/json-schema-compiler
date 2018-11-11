@@ -23,5 +23,7 @@ public class MaximumRestrictionTest extends RestrictionTestFixture {
         assertTrue(restriction.validate(node));
         restriction.setValue(26d);
         assertFalse(restriction.validate(node));
+        restriction.setExclusive(true);
+        assertFalse(restriction.validate(node));
     }
 }

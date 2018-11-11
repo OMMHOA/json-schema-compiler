@@ -8,7 +8,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Function;
 
-public class TypeRestriction extends AbstractRestriction<String> {
+public class TypeRestriction extends ARestriction<String> {
     private static final Map<String, Function<JsonNode, Boolean>> SUPPORTED_TYPES = new HashMap<>(7);
 
     static {

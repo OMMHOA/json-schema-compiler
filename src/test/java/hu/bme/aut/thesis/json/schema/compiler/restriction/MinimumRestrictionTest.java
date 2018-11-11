@@ -23,5 +23,7 @@ public class MinimumRestrictionTest extends RestrictionTestFixture {
         assertTrue(restriction.validate(node));
         restriction.setValue(28d);
         assertFalse(restriction.validate(node));
+        restriction.setExclusive(true);
+        assertFalse(restriction.validate(node));
     }
 }
