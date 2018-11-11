@@ -1,4 +1,4 @@
-package hu.bme.aut.thesis.json.schema.compiler.model;
+package hu.bme.aut.thesis.json.schema.compiler.restriction;
 
 public class Constants {
     public static final String ADDITIONAL_ITEMS = "additionalItems";

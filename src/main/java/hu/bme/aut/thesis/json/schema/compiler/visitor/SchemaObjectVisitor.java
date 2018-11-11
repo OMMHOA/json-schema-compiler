@@ -10,7 +10,7 @@ import org.slf4j.LoggerFactory;
 
 import java.util.*;
 
-import static hu.bme.aut.thesis.json.schema.compiler.model.Constants.*;
+import static hu.bme.aut.thesis.json.schema.compiler.restriction.Constants.*;
 import static hu.bme.aut.thesis.json.schema.compiler.restriction.Utils.unquote;
 
 public class SchemaObjectVisitor extends JSONBaseVisitor<SchemaNode> {

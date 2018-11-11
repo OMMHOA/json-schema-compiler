@@ -1,6 +1,7 @@
 package hu.bme.aut.thesis.json.schema.compiler.restriction;
 
 import com.fasterxml.jackson.databind.JsonNode;
+import hu.bme.aut.thesis.json.schema.compiler.model.Type;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
@@ -18,7 +19,7 @@ public class TypeRestrictionTest extends RestrictionTestFixture {
         JsonNode anObject = schema1Node.get("properties");
         JsonNode aString = input1Node.get("first_name");
 
-        restriction.setValue("array");
+        restriction.setValue(Type.ARRAY_TYPE);
         assertTrue(restriction.validate(anArray));
         assertFalse(restriction.validate(aBoolean));
         assertFalse(restriction.validate(anInteger));
@@ -27,7 +28,7 @@ public class TypeRestrictionTest extends RestrictionTestFixture {
         assertFalse(restriction.validate(anObject));
         assertFalse(restriction.validate(aString));
 
-        restriction.setValue("boolean");
+        restriction.setValue(Type.BOOLEAN_TYPE);
         assertTrue(restriction.validate(aBoolean));
         assertFalse(restriction.validate(anArray));
         assertFalse(restriction.validate(anInteger));
@@ -36,7 +37,7 @@ public class TypeRestrictionTest extends RestrictionTestFixture {
         assertFalse(restriction.validate(anObject));
         assertFalse(restriction.validate(aString));
 
-        restriction.setValue("integer");
+        restriction.setValue(Type.INTEGER_TYPE);
         assertTrue(restriction.validate(anInteger));
         assertFalse(restriction.validate(anArray));
         assertFalse(restriction.validate(aBoolean));
@@ -45,7 +46,7 @@ public class TypeRestrictionTest extends RestrictionTestFixture {
         assertFalse(restriction.validate(anObject));
         assertFalse(restriction.validate(aString));
 
-        restriction.setValue("null");
+        restriction.setValue(Type.NULL_TYPE);
         assertTrue(restriction.validate(aNull));
         assertFalse(restriction.validate(anArray));
         assertFalse(restriction.validate(aBoolean));
@@ -54,7 +55,7 @@ public class TypeRestrictionTest extends RestrictionTestFixture {
         assertFalse(restriction.validate(anObject));
         assertFalse(restriction.validate(aString));
 
-        restriction.setValue("number");
+        restriction.setValue(Type.NUMBER_TYPE);
         assertTrue(restriction.validate(aNumber));
         assertTrue(restriction.validate(anInteger));
         assertFalse(restriction.validate(anArray));
@@ -63,7 +64,7 @@ public class TypeRestrictionTest extends RestrictionTestFixture {
         assertFalse(restriction.validate(anObject));
         assertFalse(restriction.validate(aString));
 
-        restriction.setValue("object");
+        restriction.setValue(Type.OBJECT_TYPE);
         assertTrue(restriction.validate(anObject));
         assertFalse(restriction.validate(anArray));
         assertFalse(restriction.validate(aBoolean));
@@ -72,7 +73,7 @@ public class TypeRestrictionTest extends RestrictionTestFixture {
         assertFalse(restriction.validate(aNumber));
         assertFalse(restriction.validate(aString));
 
-        restriction.setValue("string");
+        restriction.setValue(Type.STRING_TYPE);
         assertTrue(restriction.validate(aString));
         assertFalse(restriction.validate(anArray));
         assertFalse(restriction.validate(aBoolean));
