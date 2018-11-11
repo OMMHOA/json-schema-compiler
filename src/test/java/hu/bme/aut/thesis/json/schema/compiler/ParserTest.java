@@ -14,11 +14,23 @@ import static org.junit.Assert.*;
 public class ParserTest extends RestrictionTestFixture {
 
     @Test
-    public void schema1() throws IOException {
-        SchemaNode schemaNode = Parser.parse(getResource("schema1.json"));
+    public void schema1() {
+        SchemaNode schemaNode = Parser.parse(schema1);
         assertTrue(schemaNode.validate(input1Node));
         assertFalse(schemaNode.validate(wrongInput11Node));
         assertFalse(schemaNode.validate(wrongInput12Node));
+    }
+
+    @Test
+    public void schema2() {
+        SchemaNode schemaNode = Parser.parse(schema2);
+        assertTrue(schemaNode.validate(input2Node));
+    }
+
+    @Test
+    public void schema3() {
+        SchemaNode schemaNode = Parser.parse(schema3);
+        assertTrue(schemaNode.validate(input3Node));
     }
 
     @Test(expected = SchemaException.class)
