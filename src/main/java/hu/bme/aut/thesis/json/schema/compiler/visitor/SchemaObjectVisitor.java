@@ -23,8 +23,12 @@ public class SchemaObjectVisitor extends JSONBaseVisitor<SchemaNode> {
     }
 
     private static Map<String, RestrictionInitiator> restrictionMap = new HashMap<>();
+    private static Set<String> metaKeywords = new HashSet<>(2);
 
     static {
+        metaKeywords.add(TITLE);
+        metaKeywords.add(DESCRIPTION);
+
         restrictionMap.put(TYPE, TypeRestriction::new);
         restrictionMap.put(MINIMUM, MinimumRestriction::new);
         restrictionMap.put(MAXIMUM, MaximumRestriction::new);
@@ -45,6 +49,7 @@ public class SchemaObjectVisitor extends JSONBaseVisitor<SchemaNode> {
         String pairKey = unquote(pair.STRING().getText());
         RestrictionInitiator restrictionInitiator;
         ExtraRestriction extraRestriction;
+        if (metaKeywords.contains(pairKey)) return;
         if ((restrictionInitiator = restrictionMap.get(pairKey)) != null) {
             schemaNode.addRestriction(restrictionInitiator.initiate(pair.value()));
             LOGGER.debug("Adding restriction: " + pairKey);
@@ -52,7 +57,7 @@ public class SchemaObjectVisitor extends JSONBaseVisitor<SchemaNode> {
             schemaNode.addExtraRestriction(extraRestriction);
             LOGGER.debug("Adding extra restriction: " + pairKey);
         } else {
-            LOGGER.warn("Key {} not recognized!", pairKey);
+            LOGGER.warn("Key '{}' not recognized!", pairKey);
         }
     }
 
