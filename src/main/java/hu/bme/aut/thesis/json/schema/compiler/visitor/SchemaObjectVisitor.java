@@ -13,8 +13,6 @@ import static hu.bme.aut.thesis.json.schema.compiler.model.Constants.*;
 
 public class SchemaObjectVisitor extends JSONBaseVisitor<SchemaNode> {
     private static Logger LOGGER = LoggerFactory.getLogger(SchemaObjectVisitor.class);
-    private List<JSONParser.ObjContext> childObjects = new ArrayList<>();
-    private List<JSONParser.ObjContext> patternChildObjects = new ArrayList<>();
     private SchemaNode schemaNode = new SchemaNode();
 
     @FunctionalInterface
