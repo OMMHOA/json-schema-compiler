@@ -15,7 +15,8 @@
     "age": {
       "type": "integer",
       "minimum": 18,
-      "maximum": 65
+      "maximum": 65,
+      "exclusiveMaximum": true
     },
     "nickname": {
       "type": "string",

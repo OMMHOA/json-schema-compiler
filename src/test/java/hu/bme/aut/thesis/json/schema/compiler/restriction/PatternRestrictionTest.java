@@ -13,6 +13,6 @@ public class PatternRestrictionTest extends RestrictionTestFixture {
         assertTrue(restriction.validate(input1Node.get("first_name")));
         assertTrue(restriction.validate(input1Node.get("age")));
         assertFalse(restriction.validate(input2Node.get("email")));
-        assertFalse(restriction.validate(wrongInput1Node.get("first_name")));
+        assertFalse(restriction.validate(wrongInput11Node.get("first_name")));
     }
 }

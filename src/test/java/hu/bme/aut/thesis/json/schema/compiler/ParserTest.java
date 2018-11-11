@@ -17,7 +17,8 @@ public class ParserTest extends RestrictionTestFixture {
     public void schema1() throws IOException {
         SchemaNode schemaNode = Parser.parse(getResource("schema1.json"));
         assertTrue(schemaNode.validate(input1Node));
-        assertFalse(schemaNode.validate(wrongInput1Node));
+        assertFalse(schemaNode.validate(wrongInput11Node));
+        assertFalse(schemaNode.validate(wrongInput12Node));
     }
 
     @Test(expected = SchemaException.class)
