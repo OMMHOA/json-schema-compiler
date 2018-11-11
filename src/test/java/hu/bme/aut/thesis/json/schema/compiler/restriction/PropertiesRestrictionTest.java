@@ -32,7 +32,7 @@ public class PropertiesRestrictionTest extends RestrictionTestFixture {
     }
 
     private void putPropertySchema(String propertyKey) throws JsonProcessingException {
-        String firstName = OBJECT_MAPPER.writeValueAsString(schema1Node.get("properties").get(propertyKey));
-        schemasMock.put(propertyKey, Parser.parse(firstName));
+        SchemaNode firstName = getSchemaNode(schema1Node.get("properties").get(propertyKey));
+        schemasMock.put(propertyKey, firstName);
     }
 }

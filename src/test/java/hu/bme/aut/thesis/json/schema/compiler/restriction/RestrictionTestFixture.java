@@ -1,8 +1,11 @@
 package hu.bme.aut.thesis.json.schema.compiler.restriction;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import hu.bme.aut.thesis.json.schema.compiler.Parser;
 import hu.bme.aut.thesis.json.schema.compiler.TestFixture;
+import hu.bme.aut.thesis.json.schema.compiler.model.SchemaNode;
 import org.junit.Before;
 
 public class RestrictionTestFixture extends TestFixture {
@@ -21,9 +24,12 @@ public class RestrictionTestFixture extends TestFixture {
     protected static JsonNode wrongInput12Node;
 
     protected static String schema1;
-    protected static String schema2;
-    protected static String schema3;
     protected static JsonNode schema1Node;
+    protected static String schema2;
+    protected static JsonNode schema2Node;
+    protected static String schema3;
+    protected static JsonNode schema3Node;
+
 
     @Before
     public void setUp() throws Exception {
@@ -42,5 +48,11 @@ public class RestrictionTestFixture extends TestFixture {
         wrongInput11Node = OBJECT_MAPPER.readTree(wrongInput11);
         wrongInput12Node = OBJECT_MAPPER.readTree(wrongInput12);
         schema1Node = OBJECT_MAPPER.readTree(schema1);
+        schema2Node = OBJECT_MAPPER.readTree(schema2);
+        schema3Node = OBJECT_MAPPER.readTree(schema2);
+    }
+
+    SchemaNode getSchemaNode(JsonNode jsonNode) throws JsonProcessingException {
+        return Parser.parse(OBJECT_MAPPER.writeValueAsString(jsonNode));
     }
 }
