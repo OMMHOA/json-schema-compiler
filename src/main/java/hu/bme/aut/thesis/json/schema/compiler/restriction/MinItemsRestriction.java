@@ -18,6 +18,10 @@ public class MinItemsRestriction extends ARestriction<Integer> {
         super(value);
     }
 
-    public MinItemsRestriction() {
+    public MinItemsRestriction(int value) {
+        this.value = value;
+    }
+
+    MinItemsRestriction() {
     }
 }

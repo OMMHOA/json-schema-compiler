@@ -26,12 +26,24 @@ public class SchemaObjectVisitor extends JSONBaseVisitor<SchemaNode> {
 
     private static Map<String, RestrictionInitiator> restrictionMap = new HashMap<>();
     private static Set<String> metaKeywords = new HashSet<>(2);
+
     private static PropertiesInitiator propertiesInitiator = new PropertiesInitiator();
+    private static RestrictionInitiator exactItemsInitiator = value ->
+    {
+        int size = value.obj() == null ? value.array().value().size() : 1;
+        return new CompositeRestriction(
+                new ItemsRestriction(value),
+                new MinItemsRestriction(size),
+                new MaxItemsRestriction(size)
+        );
+    };
+
 
     static {
         metaKeywords.add(TITLE);
         metaKeywords.add(DESCRIPTION);
 
+        restrictionMap.put(EXACT_ITEMS, exactItemsInitiator);
         restrictionMap.put(ITEMS, ItemsRestriction::new);
         restrictionMap.put(MAX_PROPERTIES, MaxItemsRestriction::new);
         restrictionMap.put(MAX_ITEMS, MaxItemsRestriction::new);

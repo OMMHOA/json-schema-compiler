@@ -18,6 +18,10 @@ public class MaxItemsRestriction extends ARestriction<Integer> {
         super(value);
     }
 
+    public MaxItemsRestriction(int value) {
+        this.value = value;
+    }
+
     public MaxItemsRestriction() {
     }
 }

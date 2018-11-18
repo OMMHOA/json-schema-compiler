@@ -18,6 +18,8 @@ public class TestFixture {
     protected static JsonNode input2Node;
     protected static String input3;
     protected static JsonNode input3Node;
+    protected static String input4;
+    protected static JsonNode input4Node;
     protected static String input5;
     protected static JsonNode input5Node;
 
@@ -29,6 +31,10 @@ public class TestFixture {
     protected static JsonNode wrongInput31Node;
     protected static String wrongInput32;
     protected static JsonNode wrongInput32Node;
+    protected static String wrongInput41;
+    protected static JsonNode wrongInput41Node;
+    protected static String wrongInput42;
+    protected static JsonNode wrongInput42Node;
     protected static String wrongInput51;
     protected static JsonNode wrongInput51Node;
 
@@ -52,11 +58,14 @@ public class TestFixture {
         input1 = getResource("input1.json");
         input2 = getResource("input2.json");
         input3 = getResource("input3.json");
+        input4 = getResource("input4.json");
         input5 = getResource("input5.json");
         wrongInput11 = getResource("wrongInput11.json");
         wrongInput12 = getResource("wrongInput12.json");
         wrongInput31 = getResource("wrongInput31.json");
         wrongInput32 = getResource("wrongInput32.json");
+        wrongInput41 = getResource("wrongInput41.json");
+        wrongInput42 = getResource("wrongInput42.json");
         wrongInput51 = getResource("wrongInput51.json");
         schema1 = getResource("schema1.json");
         schema2 = getResource("schema2.json");
@@ -68,11 +77,14 @@ public class TestFixture {
         input1Node = OBJECT_MAPPER.readTree(input1);
         input2Node = OBJECT_MAPPER.readTree(input2);
         input3Node = OBJECT_MAPPER.readTree(input3);
+        input4Node = OBJECT_MAPPER.readTree(input4);
         input5Node = OBJECT_MAPPER.readTree(input5);
         wrongInput11Node = OBJECT_MAPPER.readTree(wrongInput11);
         wrongInput12Node = OBJECT_MAPPER.readTree(wrongInput12);
         wrongInput31Node = OBJECT_MAPPER.readTree(wrongInput31);
         wrongInput32Node = OBJECT_MAPPER.readTree(wrongInput32);
+        wrongInput41Node = OBJECT_MAPPER.readTree(wrongInput41);
+        wrongInput42Node = OBJECT_MAPPER.readTree(wrongInput42);
         wrongInput51Node = OBJECT_MAPPER.readTree(wrongInput51);
         schema1Node = OBJECT_MAPPER.readTree(schema1);
         schema2Node = OBJECT_MAPPER.readTree(schema2);
