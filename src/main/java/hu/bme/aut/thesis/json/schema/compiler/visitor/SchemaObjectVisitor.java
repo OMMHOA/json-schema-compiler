@@ -33,12 +33,14 @@ public class SchemaObjectVisitor extends JSONBaseVisitor<SchemaNode> {
         metaKeywords.add(DESCRIPTION);
 
         restrictionMap.put(ITEMS, ItemsRestriction::new);
+        restrictionMap.put(MAX_ITEMS, MaxItemsRestriction::new);
         restrictionMap.put(MAX_LENGTH, MaxLengthRestriction::new);
         restrictionMap.put(MAXIMUM, MaximumRestriction::new);
+        restrictionMap.put(MIN_ITEMS, MinItemsRestriction::new);
         restrictionMap.put(MIN_LENGTH, MinLengthRestriction::new);
         restrictionMap.put(MINIMUM, MinimumRestriction::new);
-        restrictionMap.put(PATTERN_PROPERTIES, propertiesInitiator::addPatternProperties);
         restrictionMap.put(PATTERN, PatternRestriction::new);
+        restrictionMap.put(PATTERN_PROPERTIES, propertiesInitiator::addPatternProperties);
         restrictionMap.put(PROPERTIES, propertiesInitiator::addProperties);
         restrictionMap.put(REQUIRED, RequiredRestriction::new);
         restrictionMap.put(TYPE, TypeRestriction::new);

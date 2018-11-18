@@ -11,6 +11,13 @@ public class MaxItemsRestriction extends ARestriction<Integer> {
 
     @Override
     public boolean validate(JsonNode jsonNode) {
-        return false;
+        return jsonNode.size() <= value;
+    }
+
+    public MaxItemsRestriction(JSONParser.ValueContext value) {
+        super(value);
+    }
+
+    public MaxItemsRestriction() {
     }
 }

@@ -11,6 +11,13 @@ public class MinItemsRestriction extends ARestriction<Integer> {
 
     @Override
     public boolean validate(JsonNode jsonNode) {
-        return false;
+        return jsonNode.size() >= value;
+    }
+
+    public MinItemsRestriction(JSONParser.ValueContext value) {
+        super(value);
+    }
+
+    public MinItemsRestriction() {
     }
 }
