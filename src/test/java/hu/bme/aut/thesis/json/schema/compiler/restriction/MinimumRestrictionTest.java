@@ -1,12 +1,13 @@
 package hu.bme.aut.thesis.json.schema.compiler.restriction;
 
 import com.fasterxml.jackson.databind.JsonNode;
+import hu.bme.aut.thesis.json.schema.compiler.TestFixture;
 import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
 
-public class MinimumRestrictionTest extends RestrictionTestFixture {
+public class MinimumRestrictionTest extends TestFixture {
     private static JsonNode node;
     private static final MinimumRestriction restriction = new MinimumRestriction();
 

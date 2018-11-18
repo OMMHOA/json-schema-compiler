@@ -3,7 +3,9 @@ package hu.bme.aut.thesis.json.schema.compiler.restriction;
 import com.fasterxml.jackson.databind.JsonNode;
 import hu.bme.aut.thesis.json.schema.compiler.generated.JSONParser;
 
-import java.util.Set;
+import java.util.Map;
+
+import static hu.bme.aut.thesis.json.schema.compiler.restriction.Utils.getBool;
 
 public class MinimumRestriction extends ARestriction<Double> {
     private boolean isExclusive = false;
@@ -23,8 +25,11 @@ public class MinimumRestriction extends ARestriction<Double> {
     }
 
     @Override
-    public void apply(Set<ExtraRestriction> extraRestrictions) {
-        isExclusive = extraRestrictions.contains(ExtraRestriction.exclusiveMinimum);
+    public void apply(Map<ExtraRestriction, JSONParser.ValueContext> extraRestrictions) {
+        Boolean val;
+        if ((val = getBool(extraRestrictions.get(ExtraRestriction.exclusiveMinimum))) != null) {
+            isExclusive = val;
+        }
     }
 
     MinimumRestriction() {

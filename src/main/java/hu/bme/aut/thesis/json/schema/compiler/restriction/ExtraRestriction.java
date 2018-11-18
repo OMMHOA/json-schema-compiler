@@ -1,6 +1,8 @@
 package hu.bme.aut.thesis.json.schema.compiler.restriction;
 
 public enum ExtraRestriction {
+    additionalItems,
+    additionalProperties,
     exclusiveMinimum,
     exclusiveMaximum;
 

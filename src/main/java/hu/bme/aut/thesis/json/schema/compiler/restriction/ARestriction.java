@@ -3,7 +3,7 @@ package hu.bme.aut.thesis.json.schema.compiler.restriction;
 import com.fasterxml.jackson.databind.JsonNode;
 import hu.bme.aut.thesis.json.schema.compiler.generated.JSONParser;
 
-import java.util.Set;
+import java.util.Map;
 
 public abstract class ARestriction<T> implements Restriction {
     protected T value;
@@ -25,5 +25,5 @@ public abstract class ARestriction<T> implements Restriction {
     }
 
     @Override
-    public void apply(Set<ExtraRestriction> extraRestrictions) { }
+    public void apply(Map<ExtraRestriction, JSONParser.ValueContext> extraRestrictions) { }
 }

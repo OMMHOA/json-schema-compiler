@@ -1,10 +1,11 @@
 package hu.bme.aut.thesis.json.schema.compiler.restriction;
 
+import hu.bme.aut.thesis.json.schema.compiler.TestFixture;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
 
-public class PatternRestrictionTest extends RestrictionTestFixture {
+public class PatternRestrictionTest extends TestFixture {
     private PatternRestriction restriction = new PatternRestriction();
 
     @Test

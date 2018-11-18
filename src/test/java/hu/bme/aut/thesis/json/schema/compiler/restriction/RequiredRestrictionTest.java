@@ -1,12 +1,13 @@
 package hu.bme.aut.thesis.json.schema.compiler.restriction;
 
 import com.google.common.collect.Sets;
+import hu.bme.aut.thesis.json.schema.compiler.TestFixture;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
 
 
-public class RequiredRestrictionTest extends RestrictionTestFixture {
+public class RequiredRestrictionTest extends TestFixture {
     RequiredRestriction restriction = new RequiredRestriction();
 
     @Test

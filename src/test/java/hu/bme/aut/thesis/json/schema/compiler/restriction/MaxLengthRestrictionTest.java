@@ -1,12 +1,13 @@
 package hu.bme.aut.thesis.json.schema.compiler.restriction;
 
 import com.fasterxml.jackson.databind.JsonNode;
+import hu.bme.aut.thesis.json.schema.compiler.TestFixture;
 import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
 
-public class MaxLengthRestrictionTest extends RestrictionTestFixture {
+public class MaxLengthRestrictionTest extends TestFixture {
     private static JsonNode node;
     private static MaxLengthRestriction restriction = new MaxLengthRestriction();
 

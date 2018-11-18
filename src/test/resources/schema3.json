@@ -3,7 +3,7 @@
   "description": "Showcasing the other way of defining items and additionalItems(boolean) and some object constraints.",
   "type": "object",
   "patternProperties": {
-    "^\\d{4}_goal_king$": {
+    "^[0-9]{4}_goal_king$": {
       "type": "array",
       "minItems": 1,
       "items": [

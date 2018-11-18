@@ -4,11 +4,13 @@ import hu.bme.aut.thesis.json.schema.compiler.generated.JSONBaseVisitor;
 import hu.bme.aut.thesis.json.schema.compiler.generated.JSONParser;
 import hu.bme.aut.thesis.json.schema.compiler.model.SchemaNode;
 import hu.bme.aut.thesis.json.schema.compiler.restriction.*;
-import org.antlr.v4.runtime.tree.TerminalNode;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Set;
 
 import static hu.bme.aut.thesis.json.schema.compiler.restriction.Constants.*;
 import static hu.bme.aut.thesis.json.schema.compiler.restriction.Utils.unquote;
@@ -24,6 +26,7 @@ public class SchemaObjectVisitor extends JSONBaseVisitor<SchemaNode> {
 
     private static Map<String, RestrictionInitiator> restrictionMap = new HashMap<>();
     private static Set<String> metaKeywords = new HashSet<>(2);
+    private static PropertiesInitiator propertiesInitiator = new PropertiesInitiator();
 
     static {
         metaKeywords.add(TITLE);
@@ -34,8 +37,9 @@ public class SchemaObjectVisitor extends JSONBaseVisitor<SchemaNode> {
         restrictionMap.put(MAXIMUM, MaximumRestriction::new);
         restrictionMap.put(MIN_LENGTH, MinLengthRestriction::new);
         restrictionMap.put(MINIMUM, MinimumRestriction::new);
+        restrictionMap.put(PATTERN_PROPERTIES, propertiesInitiator::addPatternProperties);
         restrictionMap.put(PATTERN, PatternRestriction::new);
-        restrictionMap.put(PROPERTIES, PropertiesRestriction::new);
+        restrictionMap.put(PROPERTIES, propertiesInitiator::addProperties);
         restrictionMap.put(REQUIRED, RequiredRestriction::new);
         restrictionMap.put(TYPE, TypeRestriction::new);
     }
@@ -55,15 +59,33 @@ public class SchemaObjectVisitor extends JSONBaseVisitor<SchemaNode> {
         if ((restrictionInitiator = restrictionMap.get(pairKey)) != null) {
             schemaNode.addRestriction(restrictionInitiator.initiate(pair.value()));
             LOGGER.debug("Adding restriction: " + pairKey);
-        } else if ((extraRestriction = ExtraRestriction.get(pairKey)) != null && isTrue(pair.value().BOOLEAN())){
-            schemaNode.addExtraRestriction(extraRestriction);
+        } else if ((extraRestriction = ExtraRestriction.get(pairKey)) != null) {
+            schemaNode.addExtraRestriction(extraRestriction, pair.value());
             LOGGER.debug("Adding extra restriction: " + pairKey);
         } else {
             LOGGER.warn("Key '{}' not recognized!", pairKey);
         }
     }
 
-    private boolean isTrue(TerminalNode aBoolean) {
-        return aBoolean != null && Boolean.parseBoolean(aBoolean.getText());
+    private static class PropertiesInitiator {
+        PropertiesRestriction propertiesRestriction;
+
+        Restriction addProperties(JSONParser.ValueContext value) {
+            if (propertiesRestriction == null) {
+                propertiesRestriction = new PropertiesRestriction(value);
+            } else {
+                propertiesRestriction.addProperties(value);
+            }
+            return propertiesRestriction;
+        }
+
+        Restriction addPatternProperties(JSONParser.ValueContext value) {
+            if (propertiesRestriction == null) {
+                propertiesRestriction = new PropertiesRestriction(value, true);
+            } else {
+                propertiesRestriction.addPatternProperties(value);
+            }
+            return propertiesRestriction;
+        }
     }
 }

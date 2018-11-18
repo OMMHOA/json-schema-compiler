@@ -6,12 +6,16 @@ import hu.bme.aut.thesis.json.schema.compiler.model.SchemaNode;
 import hu.bme.aut.thesis.json.schema.compiler.visitor.SchemaObjectVisitor;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
+
+import static hu.bme.aut.thesis.json.schema.compiler.restriction.Utils.getBool;
 
 public class ItemsRestriction implements Restriction {
     private SchemaNode schemaForAll;
     private List<SchemaNode> schemas;
+    private boolean additionalItems = true;
 
     public ItemsRestriction(JSONParser.ValueContext value) {
         if (value.obj() != null) {
@@ -42,6 +46,7 @@ public class ItemsRestriction implements Restriction {
     }
 
     private boolean isValidWithSchemas(JsonNode jsonNode) {
+        if (!additionalItems && jsonNode.size() > schemas.size()) return false;
         for (int i = 0; i < jsonNode.size() && i < schemas.size(); i++) {
             if (!schemas.get(i).validate(jsonNode.get(i))) {
                 return false;
@@ -51,7 +56,12 @@ public class ItemsRestriction implements Restriction {
     }
 
     @Override
-    public void apply(Set<ExtraRestriction> extraRestrictions) { }
+    public void apply(Map<ExtraRestriction, JSONParser.ValueContext> extraRestrictions) {
+        Boolean val;
+        if ((val = getBool(extraRestrictions.get(ExtraRestriction.additionalItems))) != null) {
+            additionalItems = val;
+        }
+    }
 
     ItemsRestriction() { }
 

@@ -1,12 +1,13 @@
 package hu.bme.aut.thesis.json.schema.compiler.restriction;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
+import hu.bme.aut.thesis.json.schema.compiler.TestFixture;
 import hu.bme.aut.thesis.json.schema.compiler.model.SchemaNode;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
 
-public class ItemsRestrictionTest extends RestrictionTestFixture {
+public class ItemsRestrictionTest extends TestFixture {
     private ItemsRestriction restriction = new ItemsRestriction();
 
     @Test

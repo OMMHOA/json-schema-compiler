@@ -2,16 +2,11 @@ package hu.bme.aut.thesis.json.schema.compiler;
 
 import hu.bme.aut.thesis.json.schema.compiler.model.SchemaException;
 import hu.bme.aut.thesis.json.schema.compiler.model.SchemaNode;
-import hu.bme.aut.thesis.json.schema.compiler.restriction.RestrictionTestFixture;
-import hu.bme.aut.thesis.json.schema.compiler.restriction.TypeRestriction;
-import org.apache.commons.io.IOUtils;
 import org.junit.Test;
-
-import java.io.IOException;
 
 import static org.junit.Assert.*;
 
-public class ParserTest extends RestrictionTestFixture {
+public class ParserTest extends TestFixture {
 
     @Test
     public void schema1() {
@@ -31,6 +26,8 @@ public class ParserTest extends RestrictionTestFixture {
     public void schema3() {
         SchemaNode schemaNode = Parser.parse(schema3);
         assertTrue(schemaNode.validate(input3Node));
+        assertFalse(schemaNode.validate(wrongInput31Node));
+        assertFalse(schemaNode.validate(wrongInput32Node));
     }
 
     @Test(expected = SchemaException.class)

@@ -1,12 +1,13 @@
 package hu.bme.aut.thesis.json.schema.compiler.restriction;
 
 import com.fasterxml.jackson.databind.JsonNode;
+import hu.bme.aut.thesis.json.schema.compiler.TestFixture;
 import hu.bme.aut.thesis.json.schema.compiler.model.Type;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
 
-public class TypeRestrictionTest extends RestrictionTestFixture {
+public class TypeRestrictionTest extends TestFixture {
     private TypeRestriction restriction = new TypeRestriction();
 
     @Test
