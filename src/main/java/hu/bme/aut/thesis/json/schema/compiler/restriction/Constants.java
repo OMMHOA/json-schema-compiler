@@ -1,12 +1,8 @@
 package hu.bme.aut.thesis.json.schema.compiler.restriction;
 
 public class Constants {
-    public static final String ADDITIONAL_ITEMS = "additionalItems";
-    public static final String ADDITIONAL_PROPERTIES = "additionalProperties";
     public static final String DESCRIPTION = "description";
     public static final String EXACT_ITEMS = "exactItems";
-    public static final String EXCLUSIVE_MAXIMUM = "exclusiveMaximum";
-    public static final String EXCLUSIVE_MINIMUM = "exclusiveMinimum";
     public static final String ITEMS = "items";
     public static final String MAXIMUM = "maximum";
     public static final String MAX_PROPERTIES = "maxProperties";

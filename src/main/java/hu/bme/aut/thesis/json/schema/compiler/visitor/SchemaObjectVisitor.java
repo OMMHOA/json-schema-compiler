@@ -1,5 +1,6 @@
 package hu.bme.aut.thesis.json.schema.compiler.visitor;
 
+import com.sun.org.apache.xpath.internal.operations.Mult;
 import hu.bme.aut.thesis.json.schema.compiler.generated.JSONBaseVisitor;
 import hu.bme.aut.thesis.json.schema.compiler.generated.JSONParser;
 import hu.bme.aut.thesis.json.schema.compiler.model.SchemaNode;
@@ -52,6 +53,7 @@ public class SchemaObjectVisitor extends JSONBaseVisitor<SchemaNode> {
         restrictionMap.put(MIN_PROPERTIES, MinItemsRestriction::new);
         restrictionMap.put(MIN_ITEMS, MinItemsRestriction::new);
         restrictionMap.put(MIN_LENGTH, MinLengthRestriction::new);
+        restrictionMap.put(MULTIPLE_OF, MultipleOfRestriction::new);
         restrictionMap.put(MINIMUM, MinimumRestriction::new);
         restrictionMap.put(PATTERN, PatternRestriction::new);
         restrictionMap.put(PATTERN_PROPERTIES, propertiesInitiator::addPatternProperties);
