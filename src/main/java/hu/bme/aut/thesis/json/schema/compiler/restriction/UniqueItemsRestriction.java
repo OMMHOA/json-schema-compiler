@@ -6,14 +6,19 @@ import hu.bme.aut.thesis.json.schema.compiler.model.Type;
 
 import java.util.Map;
 
-public class UniqueItemsRestriction implements Restriction {
+public class UniqueItemsRestriction extends ARestriction<Boolean> {
+    @Override
+    protected Boolean convertValue(JSONParser.ValueContext value) {
+        return ValueConverter.toBoolean(value);
+    }
+
     @Override
     public boolean validate(JsonNode jsonNode) {
+        if (!value) return true;
         int size = jsonNode.size();
-        if (size < 2) return true;
         for (int i = 0; i < size - 1; i++) {
             for (int j = i + 1; j < size; j++) {
-                if (Type.match(jsonNode.get(i), jsonNode.get(j)))
+                if (Type.jsonNodesEqual(jsonNode.get(i), jsonNode.get(j)))
                     return false;
             }
         }
@@ -22,4 +27,11 @@ public class UniqueItemsRestriction implements Restriction {
 
     @Override
     public void apply(Map<ExtraRestriction, JSONParser.ValueContext> extraRestrictions) { }
+
+    public UniqueItemsRestriction(JSONParser.ValueContext value) {
+        super(value);
+    }
+
+    UniqueItemsRestriction() {
+    }
 }

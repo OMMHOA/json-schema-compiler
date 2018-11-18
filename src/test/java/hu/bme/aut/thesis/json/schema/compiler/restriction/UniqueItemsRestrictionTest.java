@@ -10,6 +10,7 @@ public class UniqueItemsRestrictionTest extends TestFixture {
 
     @Test
     public void validate() {
+        restriction.setValue(true);
         assertTrue(restriction.validate(input2Node.get("top_grades")));
         assertTrue(restriction.validate(input5Node));
         assertFalse(restriction.validate(wrongInput51Node));

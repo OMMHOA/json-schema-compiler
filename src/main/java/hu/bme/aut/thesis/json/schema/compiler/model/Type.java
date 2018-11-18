@@ -28,7 +28,7 @@ public enum Type {
             if (first == null && second == null) return true;
             if (first == null || second == null || first.size() != second.size()) return false;
             for (int i = 0; i < first.size(); i++) {
-                if (!match(first.get(i), second.get(i))) {
+                if (!jsonNodesEqual(first.get(i), second.get(i))) {
                     return false;
                 }
             }
@@ -42,7 +42,7 @@ public enum Type {
             Set<String> secondFieldNames = Sets.newHashSet(second.fieldNames());
             if (!firstFieldNames.equals(secondFieldNames)) return false;
             for (String fieldName : firstFieldNames) {
-                if (!match(first.get(fieldName), second.get(fieldName))) {
+                if (!jsonNodesEqual(first.get(fieldName), second.get(fieldName))) {
                     return false;
                 }
             }
@@ -72,7 +72,7 @@ public enum Type {
         return null;
     }
 
-    public static Boolean match(JsonNode first, JsonNode second) {
+    public static Boolean jsonNodesEqual(JsonNode first, JsonNode second) {
         for (Type t : Type.values()) {
             if (t.checker.apply(first)) {
                 if (t.checker.apply(second)) {

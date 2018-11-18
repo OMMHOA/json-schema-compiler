@@ -60,6 +60,7 @@ public class SchemaObjectVisitor extends JSONBaseVisitor<SchemaNode> {
         restrictionMap.put(PROPERTIES, propertiesInitiator::addProperties);
         restrictionMap.put(REQUIRED, RequiredRestriction::new);
         restrictionMap.put(TYPE, TypeRestriction::new);
+        restrictionMap.put(UNIQUE_ITEMS, UniqueItemsRestriction::new);
     }
 
     @Override
