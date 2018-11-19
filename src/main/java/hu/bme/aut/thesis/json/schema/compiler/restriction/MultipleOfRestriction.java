@@ -11,12 +11,7 @@ public class MultipleOfRestriction extends ARestriction<Double> {
 
     @Override
     public boolean validate(JsonNode jsonNode) {
-        for (int i = 0; i < jsonNode.size(); i++) {
-            if (jsonNode.get(i).asDouble() % value != 0) {
-                return false;
-            }
-        }
-        return true;
+        return jsonNode.asDouble() % value == 0;
     }
 
     public MultipleOfRestriction(JSONParser.ValueContext value) {

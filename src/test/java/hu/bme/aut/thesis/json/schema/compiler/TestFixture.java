@@ -37,6 +37,8 @@ public class TestFixture {
     protected static JsonNode wrongInput42Node;
     protected static String wrongInput51;
     protected static JsonNode wrongInput51Node;
+    protected static String wrongInput52;
+    protected static JsonNode wrongInput52Node;
 
     protected static String schema1;
     protected static JsonNode schema1Node;
@@ -67,6 +69,7 @@ public class TestFixture {
         wrongInput41 = getResource("wrongInput41.json");
         wrongInput42 = getResource("wrongInput42.json");
         wrongInput51 = getResource("wrongInput51.json");
+        wrongInput52 = getResource("wrongInput52.json");
         schema1 = getResource("schema1.json");
         schema2 = getResource("schema2.json");
         schema3 = getResource("schema3.json");
@@ -86,6 +89,7 @@ public class TestFixture {
         wrongInput41Node = OBJECT_MAPPER.readTree(wrongInput41);
         wrongInput42Node = OBJECT_MAPPER.readTree(wrongInput42);
         wrongInput51Node = OBJECT_MAPPER.readTree(wrongInput51);
+        wrongInput52Node = OBJECT_MAPPER.readTree(wrongInput52);
         schema1Node = OBJECT_MAPPER.readTree(schema1);
         schema2Node = OBJECT_MAPPER.readTree(schema2);
         schema3Node = OBJECT_MAPPER.readTree(schema3);

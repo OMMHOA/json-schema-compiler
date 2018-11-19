@@ -11,8 +11,12 @@ public class MultipleOfRestrictionTest extends TestFixture {
     @Test
     public void validate() {
         restriction.setValue(3d);
-        assertTrue(restriction.validate(input5Node));
+        for (int i = 0; i < input5Node.size(); i++) {
+            assertTrue(restriction.validate(input5Node.get(i)));
+        }
         restriction.setValue(4d);
-        assertFalse(restriction.validate(input5Node));
+        for (int i = 0; i < input5Node.size(); i++) {
+            assertFalse(restriction.validate(input5Node.get(i)));
+        }
     }
 }
