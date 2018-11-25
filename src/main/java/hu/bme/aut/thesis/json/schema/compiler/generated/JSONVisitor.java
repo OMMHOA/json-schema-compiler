@@ -46,4 +46,64 @@ public interface JSONVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitValue(JSONParser.ValueContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link JSONParser#equation}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitEquation(JSONParser.EquationContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link JSONParser#expression}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitExpression(JSONParser.ExpressionContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link JSONParser#multiplyingExpression}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitMultiplyingExpression(JSONParser.MultiplyingExpressionContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link JSONParser#powExpression}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitPowExpression(JSONParser.PowExpressionContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link JSONParser#signedAtom}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitSignedAtom(JSONParser.SignedAtomContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link JSONParser#atom}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitAtom(JSONParser.AtomContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link JSONParser#variable}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitVariable(JSONParser.VariableContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link JSONParser#func}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitFunc(JSONParser.FuncContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link JSONParser#funcname}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitFuncname(JSONParser.FuncnameContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link JSONParser#relop}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitRelop(JSONParser.RelopContext ctx);
 }

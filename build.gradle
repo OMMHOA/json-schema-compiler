@@ -1,6 +1,5 @@
 plugins {
     id 'antlr'
-    id 'idea'
 }
 
 group 'thesis'
@@ -36,12 +35,6 @@ compileJava.dependsOn generateGrammarSource
 
 clean{
     delete generatedDir
-}
-
-idea {
-    module {
-        sourceDirs += file("generated-src/antlr/main")
-    }
 }
 
 task regenerate {
