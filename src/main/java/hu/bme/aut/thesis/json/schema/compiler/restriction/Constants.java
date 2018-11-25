@@ -20,4 +20,5 @@ public class Constants {
     public static final String TITLE = "title";
     public static final String TYPE = "type";
     public static final String UNIQUE_ITEMS = "uniqueItems";
+    public static final String VALUE = "value";
 }

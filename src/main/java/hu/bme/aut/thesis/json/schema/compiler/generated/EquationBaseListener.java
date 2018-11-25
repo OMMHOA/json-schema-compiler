@@ -1,4 +1,4 @@
-// Generated from expression.g4 by ANTLR 4.7.1
+// Generated from Equation.g4 by ANTLR 4.7.1
 package hu.bme.aut.thesis.json.schema.compiler.generated;
 
 import org.antlr.v4.runtime.ParserRuleContext;
@@ -6,131 +6,131 @@ import org.antlr.v4.runtime.tree.ErrorNode;
 import org.antlr.v4.runtime.tree.TerminalNode;
 
 /**
- * This class provides an empty implementation of {@link expressionListener},
+ * This class provides an empty implementation of {@link EquationListener},
  * which can be extended to create a listener which only needs to handle a subset
  * of the available methods.
  */
-public class expressionBaseListener implements expressionListener {
+public class EquationBaseListener implements EquationListener {
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterEquation(expressionParser.EquationContext ctx) { }
+	@Override public void enterEquation(EquationParser.EquationContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitEquation(expressionParser.EquationContext ctx) { }
+	@Override public void exitEquation(EquationParser.EquationContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterExpression(expressionParser.ExpressionContext ctx) { }
+	@Override public void enterExpression(EquationParser.ExpressionContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitExpression(expressionParser.ExpressionContext ctx) { }
+	@Override public void exitExpression(EquationParser.ExpressionContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterMultiplyingExpression(expressionParser.MultiplyingExpressionContext ctx) { }
+	@Override public void enterMultiplyingExpression(EquationParser.MultiplyingExpressionContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitMultiplyingExpression(expressionParser.MultiplyingExpressionContext ctx) { }
+	@Override public void exitMultiplyingExpression(EquationParser.MultiplyingExpressionContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterPowExpression(expressionParser.PowExpressionContext ctx) { }
+	@Override public void enterPowExpression(EquationParser.PowExpressionContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitPowExpression(expressionParser.PowExpressionContext ctx) { }
+	@Override public void exitPowExpression(EquationParser.PowExpressionContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterSignedAtom(expressionParser.SignedAtomContext ctx) { }
+	@Override public void enterSignedAtom(EquationParser.SignedAtomContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitSignedAtom(expressionParser.SignedAtomContext ctx) { }
+	@Override public void exitSignedAtom(EquationParser.SignedAtomContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterAtom(expressionParser.AtomContext ctx) { }
+	@Override public void enterAtom(EquationParser.AtomContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitAtom(expressionParser.AtomContext ctx) { }
+	@Override public void exitAtom(EquationParser.AtomContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterVariable(expressionParser.VariableContext ctx) { }
+	@Override public void enterVariable(EquationParser.VariableContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitVariable(expressionParser.VariableContext ctx) { }
+	@Override public void exitVariable(EquationParser.VariableContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterFunc(expressionParser.FuncContext ctx) { }
+	@Override public void enterFunc(EquationParser.FuncContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitFunc(expressionParser.FuncContext ctx) { }
+	@Override public void exitFunc(EquationParser.FuncContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterFuncname(expressionParser.FuncnameContext ctx) { }
+	@Override public void enterFuncname(EquationParser.FuncnameContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitFuncname(expressionParser.FuncnameContext ctx) { }
+	@Override public void exitFuncname(EquationParser.FuncnameContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterRelop(expressionParser.RelopContext ctx) { }
+	@Override public void enterRelop(EquationParser.RelopContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitRelop(expressionParser.RelopContext ctx) { }
+	@Override public void exitRelop(EquationParser.RelopContext ctx) { }
 
 	/**
 	 * {@inheritDoc}

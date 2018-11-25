@@ -12,6 +12,7 @@ public class SchemaNode {
     private Map<ExtraRestriction, JSONParser.ValueContext> extraRestrictions;
 
     public Boolean validate(JsonNode jsonNode) {
+        if (restrictions == null || restrictions.size() == 0) return true;
         for (Restriction restriction : restrictions) {
             if (!restriction.validate(jsonNode)) {
                 return false;

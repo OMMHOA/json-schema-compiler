@@ -1,4 +1,4 @@
-// Generated from expression.g4 by ANTLR 4.7.1
+// Generated from Equation.g4 by ANTLR 4.7.1
 package hu.bme.aut.thesis.json.schema.compiler.generated;
 import org.antlr.v4.runtime.atn.*;
 import org.antlr.v4.runtime.dfa.DFA;
@@ -10,7 +10,7 @@ import java.util.Iterator;
 import java.util.ArrayList;
 
 @SuppressWarnings({"all", "warnings", "unchecked", "unused", "cast"})
-public class expressionParser extends Parser {
+public class EquationParser extends Parser {
 	static { RuntimeMetaData.checkVersion("4.7.1", RuntimeMetaData.VERSION); }
 
 	protected static final DFA[] _decisionToDFA;
@@ -73,7 +73,7 @@ public class expressionParser extends Parser {
 	}
 
 	@Override
-	public String getGrammarFileName() { return "expression.g4"; }
+	public String getGrammarFileName() { return "Equation.g4"; }
 
 	@Override
 	public String[] getRuleNames() { return ruleNames; }
@@ -84,7 +84,7 @@ public class expressionParser extends Parser {
 	@Override
 	public ATN getATN() { return _ATN; }
 
-	public expressionParser(TokenStream input) {
+	public EquationParser(TokenStream input) {
 		super(input);
 		_interp = new ParserATNSimulator(this,_ATN,_decisionToDFA,_sharedContextCache);
 	}
@@ -104,15 +104,15 @@ public class expressionParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_equation; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof expressionListener ) ((expressionListener)listener).enterEquation(this);
+			if ( listener instanceof EquationListener ) ((EquationListener)listener).enterEquation(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof expressionListener ) ((expressionListener)listener).exitEquation(this);
+			if ( listener instanceof EquationListener ) ((EquationListener)listener).exitEquation(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof expressionVisitor ) return ((expressionVisitor<? extends T>)visitor).visitEquation(this);
+			if ( visitor instanceof EquationVisitor ) return ((EquationVisitor<? extends T>)visitor).visitEquation(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -149,13 +149,13 @@ public class expressionParser extends Parser {
 		public MultiplyingExpressionContext multiplyingExpression(int i) {
 			return getRuleContext(MultiplyingExpressionContext.class,i);
 		}
-		public List<TerminalNode> PLUS() { return getTokens(expressionParser.PLUS); }
+		public List<TerminalNode> PLUS() { return getTokens(EquationParser.PLUS); }
 		public TerminalNode PLUS(int i) {
-			return getToken(expressionParser.PLUS, i);
+			return getToken(EquationParser.PLUS, i);
 		}
-		public List<TerminalNode> MINUS() { return getTokens(expressionParser.MINUS); }
+		public List<TerminalNode> MINUS() { return getTokens(EquationParser.MINUS); }
 		public TerminalNode MINUS(int i) {
-			return getToken(expressionParser.MINUS, i);
+			return getToken(EquationParser.MINUS, i);
 		}
 		public ExpressionContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
@@ -163,15 +163,15 @@ public class expressionParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_expression; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof expressionListener ) ((expressionListener)listener).enterExpression(this);
+			if ( listener instanceof EquationListener ) ((EquationListener)listener).enterExpression(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof expressionListener ) ((expressionListener)listener).exitExpression(this);
+			if ( listener instanceof EquationListener ) ((EquationListener)listener).exitExpression(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof expressionVisitor ) return ((expressionVisitor<? extends T>)visitor).visitExpression(this);
+			if ( visitor instanceof EquationVisitor ) return ((EquationVisitor<? extends T>)visitor).visitExpression(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -229,13 +229,13 @@ public class expressionParser extends Parser {
 		public PowExpressionContext powExpression(int i) {
 			return getRuleContext(PowExpressionContext.class,i);
 		}
-		public List<TerminalNode> TIMES() { return getTokens(expressionParser.TIMES); }
+		public List<TerminalNode> TIMES() { return getTokens(EquationParser.TIMES); }
 		public TerminalNode TIMES(int i) {
-			return getToken(expressionParser.TIMES, i);
+			return getToken(EquationParser.TIMES, i);
 		}
-		public List<TerminalNode> DIV() { return getTokens(expressionParser.DIV); }
+		public List<TerminalNode> DIV() { return getTokens(EquationParser.DIV); }
 		public TerminalNode DIV(int i) {
-			return getToken(expressionParser.DIV, i);
+			return getToken(EquationParser.DIV, i);
 		}
 		public MultiplyingExpressionContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
@@ -243,15 +243,15 @@ public class expressionParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_multiplyingExpression; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof expressionListener ) ((expressionListener)listener).enterMultiplyingExpression(this);
+			if ( listener instanceof EquationListener ) ((EquationListener)listener).enterMultiplyingExpression(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof expressionListener ) ((expressionListener)listener).exitMultiplyingExpression(this);
+			if ( listener instanceof EquationListener ) ((EquationListener)listener).exitMultiplyingExpression(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof expressionVisitor ) return ((expressionVisitor<? extends T>)visitor).visitMultiplyingExpression(this);
+			if ( visitor instanceof EquationVisitor ) return ((EquationVisitor<? extends T>)visitor).visitMultiplyingExpression(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -309,9 +309,9 @@ public class expressionParser extends Parser {
 		public SignedAtomContext signedAtom(int i) {
 			return getRuleContext(SignedAtomContext.class,i);
 		}
-		public List<TerminalNode> POW() { return getTokens(expressionParser.POW); }
+		public List<TerminalNode> POW() { return getTokens(EquationParser.POW); }
 		public TerminalNode POW(int i) {
-			return getToken(expressionParser.POW, i);
+			return getToken(EquationParser.POW, i);
 		}
 		public PowExpressionContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
@@ -319,15 +319,15 @@ public class expressionParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_powExpression; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof expressionListener ) ((expressionListener)listener).enterPowExpression(this);
+			if ( listener instanceof EquationListener ) ((EquationListener)listener).enterPowExpression(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof expressionListener ) ((expressionListener)listener).exitPowExpression(this);
+			if ( listener instanceof EquationListener ) ((EquationListener)listener).exitPowExpression(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof expressionVisitor ) return ((expressionVisitor<? extends T>)visitor).visitPowExpression(this);
+			if ( visitor instanceof EquationVisitor ) return ((EquationVisitor<? extends T>)visitor).visitPowExpression(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -371,11 +371,11 @@ public class expressionParser extends Parser {
 	}
 
 	public static class SignedAtomContext extends ParserRuleContext {
-		public TerminalNode PLUS() { return getToken(expressionParser.PLUS, 0); }
+		public TerminalNode PLUS() { return getToken(EquationParser.PLUS, 0); }
 		public SignedAtomContext signedAtom() {
 			return getRuleContext(SignedAtomContext.class,0);
 		}
-		public TerminalNode MINUS() { return getToken(expressionParser.MINUS, 0); }
+		public TerminalNode MINUS() { return getToken(EquationParser.MINUS, 0); }
 		public FuncContext func() {
 			return getRuleContext(FuncContext.class,0);
 		}
@@ -388,15 +388,15 @@ public class expressionParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_signedAtom; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof expressionListener ) ((expressionListener)listener).enterSignedAtom(this);
+			if ( listener instanceof EquationListener ) ((EquationListener)listener).enterSignedAtom(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof expressionListener ) ((expressionListener)listener).exitSignedAtom(this);
+			if ( listener instanceof EquationListener ) ((EquationListener)listener).exitSignedAtom(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof expressionVisitor ) return ((expressionVisitor<? extends T>)visitor).visitSignedAtom(this);
+			if ( visitor instanceof EquationVisitor ) return ((EquationVisitor<? extends T>)visitor).visitSignedAtom(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -467,31 +467,31 @@ public class expressionParser extends Parser {
 	}
 
 	public static class AtomContext extends ParserRuleContext {
-		public TerminalNode SCIENTIFIC_NUMBER() { return getToken(expressionParser.SCIENTIFIC_NUMBER, 0); }
-		public TerminalNode THIS() { return getToken(expressionParser.THIS, 0); }
+		public TerminalNode SCIENTIFIC_NUMBER() { return getToken(EquationParser.SCIENTIFIC_NUMBER, 0); }
+		public TerminalNode THIS() { return getToken(EquationParser.THIS, 0); }
 		public VariableContext variable() {
 			return getRuleContext(VariableContext.class,0);
 		}
-		public TerminalNode LPAREN() { return getToken(expressionParser.LPAREN, 0); }
+		public TerminalNode LPAREN() { return getToken(EquationParser.LPAREN, 0); }
 		public ExpressionContext expression() {
 			return getRuleContext(ExpressionContext.class,0);
 		}
-		public TerminalNode RPAREN() { return getToken(expressionParser.RPAREN, 0); }
+		public TerminalNode RPAREN() { return getToken(EquationParser.RPAREN, 0); }
 		public AtomContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_atom; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof expressionListener ) ((expressionListener)listener).enterAtom(this);
+			if ( listener instanceof EquationListener ) ((EquationListener)listener).enterAtom(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof expressionListener ) ((expressionListener)listener).exitAtom(this);
+			if ( listener instanceof EquationListener ) ((EquationListener)listener).exitAtom(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof expressionVisitor ) return ((expressionVisitor<? extends T>)visitor).visitAtom(this);
+			if ( visitor instanceof EquationVisitor ) return ((EquationVisitor<? extends T>)visitor).visitAtom(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -551,22 +551,22 @@ public class expressionParser extends Parser {
 	}
 
 	public static class VariableContext extends ParserRuleContext {
-		public TerminalNode VARIABLE() { return getToken(expressionParser.VARIABLE, 0); }
+		public TerminalNode VARIABLE() { return getToken(EquationParser.VARIABLE, 0); }
 		public VariableContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_variable; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof expressionListener ) ((expressionListener)listener).enterVariable(this);
+			if ( listener instanceof EquationListener ) ((EquationListener)listener).enterVariable(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof expressionListener ) ((expressionListener)listener).exitVariable(this);
+			if ( listener instanceof EquationListener ) ((EquationListener)listener).exitVariable(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof expressionVisitor ) return ((expressionVisitor<? extends T>)visitor).visitVariable(this);
+			if ( visitor instanceof EquationVisitor ) return ((EquationVisitor<? extends T>)visitor).visitVariable(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -596,17 +596,17 @@ public class expressionParser extends Parser {
 		public FuncnameContext funcname() {
 			return getRuleContext(FuncnameContext.class,0);
 		}
-		public TerminalNode LPAREN() { return getToken(expressionParser.LPAREN, 0); }
+		public TerminalNode LPAREN() { return getToken(EquationParser.LPAREN, 0); }
 		public List<ExpressionContext> expression() {
 			return getRuleContexts(ExpressionContext.class);
 		}
 		public ExpressionContext expression(int i) {
 			return getRuleContext(ExpressionContext.class,i);
 		}
-		public TerminalNode RPAREN() { return getToken(expressionParser.RPAREN, 0); }
-		public List<TerminalNode> COMMA() { return getTokens(expressionParser.COMMA); }
+		public TerminalNode RPAREN() { return getToken(EquationParser.RPAREN, 0); }
+		public List<TerminalNode> COMMA() { return getTokens(EquationParser.COMMA); }
 		public TerminalNode COMMA(int i) {
-			return getToken(expressionParser.COMMA, i);
+			return getToken(EquationParser.COMMA, i);
 		}
 		public FuncContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
@@ -614,15 +614,15 @@ public class expressionParser extends Parser {
 		@Override public int getRuleIndex() { return RULE_func; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof expressionListener ) ((expressionListener)listener).enterFunc(this);
+			if ( listener instanceof EquationListener ) ((EquationListener)listener).enterFunc(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof expressionListener ) ((expressionListener)listener).exitFunc(this);
+			if ( listener instanceof EquationListener ) ((EquationListener)listener).exitFunc(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof expressionVisitor ) return ((expressionVisitor<? extends T>)visitor).visitFunc(this);
+			if ( visitor instanceof EquationVisitor ) return ((EquationVisitor<? extends T>)visitor).visitFunc(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -672,30 +672,30 @@ public class expressionParser extends Parser {
 	}
 
 	public static class FuncnameContext extends ParserRuleContext {
-		public TerminalNode COS() { return getToken(expressionParser.COS, 0); }
-		public TerminalNode TAN() { return getToken(expressionParser.TAN, 0); }
-		public TerminalNode SIN() { return getToken(expressionParser.SIN, 0); }
-		public TerminalNode ACOS() { return getToken(expressionParser.ACOS, 0); }
-		public TerminalNode ATAN() { return getToken(expressionParser.ATAN, 0); }
-		public TerminalNode ASIN() { return getToken(expressionParser.ASIN, 0); }
-		public TerminalNode LOG() { return getToken(expressionParser.LOG, 0); }
-		public TerminalNode LN() { return getToken(expressionParser.LN, 0); }
-		public TerminalNode SQRT() { return getToken(expressionParser.SQRT, 0); }
+		public TerminalNode COS() { return getToken(EquationParser.COS, 0); }
+		public TerminalNode TAN() { return getToken(EquationParser.TAN, 0); }
+		public TerminalNode SIN() { return getToken(EquationParser.SIN, 0); }
+		public TerminalNode ACOS() { return getToken(EquationParser.ACOS, 0); }
+		public TerminalNode ATAN() { return getToken(EquationParser.ATAN, 0); }
+		public TerminalNode ASIN() { return getToken(EquationParser.ASIN, 0); }
+		public TerminalNode LOG() { return getToken(EquationParser.LOG, 0); }
+		public TerminalNode LN() { return getToken(EquationParser.LN, 0); }
+		public TerminalNode SQRT() { return getToken(EquationParser.SQRT, 0); }
 		public FuncnameContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_funcname; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof expressionListener ) ((expressionListener)listener).enterFuncname(this);
+			if ( listener instanceof EquationListener ) ((EquationListener)listener).enterFuncname(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof expressionListener ) ((expressionListener)listener).exitFuncname(this);
+			if ( listener instanceof EquationListener ) ((EquationListener)listener).exitFuncname(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof expressionVisitor ) return ((expressionVisitor<? extends T>)visitor).visitFuncname(this);
+			if ( visitor instanceof EquationVisitor ) return ((EquationVisitor<? extends T>)visitor).visitFuncname(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -731,24 +731,24 @@ public class expressionParser extends Parser {
 	}
 
 	public static class RelopContext extends ParserRuleContext {
-		public TerminalNode EQ() { return getToken(expressionParser.EQ, 0); }
-		public TerminalNode GT() { return getToken(expressionParser.GT, 0); }
-		public TerminalNode LT() { return getToken(expressionParser.LT, 0); }
+		public TerminalNode EQ() { return getToken(EquationParser.EQ, 0); }
+		public TerminalNode GT() { return getToken(EquationParser.GT, 0); }
+		public TerminalNode LT() { return getToken(EquationParser.LT, 0); }
 		public RelopContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_relop; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof expressionListener ) ((expressionListener)listener).enterRelop(this);
+			if ( listener instanceof EquationListener ) ((EquationListener)listener).enterRelop(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof expressionListener ) ((expressionListener)listener).exitRelop(this);
+			if ( listener instanceof EquationListener ) ((EquationListener)listener).exitRelop(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof expressionVisitor ) return ((expressionVisitor<? extends T>)visitor).visitRelop(this);
+			if ( visitor instanceof EquationVisitor ) return ((EquationVisitor<? extends T>)visitor).visitRelop(this);
 			else return visitor.visitChildren(this);
 		}
 	}

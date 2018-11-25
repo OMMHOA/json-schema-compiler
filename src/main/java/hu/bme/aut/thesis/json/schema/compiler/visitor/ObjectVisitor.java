@@ -1,5 +1,6 @@
 package hu.bme.aut.thesis.json.schema.compiler.visitor;
 
+import hu.bme.aut.thesis.json.schema.compiler.Parser;
 import hu.bme.aut.thesis.json.schema.compiler.generated.JSONBaseVisitor;
 import hu.bme.aut.thesis.json.schema.compiler.generated.JSONParser;
 import hu.bme.aut.thesis.json.schema.compiler.model.SchemaNode;
@@ -60,6 +61,7 @@ public class ObjectVisitor extends JSONBaseVisitor<SchemaNode> {
         restrictionMap.put(REQUIRED, RequiredRestriction::new);
         restrictionMap.put(TYPE, TypeRestriction::new);
         restrictionMap.put(UNIQUE_ITEMS, UniqueItemsRestriction::new);
+        restrictionMap.put(VALUE, valueContext -> Parser.parseEquation(unquote(valueContext.STRING().getText())));
     }
 
     @Override

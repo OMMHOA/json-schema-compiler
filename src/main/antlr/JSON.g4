@@ -4,8 +4,6 @@
 // Derived from http://json.org
 grammar JSON;
 
-import equation;
-
 jsonwa
    : EOF+ json
    | json
@@ -21,8 +19,7 @@ obj
    ;
 
 pair
-   : '"value"' ':' '"' equation '"'
-   | STRING ':' value
+   : STRING ':' value
    ;
 
 array
