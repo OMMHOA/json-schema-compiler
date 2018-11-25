@@ -3,11 +3,10 @@ package hu.bme.aut.thesis.json.schema.compiler.restriction;
 import com.fasterxml.jackson.databind.JsonNode;
 import hu.bme.aut.thesis.json.schema.compiler.generated.JSONParser;
 import hu.bme.aut.thesis.json.schema.compiler.model.SchemaNode;
-import hu.bme.aut.thesis.json.schema.compiler.visitor.SchemaObjectVisitor;
+import hu.bme.aut.thesis.json.schema.compiler.visitor.ObjectVisitor;
 
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 import java.util.stream.Collectors;
 
 import static hu.bme.aut.thesis.json.schema.compiler.restriction.Utils.getBool;
@@ -19,10 +18,10 @@ public class ItemsRestriction implements Restriction {
 
     public ItemsRestriction(JSONParser.ValueContext value) {
         if (value.obj() != null) {
-            schemaForAll = value.obj().accept(new SchemaObjectVisitor());
+            schemaForAll = value.obj().accept(new ObjectVisitor());
         } else {
             schemas = value.array().value().stream()
-                    .map(val -> val.obj().accept(new SchemaObjectVisitor()))
+                    .map(val -> val.obj().accept(new ObjectVisitor()))
                     .collect(Collectors.toList());
         }
     }

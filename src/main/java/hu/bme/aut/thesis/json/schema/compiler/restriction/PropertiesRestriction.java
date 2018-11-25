@@ -3,7 +3,7 @@ package hu.bme.aut.thesis.json.schema.compiler.restriction;
 import com.fasterxml.jackson.databind.JsonNode;
 import hu.bme.aut.thesis.json.schema.compiler.generated.JSONParser;
 import hu.bme.aut.thesis.json.schema.compiler.model.SchemaNode;
-import hu.bme.aut.thesis.json.schema.compiler.visitor.SchemaObjectVisitor;
+import hu.bme.aut.thesis.json.schema.compiler.visitor.ObjectVisitor;
 
 import java.util.Iterator;
 import java.util.Map;
@@ -33,7 +33,7 @@ public class PropertiesRestriction implements Restriction {
         return value.obj().pair().stream()
                 .collect(Collectors.toMap(
                         pair -> unquote(pair.STRING().getText()),
-                        pair -> pair.value().obj().accept(new SchemaObjectVisitor()),
+                        pair -> pair.value().obj().accept(new ObjectVisitor()),
                         (a, b) -> b));
     }
 

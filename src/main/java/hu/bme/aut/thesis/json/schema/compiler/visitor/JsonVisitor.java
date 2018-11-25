@@ -9,15 +9,15 @@ import org.slf4j.LoggerFactory;
 
 import java.util.Objects;
 
-public class SchemaJsonVisitor extends JSONBaseVisitor<SchemaNode> {
-    private static final Logger LOGGER = LoggerFactory.getLogger(SchemaJsonVisitor.class);
+public class JsonVisitor extends JSONBaseVisitor<SchemaNode> {
+    private static final Logger LOGGER = LoggerFactory.getLogger(JsonVisitor.class);
 
     @Override
     public SchemaNode visitJson(JSONParser.JsonContext ctx) {
         JSONParser.ValueContext value = ctx.value();
         JSONParser.ObjContext obj = value.obj();
         if (Objects.nonNull(obj)) {
-            return obj.accept(new SchemaObjectVisitor());
+            return obj.accept(new ObjectVisitor());
         } else {
             LOGGER.debug("ERROR: Top level element of json schema is not an object.");
             LOGGER.debug("Is array: " + Objects.nonNull(value.array()));

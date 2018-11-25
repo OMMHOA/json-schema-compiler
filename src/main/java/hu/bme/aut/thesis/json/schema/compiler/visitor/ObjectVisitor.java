@@ -1,6 +1,5 @@
 package hu.bme.aut.thesis.json.schema.compiler.visitor;
 
-import com.sun.org.apache.xpath.internal.operations.Mult;
 import hu.bme.aut.thesis.json.schema.compiler.generated.JSONBaseVisitor;
 import hu.bme.aut.thesis.json.schema.compiler.generated.JSONParser;
 import hu.bme.aut.thesis.json.schema.compiler.model.SchemaNode;
@@ -16,8 +15,8 @@ import java.util.Set;
 import static hu.bme.aut.thesis.json.schema.compiler.restriction.Constants.*;
 import static hu.bme.aut.thesis.json.schema.compiler.restriction.Utils.unquote;
 
-public class SchemaObjectVisitor extends JSONBaseVisitor<SchemaNode> {
-    private static Logger LOGGER = LoggerFactory.getLogger(SchemaObjectVisitor.class);
+public class ObjectVisitor extends JSONBaseVisitor<SchemaNode> {
+    private static Logger LOGGER = LoggerFactory.getLogger(ObjectVisitor.class);
     private SchemaNode schemaNode = new SchemaNode();
 
     @FunctionalInterface
