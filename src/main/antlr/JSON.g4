@@ -4,7 +4,7 @@
 // Derived from http://json.org
 grammar JSON;
 
-import expression;
+import equation;
 
 jsonwa
    : EOF+ json
