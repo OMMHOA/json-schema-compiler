@@ -37,12 +37,26 @@ equation
    ;
 
 expression
-   : multiplyingExpression ((PLUS | MINUS) multiplyingExpression)*
+   : multiplyingExpression (plusOrMinus multiplyingExpression)*
    ;
 
-multiplyingExpression
-   : powExpression ((TIMES | DIV) powExpression)*
+
+plusOrMinus
+   : PLUS
+   | MINUS
    ;
+
+
+multiplyingExpression
+   : powExpression (timesOrDiv powExpression)*
+   ;
+
+
+timesOrDiv
+   : TIMES
+   | DIV
+   ;
+
 
 powExpression
    : signedAtom (POW signedAtom)*
@@ -56,14 +70,14 @@ signedAtom
    ;
 
 atom
-   : SCIENTIFIC_NUMBER
+   : JSON_POINTER
+   | NUMBER
+   | INT
+   | BOOLEAN
+   | NULL
    | THIS
-   | variable
    | LPAREN expression RPAREN
-   ;
-
-variable
-   : VARIABLE
+   | STRING
    ;
 
 func
@@ -199,45 +213,75 @@ THIS
    ;
 
 
-VARIABLE
-   : VALID_ID_START VALID_ID_CHAR*
+INT
+   : '0' | [1-9] [0-9]*
    ;
 
 
-fragment VALID_ID_START
-   : ('a' .. 'z') | ('A' .. 'Z') | '_'
+NUMBER
+   : '-'? INT ('.' [0-9] +)? EXP?
    ;
 
 
-fragment VALID_ID_CHAR
-   : VALID_ID_START | ('0' .. '9')
+fragment EXP
+   : [Ee] [+\-]? INT
    ;
 
 
-SCIENTIFIC_NUMBER
-   : NR ((E1 | E2) SIGN? NR)?
+BOOLEAN
+   : TRUE | FALSE
    ;
 
 
-fragment NR
-   : ('0' .. '9') + ('.' ('0' .. '9') +)?
+TRUE
+   : 'true'
    ;
 
 
-fragment E1
-   : 'E'
+FALSE
+   : 'false'
    ;
 
 
-fragment E2
-   : 'e'
+NULL
+   : 'null'
    ;
 
 
-fragment SIGN
-   : ('+' | '-')
+JSON_POINTER
+   : '/' STRING_CONTENT*
    ;
 
+
+STRING
+   : '\\"' STRING_CONTENT* '\\"'
+   ;
+
+
+STRING_CONTENT
+   : ESC
+   | SAFECODEPOINT
+   ;
+
+
+fragment ESC
+   : '\\' (["\\/bfnrt] | UNICODE)
+   ;
+
+
+fragment UNICODE
+   : 'u' HEX HEX HEX HEX
+   ;
+
+
+fragment HEX
+   : [0-9a-fA-F]
+   ;
+
+
+fragment SAFECODEPOINT
+   : ~ ["\\\u0000-\u001F]
+   ;
 
 WS
    : [ \r\n\t] + -> skip

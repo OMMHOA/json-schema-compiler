@@ -28,6 +28,16 @@ public interface EquationListener extends ParseTreeListener {
 	 */
 	void exitExpression(EquationParser.ExpressionContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link EquationParser#plusOrMinus}.
+	 * @param ctx the parse tree
+	 */
+	void enterPlusOrMinus(EquationParser.PlusOrMinusContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link EquationParser#plusOrMinus}.
+	 * @param ctx the parse tree
+	 */
+	void exitPlusOrMinus(EquationParser.PlusOrMinusContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link EquationParser#multiplyingExpression}.
 	 * @param ctx the parse tree
 	 */
@@ -37,6 +47,16 @@ public interface EquationListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitMultiplyingExpression(EquationParser.MultiplyingExpressionContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link EquationParser#timesOrDiv}.
+	 * @param ctx the parse tree
+	 */
+	void enterTimesOrDiv(EquationParser.TimesOrDivContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link EquationParser#timesOrDiv}.
+	 * @param ctx the parse tree
+	 */
+	void exitTimesOrDiv(EquationParser.TimesOrDivContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link EquationParser#powExpression}.
 	 * @param ctx the parse tree
@@ -67,16 +87,6 @@ public interface EquationListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitAtom(EquationParser.AtomContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link EquationParser#variable}.
-	 * @param ctx the parse tree
-	 */
-	void enterVariable(EquationParser.VariableContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link EquationParser#variable}.
-	 * @param ctx the parse tree
-	 */
-	void exitVariable(EquationParser.VariableContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link EquationParser#func}.
 	 * @param ctx the parse tree

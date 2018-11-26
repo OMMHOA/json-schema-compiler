@@ -40,6 +40,18 @@ public class EquationBaseListener implements EquationListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterPlusOrMinus(EquationParser.PlusOrMinusContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitPlusOrMinus(EquationParser.PlusOrMinusContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterMultiplyingExpression(EquationParser.MultiplyingExpressionContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -47,6 +59,18 @@ public class EquationBaseListener implements EquationListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitMultiplyingExpression(EquationParser.MultiplyingExpressionContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterTimesOrDiv(EquationParser.TimesOrDivContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitTimesOrDiv(EquationParser.TimesOrDivContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -83,18 +107,6 @@ public class EquationBaseListener implements EquationListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitAtom(EquationParser.AtomContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterVariable(EquationParser.VariableContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitVariable(EquationParser.VariableContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *

@@ -23,11 +23,23 @@ public interface EquationVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitExpression(EquationParser.ExpressionContext ctx);
 	/**
+	 * Visit a parse tree produced by {@link EquationParser#plusOrMinus}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitPlusOrMinus(EquationParser.PlusOrMinusContext ctx);
+	/**
 	 * Visit a parse tree produced by {@link EquationParser#multiplyingExpression}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
 	T visitMultiplyingExpression(EquationParser.MultiplyingExpressionContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link EquationParser#timesOrDiv}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitTimesOrDiv(EquationParser.TimesOrDivContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link EquationParser#powExpression}.
 	 * @param ctx the parse tree
@@ -46,12 +58,6 @@ public interface EquationVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitAtom(EquationParser.AtomContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link EquationParser#variable}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitVariable(EquationParser.VariableContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link EquationParser#func}.
 	 * @param ctx the parse tree

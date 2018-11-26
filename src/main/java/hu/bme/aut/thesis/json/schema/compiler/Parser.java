@@ -5,7 +5,7 @@ import hu.bme.aut.thesis.json.schema.compiler.generated.EquationParser;
 import hu.bme.aut.thesis.json.schema.compiler.generated.JSONLexer;
 import hu.bme.aut.thesis.json.schema.compiler.generated.JSONParser;
 import hu.bme.aut.thesis.json.schema.compiler.model.SchemaNode;
-import hu.bme.aut.thesis.json.schema.compiler.restriction.ValueRestriction;
+import hu.bme.aut.thesis.json.schema.compiler.restriction.Restriction;
 import hu.bme.aut.thesis.json.schema.compiler.visitor.EquationVisitor;
 import hu.bme.aut.thesis.json.schema.compiler.visitor.JsonVisitor;
 import org.antlr.v4.runtime.CharStreams;
@@ -20,7 +20,7 @@ public class Parser {
         return parser.jsonwa().json().accept(new JsonVisitor());
     }
 
-    public static ValueRestriction parseEquation(String equation) {
+    public static Restriction parseEquation(String equation) {
         EquationLexer lexer = new EquationLexer(CharStreams.fromString(equation));
         CommonTokenStream tokens = new CommonTokenStream(lexer);
         EquationParser parser = new EquationParser(tokens);
