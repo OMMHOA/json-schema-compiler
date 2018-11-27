@@ -3,7 +3,9 @@ package hu.bme.aut.thesis.json.schema.compiler.model.equation;
 import com.fasterxml.jackson.core.JsonPointer;
 import com.fasterxml.jackson.databind.JsonNode;
 
+import java.util.Collections;
 import java.util.List;
+import java.util.Objects;
 
 public class EquationValue implements PartOfEquation {
     private List<EquationValue> listValue;
@@ -11,7 +13,7 @@ public class EquationValue implements PartOfEquation {
     private Integer integerValue;
     private Double doubleValue;
     private String stringValue;
-    private boolean thisValue = false;
+    private boolean thisValue;
     private JsonPointer pointerValue;
 
     @Override
@@ -20,7 +22,7 @@ public class EquationValue implements PartOfEquation {
     }
 
     public List<EquationValue> getListValue() {
-        return listValue;
+        return Collections.unmodifiableList(listValue);
     }
 
     public void setListValue(List<EquationValue> listValue) {
@@ -73,6 +75,25 @@ public class EquationValue implements PartOfEquation {
 
     public void setPointerValue(JsonPointer pointerValue) {
         this.pointerValue = pointerValue;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        EquationValue value = (EquationValue) o;
+        return thisValue == value.thisValue &&
+                Objects.equals(listValue, value.listValue) &&
+                Objects.equals(booleanValue, value.booleanValue) &&
+                Objects.equals(integerValue, value.integerValue) &&
+                Objects.equals(doubleValue, value.doubleValue) &&
+                Objects.equals(stringValue, value.stringValue) &&
+                Objects.equals(pointerValue, value.pointerValue);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(listValue, booleanValue, integerValue, doubleValue, stringValue, thisValue, pointerValue);
     }
 
     private EquationValue(List<EquationValue> listValue, Boolean booleanValue, Integer integerValue, Double doubleValue, String stringValue, boolean thisValue, JsonPointer pointerValue) {

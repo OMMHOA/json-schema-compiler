@@ -25,6 +25,6 @@ public class Parser {
         CommonTokenStream tokens = new CommonTokenStream(lexer);
         EquationParser parser = new EquationParser(tokens);
 
-        return parser.equation().accept(new EquationVisitor());
+        return parser.equationwa().equation().accept(new EquationVisitor());
     }
 }

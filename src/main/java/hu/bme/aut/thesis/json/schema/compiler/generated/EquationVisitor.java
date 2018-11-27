@@ -11,6 +11,12 @@ import org.antlr.v4.runtime.tree.ParseTreeVisitor;
  */
 public interface EquationVisitor<T> extends ParseTreeVisitor<T> {
 	/**
+	 * Visit a parse tree produced by {@link EquationParser#equationwa}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitEquationwa(EquationParser.EquationwaContext ctx);
+	/**
 	 * Visit a parse tree produced by {@link EquationParser#equation}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
@@ -22,6 +28,12 @@ public interface EquationVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitExpression(EquationParser.ExpressionContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link EquationParser#plusOrMinusExpression}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitPlusOrMinusExpression(EquationParser.PlusOrMinusExpressionContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link EquationParser#plusOrMinus}.
 	 * @param ctx the parse tree
@@ -35,11 +47,23 @@ public interface EquationVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitMultiplyingExpression(EquationParser.MultiplyingExpressionContext ctx);
 	/**
+	 * Visit a parse tree produced by {@link EquationParser#timesOrDivExpression}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitTimesOrDivExpression(EquationParser.TimesOrDivExpressionContext ctx);
+	/**
 	 * Visit a parse tree produced by {@link EquationParser#timesOrDiv}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
 	T visitTimesOrDiv(EquationParser.TimesOrDivContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link EquationParser#poweredExpression}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitPoweredExpression(EquationParser.PoweredExpressionContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link EquationParser#powExpression}.
 	 * @param ctx the parse tree

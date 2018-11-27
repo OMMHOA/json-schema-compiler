@@ -32,12 +32,23 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 grammar Equation;
 
+equationwa
+   : EOF* equation
+   ;
+
 equation
    : expression relop expression
    ;
 
 expression
-   : multiplyingExpression (plusOrMinus multiplyingExpression)*
+   : multiplyingExpression
+   | plusOrMinusExpression
+   ;
+
+
+plusOrMinusExpression
+   : multiplyingExpression plusOrMinus multiplyingExpression
+   | multiplyingExpression plusOrMinus plusOrMinusExpression
    ;
 
 
@@ -48,7 +59,14 @@ plusOrMinus
 
 
 multiplyingExpression
-   : powExpression (timesOrDiv powExpression)*
+   : poweredExpression
+   | timesOrDivExpression
+   ;
+
+
+timesOrDivExpression
+   : poweredExpression timesOrDiv poweredExpression
+   | poweredExpression timesOrDiv timesOrDivExpression
    ;
 
 
@@ -58,9 +76,17 @@ timesOrDiv
    ;
 
 
-powExpression
-   : signedAtom (POW signedAtom)*
+poweredExpression
+   : signedAtom
+   | powExpression
    ;
+
+
+powExpression
+   : signedAtom POW signedAtom
+   | signedAtom POW powExpression
+   ;
+
 
 signedAtom
    : PLUS signedAtom

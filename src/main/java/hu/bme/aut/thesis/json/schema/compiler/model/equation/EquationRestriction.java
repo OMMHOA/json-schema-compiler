@@ -50,4 +50,25 @@ public abstract class EquationRestriction extends Operator implements Restrictio
 
     @Override
     public void apply(Map<ExtraRestriction, JSONParser.ValueContext> extraRestrictions) { }
+
+    @Override
+    protected List<EquationValue> calculate(List<EquationValue> left, List<EquationValue> right) {
+        return null;
+    }
+    @Override
+    protected Boolean calculate(Boolean left, Boolean right) {
+        return null;
+    }
+    @Override
+    protected Integer calculate(Integer left, Integer right) {
+        return null;
+    }
+    @Override
+    protected Double calculate(Double left, Double right) {
+        return null;
+    }
+    @Override
+    protected String calculate(String left, String right) {
+        return null;
+    }
 }

@@ -5,8 +5,7 @@
 grammar JSON;
 
 jsonwa
-   : EOF+ json
-   | json
+   : EOF* json
    ;
 
 json

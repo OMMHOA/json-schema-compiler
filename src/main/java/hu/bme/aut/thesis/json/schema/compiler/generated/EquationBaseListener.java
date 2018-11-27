@@ -16,6 +16,18 @@ public class EquationBaseListener implements EquationListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterEquationwa(EquationParser.EquationwaContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitEquationwa(EquationParser.EquationwaContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterEquation(EquationParser.EquationContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -35,6 +47,18 @@ public class EquationBaseListener implements EquationListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitExpression(EquationParser.ExpressionContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterPlusOrMinusExpression(EquationParser.PlusOrMinusExpressionContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitPlusOrMinusExpression(EquationParser.PlusOrMinusExpressionContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -64,6 +88,18 @@ public class EquationBaseListener implements EquationListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterTimesOrDivExpression(EquationParser.TimesOrDivExpressionContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitTimesOrDivExpression(EquationParser.TimesOrDivExpressionContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterTimesOrDiv(EquationParser.TimesOrDivContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -71,6 +107,18 @@ public class EquationBaseListener implements EquationListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitTimesOrDiv(EquationParser.TimesOrDivContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterPoweredExpression(EquationParser.PoweredExpressionContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitPoweredExpression(EquationParser.PoweredExpressionContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *

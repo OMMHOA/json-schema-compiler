@@ -15,6 +15,7 @@ import java.util.Set;
 
 import static hu.bme.aut.thesis.json.schema.compiler.restriction.Constants.*;
 import static hu.bme.aut.thesis.json.schema.compiler.restriction.Utils.unquote;
+import static hu.bme.aut.thesis.json.schema.compiler.visitor.Utils.warnValue;
 
 public class ObjectVisitor extends JSONBaseVisitor<SchemaNode> {
     private static Logger LOGGER = LoggerFactory.getLogger(ObjectVisitor.class);
@@ -77,7 +78,14 @@ public class ObjectVisitor extends JSONBaseVisitor<SchemaNode> {
         ExtraRestriction extraRestriction;
         if (metaKeywords.contains(pairKey)) return;
         if ((restrictionInitiator = restrictionMap.get(pairKey)) != null) {
-            schemaNode.addRestriction(restrictionInitiator.initiate(pair.value()));
+            LOGGER.debug("Found restriction initiator for key '{}'.", pairKey);
+            Restriction restriction = restrictionInitiator.initiate(pair.value());
+            if (restriction == null) {
+                LOGGER.warn("Failed to initiate restriction for key '{}'. Skipping...", pairKey);
+                warnValue(pair.value(), LOGGER);
+                return;
+            }
+            schemaNode.addRestriction(restriction);
             LOGGER.debug("Adding restriction: " + pairKey);
         } else if ((extraRestriction = ExtraRestriction.get(pairKey)) != null) {
             schemaNode.addExtraRestriction(extraRestriction, pair.value());

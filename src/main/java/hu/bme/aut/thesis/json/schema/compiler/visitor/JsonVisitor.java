@@ -9,6 +9,8 @@ import org.slf4j.LoggerFactory;
 
 import java.util.Objects;
 
+import static hu.bme.aut.thesis.json.schema.compiler.visitor.Utils.warnValue;
+
 public class JsonVisitor extends JSONBaseVisitor<SchemaNode> {
     private static final Logger LOGGER = LoggerFactory.getLogger(JsonVisitor.class);
 
@@ -20,12 +22,7 @@ public class JsonVisitor extends JSONBaseVisitor<SchemaNode> {
             return obj.accept(new ObjectVisitor());
         } else {
             LOGGER.debug("ERROR: Top level element of json schema is not an object.");
-            LOGGER.debug("Is array: " + Objects.nonNull(value.array()));
-            LOGGER.debug("Is INT: " + Objects.nonNull(value.INT()));
-            LOGGER.debug("Is NUMBER: " + Objects.nonNull(value.NUMBER()));
-            LOGGER.debug("Is STRING: " + Objects.nonNull(value.STRING()));
-            LOGGER.debug("Is BOOLEAN: " + Objects.nonNull(value.BOOLEAN()));
-            LOGGER.debug("Is NULL: " + Objects.nonNull(value.NULL()));
+            warnValue(value, LOGGER);
             throw new SchemaException("Top level element of json schema should be an object!");
         }
     }

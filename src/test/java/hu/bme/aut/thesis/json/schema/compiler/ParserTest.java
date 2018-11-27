@@ -49,7 +49,7 @@ public class ParserTest extends TestFixture {
     @Test
     public void schema7() {
         SchemaNode node = Parser.parse(schema7);
-//        assertTrue(node.validate(input7Node));
+        assertTrue(node.validate(input7Node));
     }
 
     @Test(expected = SchemaException.class)

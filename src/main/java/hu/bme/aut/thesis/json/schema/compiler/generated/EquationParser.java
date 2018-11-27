@@ -22,11 +22,14 @@ public class EquationParser extends Parser {
 		POINT=20, POW=21, THIS=22, INT=23, NUMBER=24, BOOLEAN=25, TRUE=26, FALSE=27, 
 		NULL=28, JSON_POINTER=29, STRING=30, STRING_CONTENT=31, WS=32;
 	public static final int
-		RULE_equation = 0, RULE_expression = 1, RULE_plusOrMinus = 2, RULE_multiplyingExpression = 3, 
-		RULE_timesOrDiv = 4, RULE_powExpression = 5, RULE_signedAtom = 6, RULE_atom = 7, 
-		RULE_func = 8, RULE_funcname = 9, RULE_relop = 10;
+		RULE_equationwa = 0, RULE_equation = 1, RULE_expression = 2, RULE_plusOrMinusExpression = 3, 
+		RULE_plusOrMinus = 4, RULE_multiplyingExpression = 5, RULE_timesOrDivExpression = 6, 
+		RULE_timesOrDiv = 7, RULE_poweredExpression = 8, RULE_powExpression = 9, 
+		RULE_signedAtom = 10, RULE_atom = 11, RULE_func = 12, RULE_funcname = 13, 
+		RULE_relop = 14;
 	public static final String[] ruleNames = {
-		"equation", "expression", "plusOrMinus", "multiplyingExpression", "timesOrDiv", 
+		"equationwa", "equation", "expression", "plusOrMinusExpression", "plusOrMinus", 
+		"multiplyingExpression", "timesOrDivExpression", "timesOrDiv", "poweredExpression", 
 		"powExpression", "signedAtom", "atom", "func", "funcname", "relop"
 	};
 
@@ -91,6 +94,69 @@ public class EquationParser extends Parser {
 		super(input);
 		_interp = new ParserATNSimulator(this,_ATN,_decisionToDFA,_sharedContextCache);
 	}
+	public static class EquationwaContext extends ParserRuleContext {
+		public EquationContext equation() {
+			return getRuleContext(EquationContext.class,0);
+		}
+		public List<TerminalNode> EOF() { return getTokens(EquationParser.EOF); }
+		public TerminalNode EOF(int i) {
+			return getToken(EquationParser.EOF, i);
+		}
+		public EquationwaContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_equationwa; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EquationListener ) ((EquationListener)listener).enterEquationwa(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EquationListener ) ((EquationListener)listener).exitEquationwa(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof EquationVisitor ) return ((EquationVisitor<? extends T>)visitor).visitEquationwa(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+
+	public final EquationwaContext equationwa() throws RecognitionException {
+		EquationwaContext _localctx = new EquationwaContext(_ctx, getState());
+		enterRule(_localctx, 0, RULE_equationwa);
+		int _la;
+		try {
+			enterOuterAlt(_localctx, 1);
+			{
+			setState(33);
+			_errHandler.sync(this);
+			_la = _input.LA(1);
+			while (_la==EOF) {
+				{
+				{
+				setState(30);
+				match(EOF);
+				}
+				}
+				setState(35);
+				_errHandler.sync(this);
+				_la = _input.LA(1);
+			}
+			setState(36);
+			equation();
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			_errHandler.reportError(this, re);
+			_errHandler.recover(this, re);
+		}
+		finally {
+			exitRule();
+		}
+		return _localctx;
+	}
+
 	public static class EquationContext extends ParserRuleContext {
 		public List<ExpressionContext> expression() {
 			return getRuleContexts(ExpressionContext.class);
@@ -122,15 +188,15 @@ public class EquationParser extends Parser {
 
 	public final EquationContext equation() throws RecognitionException {
 		EquationContext _localctx = new EquationContext(_ctx, getState());
-		enterRule(_localctx, 0, RULE_equation);
+		enterRule(_localctx, 2, RULE_equation);
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(22);
+			setState(38);
 			expression();
-			setState(23);
+			setState(39);
 			relop();
-			setState(24);
+			setState(40);
 			expression();
 			}
 		}
@@ -146,17 +212,11 @@ public class EquationParser extends Parser {
 	}
 
 	public static class ExpressionContext extends ParserRuleContext {
-		public List<MultiplyingExpressionContext> multiplyingExpression() {
-			return getRuleContexts(MultiplyingExpressionContext.class);
+		public MultiplyingExpressionContext multiplyingExpression() {
+			return getRuleContext(MultiplyingExpressionContext.class,0);
 		}
-		public MultiplyingExpressionContext multiplyingExpression(int i) {
-			return getRuleContext(MultiplyingExpressionContext.class,i);
-		}
-		public List<PlusOrMinusContext> plusOrMinus() {
-			return getRuleContexts(PlusOrMinusContext.class);
-		}
-		public PlusOrMinusContext plusOrMinus(int i) {
-			return getRuleContext(PlusOrMinusContext.class,i);
+		public PlusOrMinusExpressionContext plusOrMinusExpression() {
+			return getRuleContext(PlusOrMinusExpressionContext.class,0);
 		}
 		public ExpressionContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
@@ -179,29 +239,99 @@ public class EquationParser extends Parser {
 
 	public final ExpressionContext expression() throws RecognitionException {
 		ExpressionContext _localctx = new ExpressionContext(_ctx, getState());
-		enterRule(_localctx, 2, RULE_expression);
-		int _la;
+		enterRule(_localctx, 4, RULE_expression);
 		try {
-			enterOuterAlt(_localctx, 1);
-			{
-			setState(26);
-			multiplyingExpression();
-			setState(32);
+			setState(44);
 			_errHandler.sync(this);
-			_la = _input.LA(1);
-			while (_la==PLUS || _la==MINUS) {
+			switch ( getInterpreter().adaptivePredict(_input,1,_ctx) ) {
+			case 1:
+				enterOuterAlt(_localctx, 1);
 				{
-				{
-				setState(27);
-				plusOrMinus();
-				setState(28);
+				setState(42);
 				multiplyingExpression();
 				}
+				break;
+			case 2:
+				enterOuterAlt(_localctx, 2);
+				{
+				setState(43);
+				plusOrMinusExpression();
 				}
-				setState(34);
-				_errHandler.sync(this);
-				_la = _input.LA(1);
+				break;
 			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			_errHandler.reportError(this, re);
+			_errHandler.recover(this, re);
+		}
+		finally {
+			exitRule();
+		}
+		return _localctx;
+	}
+
+	public static class PlusOrMinusExpressionContext extends ParserRuleContext {
+		public List<MultiplyingExpressionContext> multiplyingExpression() {
+			return getRuleContexts(MultiplyingExpressionContext.class);
+		}
+		public MultiplyingExpressionContext multiplyingExpression(int i) {
+			return getRuleContext(MultiplyingExpressionContext.class,i);
+		}
+		public PlusOrMinusContext plusOrMinus() {
+			return getRuleContext(PlusOrMinusContext.class,0);
+		}
+		public PlusOrMinusExpressionContext plusOrMinusExpression() {
+			return getRuleContext(PlusOrMinusExpressionContext.class,0);
+		}
+		public PlusOrMinusExpressionContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_plusOrMinusExpression; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EquationListener ) ((EquationListener)listener).enterPlusOrMinusExpression(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EquationListener ) ((EquationListener)listener).exitPlusOrMinusExpression(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof EquationVisitor ) return ((EquationVisitor<? extends T>)visitor).visitPlusOrMinusExpression(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+
+	public final PlusOrMinusExpressionContext plusOrMinusExpression() throws RecognitionException {
+		PlusOrMinusExpressionContext _localctx = new PlusOrMinusExpressionContext(_ctx, getState());
+		enterRule(_localctx, 6, RULE_plusOrMinusExpression);
+		try {
+			setState(54);
+			_errHandler.sync(this);
+			switch ( getInterpreter().adaptivePredict(_input,2,_ctx) ) {
+			case 1:
+				enterOuterAlt(_localctx, 1);
+				{
+				setState(46);
+				multiplyingExpression();
+				setState(47);
+				plusOrMinus();
+				setState(48);
+				multiplyingExpression();
+				}
+				break;
+			case 2:
+				enterOuterAlt(_localctx, 2);
+				{
+				setState(50);
+				multiplyingExpression();
+				setState(51);
+				plusOrMinus();
+				setState(52);
+				plusOrMinusExpression();
+				}
+				break;
 			}
 		}
 		catch (RecognitionException re) {
@@ -239,12 +369,12 @@ public class EquationParser extends Parser {
 
 	public final PlusOrMinusContext plusOrMinus() throws RecognitionException {
 		PlusOrMinusContext _localctx = new PlusOrMinusContext(_ctx, getState());
-		enterRule(_localctx, 4, RULE_plusOrMinus);
+		enterRule(_localctx, 8, RULE_plusOrMinus);
 		int _la;
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(35);
+			setState(56);
 			_la = _input.LA(1);
 			if ( !(_la==PLUS || _la==MINUS) ) {
 			_errHandler.recoverInline(this);
@@ -268,17 +398,11 @@ public class EquationParser extends Parser {
 	}
 
 	public static class MultiplyingExpressionContext extends ParserRuleContext {
-		public List<PowExpressionContext> powExpression() {
-			return getRuleContexts(PowExpressionContext.class);
+		public PoweredExpressionContext poweredExpression() {
+			return getRuleContext(PoweredExpressionContext.class,0);
 		}
-		public PowExpressionContext powExpression(int i) {
-			return getRuleContext(PowExpressionContext.class,i);
-		}
-		public List<TimesOrDivContext> timesOrDiv() {
-			return getRuleContexts(TimesOrDivContext.class);
-		}
-		public TimesOrDivContext timesOrDiv(int i) {
-			return getRuleContext(TimesOrDivContext.class,i);
+		public TimesOrDivExpressionContext timesOrDivExpression() {
+			return getRuleContext(TimesOrDivExpressionContext.class,0);
 		}
 		public MultiplyingExpressionContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
@@ -301,29 +425,99 @@ public class EquationParser extends Parser {
 
 	public final MultiplyingExpressionContext multiplyingExpression() throws RecognitionException {
 		MultiplyingExpressionContext _localctx = new MultiplyingExpressionContext(_ctx, getState());
-		enterRule(_localctx, 6, RULE_multiplyingExpression);
-		int _la;
+		enterRule(_localctx, 10, RULE_multiplyingExpression);
 		try {
-			enterOuterAlt(_localctx, 1);
-			{
-			setState(37);
-			powExpression();
-			setState(43);
+			setState(60);
 			_errHandler.sync(this);
-			_la = _input.LA(1);
-			while (_la==TIMES || _la==DIV) {
+			switch ( getInterpreter().adaptivePredict(_input,3,_ctx) ) {
+			case 1:
+				enterOuterAlt(_localctx, 1);
 				{
+				setState(58);
+				poweredExpression();
+				}
+				break;
+			case 2:
+				enterOuterAlt(_localctx, 2);
 				{
-				setState(38);
-				timesOrDiv();
-				setState(39);
-				powExpression();
+				setState(59);
+				timesOrDivExpression();
 				}
-				}
-				setState(45);
-				_errHandler.sync(this);
-				_la = _input.LA(1);
+				break;
 			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			_errHandler.reportError(this, re);
+			_errHandler.recover(this, re);
+		}
+		finally {
+			exitRule();
+		}
+		return _localctx;
+	}
+
+	public static class TimesOrDivExpressionContext extends ParserRuleContext {
+		public List<PoweredExpressionContext> poweredExpression() {
+			return getRuleContexts(PoweredExpressionContext.class);
+		}
+		public PoweredExpressionContext poweredExpression(int i) {
+			return getRuleContext(PoweredExpressionContext.class,i);
+		}
+		public TimesOrDivContext timesOrDiv() {
+			return getRuleContext(TimesOrDivContext.class,0);
+		}
+		public TimesOrDivExpressionContext timesOrDivExpression() {
+			return getRuleContext(TimesOrDivExpressionContext.class,0);
+		}
+		public TimesOrDivExpressionContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_timesOrDivExpression; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EquationListener ) ((EquationListener)listener).enterTimesOrDivExpression(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EquationListener ) ((EquationListener)listener).exitTimesOrDivExpression(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof EquationVisitor ) return ((EquationVisitor<? extends T>)visitor).visitTimesOrDivExpression(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+
+	public final TimesOrDivExpressionContext timesOrDivExpression() throws RecognitionException {
+		TimesOrDivExpressionContext _localctx = new TimesOrDivExpressionContext(_ctx, getState());
+		enterRule(_localctx, 12, RULE_timesOrDivExpression);
+		try {
+			setState(70);
+			_errHandler.sync(this);
+			switch ( getInterpreter().adaptivePredict(_input,4,_ctx) ) {
+			case 1:
+				enterOuterAlt(_localctx, 1);
+				{
+				setState(62);
+				poweredExpression();
+				setState(63);
+				timesOrDiv();
+				setState(64);
+				poweredExpression();
+				}
+				break;
+			case 2:
+				enterOuterAlt(_localctx, 2);
+				{
+				setState(66);
+				poweredExpression();
+				setState(67);
+				timesOrDiv();
+				setState(68);
+				timesOrDivExpression();
+				}
+				break;
 			}
 		}
 		catch (RecognitionException re) {
@@ -361,12 +555,12 @@ public class EquationParser extends Parser {
 
 	public final TimesOrDivContext timesOrDiv() throws RecognitionException {
 		TimesOrDivContext _localctx = new TimesOrDivContext(_ctx, getState());
-		enterRule(_localctx, 8, RULE_timesOrDiv);
+		enterRule(_localctx, 14, RULE_timesOrDiv);
 		int _la;
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(46);
+			setState(72);
 			_la = _input.LA(1);
 			if ( !(_la==TIMES || _la==DIV) ) {
 			_errHandler.recoverInline(this);
@@ -389,6 +583,66 @@ public class EquationParser extends Parser {
 		return _localctx;
 	}
 
+	public static class PoweredExpressionContext extends ParserRuleContext {
+		public SignedAtomContext signedAtom() {
+			return getRuleContext(SignedAtomContext.class,0);
+		}
+		public PowExpressionContext powExpression() {
+			return getRuleContext(PowExpressionContext.class,0);
+		}
+		public PoweredExpressionContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_poweredExpression; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof EquationListener ) ((EquationListener)listener).enterPoweredExpression(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof EquationListener ) ((EquationListener)listener).exitPoweredExpression(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof EquationVisitor ) return ((EquationVisitor<? extends T>)visitor).visitPoweredExpression(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+
+	public final PoweredExpressionContext poweredExpression() throws RecognitionException {
+		PoweredExpressionContext _localctx = new PoweredExpressionContext(_ctx, getState());
+		enterRule(_localctx, 16, RULE_poweredExpression);
+		try {
+			setState(76);
+			_errHandler.sync(this);
+			switch ( getInterpreter().adaptivePredict(_input,5,_ctx) ) {
+			case 1:
+				enterOuterAlt(_localctx, 1);
+				{
+				setState(74);
+				signedAtom();
+				}
+				break;
+			case 2:
+				enterOuterAlt(_localctx, 2);
+				{
+				setState(75);
+				powExpression();
+				}
+				break;
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			_errHandler.reportError(this, re);
+			_errHandler.recover(this, re);
+		}
+		finally {
+			exitRule();
+		}
+		return _localctx;
+	}
+
 	public static class PowExpressionContext extends ParserRuleContext {
 		public List<SignedAtomContext> signedAtom() {
 			return getRuleContexts(SignedAtomContext.class);
@@ -396,9 +650,9 @@ public class EquationParser extends Parser {
 		public SignedAtomContext signedAtom(int i) {
 			return getRuleContext(SignedAtomContext.class,i);
 		}
-		public List<TerminalNode> POW() { return getTokens(EquationParser.POW); }
-		public TerminalNode POW(int i) {
-			return getToken(EquationParser.POW, i);
+		public TerminalNode POW() { return getToken(EquationParser.POW, 0); }
+		public PowExpressionContext powExpression() {
+			return getRuleContext(PowExpressionContext.class,0);
 		}
 		public PowExpressionContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
@@ -421,29 +675,33 @@ public class EquationParser extends Parser {
 
 	public final PowExpressionContext powExpression() throws RecognitionException {
 		PowExpressionContext _localctx = new PowExpressionContext(_ctx, getState());
-		enterRule(_localctx, 10, RULE_powExpression);
-		int _la;
+		enterRule(_localctx, 18, RULE_powExpression);
 		try {
-			enterOuterAlt(_localctx, 1);
-			{
-			setState(48);
-			signedAtom();
-			setState(53);
+			setState(86);
 			_errHandler.sync(this);
-			_la = _input.LA(1);
-			while (_la==POW) {
+			switch ( getInterpreter().adaptivePredict(_input,6,_ctx) ) {
+			case 1:
+				enterOuterAlt(_localctx, 1);
 				{
-				{
-				setState(49);
+				setState(78);
+				signedAtom();
+				setState(79);
 				match(POW);
-				setState(50);
+				setState(80);
 				signedAtom();
 				}
+				break;
+			case 2:
+				enterOuterAlt(_localctx, 2);
+				{
+				setState(82);
+				signedAtom();
+				setState(83);
+				match(POW);
+				setState(84);
+				powExpression();
 				}
-				setState(55);
-				_errHandler.sync(this);
-				_la = _input.LA(1);
-			}
+				break;
 			}
 		}
 		catch (RecognitionException re) {
@@ -490,26 +748,26 @@ public class EquationParser extends Parser {
 
 	public final SignedAtomContext signedAtom() throws RecognitionException {
 		SignedAtomContext _localctx = new SignedAtomContext(_ctx, getState());
-		enterRule(_localctx, 12, RULE_signedAtom);
+		enterRule(_localctx, 20, RULE_signedAtom);
 		try {
-			setState(62);
+			setState(94);
 			_errHandler.sync(this);
 			switch (_input.LA(1)) {
 			case PLUS:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(56);
+				setState(88);
 				match(PLUS);
-				setState(57);
+				setState(89);
 				signedAtom();
 				}
 				break;
 			case MINUS:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(58);
+				setState(90);
 				match(MINUS);
-				setState(59);
+				setState(91);
 				signedAtom();
 				}
 				break;
@@ -524,7 +782,7 @@ public class EquationParser extends Parser {
 			case SQRT:
 				enterOuterAlt(_localctx, 3);
 				{
-				setState(60);
+				setState(92);
 				func();
 				}
 				break;
@@ -538,7 +796,7 @@ public class EquationParser extends Parser {
 			case STRING:
 				enterOuterAlt(_localctx, 4);
 				{
-				setState(61);
+				setState(93);
 				atom();
 				}
 				break;
@@ -591,68 +849,68 @@ public class EquationParser extends Parser {
 
 	public final AtomContext atom() throws RecognitionException {
 		AtomContext _localctx = new AtomContext(_ctx, getState());
-		enterRule(_localctx, 14, RULE_atom);
+		enterRule(_localctx, 22, RULE_atom);
 		try {
-			setState(75);
+			setState(107);
 			_errHandler.sync(this);
 			switch (_input.LA(1)) {
 			case JSON_POINTER:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(64);
+				setState(96);
 				match(JSON_POINTER);
 				}
 				break;
 			case NUMBER:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(65);
+				setState(97);
 				match(NUMBER);
 				}
 				break;
 			case INT:
 				enterOuterAlt(_localctx, 3);
 				{
-				setState(66);
+				setState(98);
 				match(INT);
 				}
 				break;
 			case BOOLEAN:
 				enterOuterAlt(_localctx, 4);
 				{
-				setState(67);
+				setState(99);
 				match(BOOLEAN);
 				}
 				break;
 			case NULL:
 				enterOuterAlt(_localctx, 5);
 				{
-				setState(68);
+				setState(100);
 				match(NULL);
 				}
 				break;
 			case THIS:
 				enterOuterAlt(_localctx, 6);
 				{
-				setState(69);
+				setState(101);
 				match(THIS);
 				}
 				break;
 			case LPAREN:
 				enterOuterAlt(_localctx, 7);
 				{
-				setState(70);
+				setState(102);
 				match(LPAREN);
-				setState(71);
+				setState(103);
 				expression();
-				setState(72);
+				setState(104);
 				match(RPAREN);
 				}
 				break;
 			case STRING:
 				enterOuterAlt(_localctx, 8);
 				{
-				setState(74);
+				setState(106);
 				match(STRING);
 				}
 				break;
@@ -708,34 +966,34 @@ public class EquationParser extends Parser {
 
 	public final FuncContext func() throws RecognitionException {
 		FuncContext _localctx = new FuncContext(_ctx, getState());
-		enterRule(_localctx, 16, RULE_func);
+		enterRule(_localctx, 24, RULE_func);
 		int _la;
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(77);
+			setState(109);
 			funcname();
-			setState(78);
+			setState(110);
 			match(LPAREN);
-			setState(79);
+			setState(111);
 			expression();
-			setState(84);
+			setState(116);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			while (_la==COMMA) {
 				{
 				{
-				setState(80);
+				setState(112);
 				match(COMMA);
-				setState(81);
+				setState(113);
 				expression();
 				}
 				}
-				setState(86);
+				setState(118);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 			}
-			setState(87);
+			setState(119);
 			match(RPAREN);
 			}
 		}
@@ -781,12 +1039,12 @@ public class EquationParser extends Parser {
 
 	public final FuncnameContext funcname() throws RecognitionException {
 		FuncnameContext _localctx = new FuncnameContext(_ctx, getState());
-		enterRule(_localctx, 18, RULE_funcname);
+		enterRule(_localctx, 26, RULE_funcname);
 		int _la;
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(89);
+			setState(121);
 			_la = _input.LA(1);
 			if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << COS) | (1L << SIN) | (1L << TAN) | (1L << ACOS) | (1L << ASIN) | (1L << ATAN) | (1L << LN) | (1L << LOG) | (1L << SQRT))) != 0)) ) {
 			_errHandler.recoverInline(this);
@@ -834,12 +1092,12 @@ public class EquationParser extends Parser {
 
 	public final RelopContext relop() throws RecognitionException {
 		RelopContext _localctx = new RelopContext(_ctx, getState());
-		enterRule(_localctx, 20, RULE_relop);
+		enterRule(_localctx, 28, RULE_relop);
 		int _la;
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(91);
+			setState(123);
 			_la = _input.LA(1);
 			if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << GT) | (1L << LT) | (1L << EQ))) != 0)) ) {
 			_errHandler.recoverInline(this);
@@ -863,30 +1121,37 @@ public class EquationParser extends Parser {
 	}
 
 	public static final String _serializedATN =
-		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\"`\4\2\t\2\4\3\t"+
-		"\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7\4\b\t\b\4\t\t\t\4\n\t\n\4\13\t\13\4"+
-		"\f\t\f\3\2\3\2\3\2\3\2\3\3\3\3\3\3\3\3\7\3!\n\3\f\3\16\3$\13\3\3\4\3\4"+
-		"\3\5\3\5\3\5\3\5\7\5,\n\5\f\5\16\5/\13\5\3\6\3\6\3\7\3\7\3\7\7\7\66\n"+
-		"\7\f\7\16\79\13\7\3\b\3\b\3\b\3\b\3\b\3\b\5\bA\n\b\3\t\3\t\3\t\3\t\3\t"+
-		"\3\t\3\t\3\t\3\t\3\t\3\t\5\tN\n\t\3\n\3\n\3\n\3\n\3\n\7\nU\n\n\f\n\16"+
-		"\nX\13\n\3\n\3\n\3\13\3\13\3\f\3\f\3\f\2\2\r\2\4\6\b\n\f\16\20\22\24\26"+
-		"\2\6\3\2\16\17\3\2\20\21\3\2\3\13\3\2\22\24\2b\2\30\3\2\2\2\4\34\3\2\2"+
-		"\2\6%\3\2\2\2\b\'\3\2\2\2\n\60\3\2\2\2\f\62\3\2\2\2\16@\3\2\2\2\20M\3"+
-		"\2\2\2\22O\3\2\2\2\24[\3\2\2\2\26]\3\2\2\2\30\31\5\4\3\2\31\32\5\26\f"+
-		"\2\32\33\5\4\3\2\33\3\3\2\2\2\34\"\5\b\5\2\35\36\5\6\4\2\36\37\5\b\5\2"+
-		"\37!\3\2\2\2 \35\3\2\2\2!$\3\2\2\2\" \3\2\2\2\"#\3\2\2\2#\5\3\2\2\2$\""+
-		"\3\2\2\2%&\t\2\2\2&\7\3\2\2\2\'-\5\f\7\2()\5\n\6\2)*\5\f\7\2*,\3\2\2\2"+
-		"+(\3\2\2\2,/\3\2\2\2-+\3\2\2\2-.\3\2\2\2.\t\3\2\2\2/-\3\2\2\2\60\61\t"+
-		"\3\2\2\61\13\3\2\2\2\62\67\5\16\b\2\63\64\7\27\2\2\64\66\5\16\b\2\65\63"+
-		"\3\2\2\2\669\3\2\2\2\67\65\3\2\2\2\678\3\2\2\28\r\3\2\2\29\67\3\2\2\2"+
-		":;\7\16\2\2;A\5\16\b\2<=\7\17\2\2=A\5\16\b\2>A\5\22\n\2?A\5\20\t\2@:\3"+
-		"\2\2\2@<\3\2\2\2@>\3\2\2\2@?\3\2\2\2A\17\3\2\2\2BN\7\37\2\2CN\7\32\2\2"+
-		"DN\7\31\2\2EN\7\33\2\2FN\7\36\2\2GN\7\30\2\2HI\7\f\2\2IJ\5\4\3\2JK\7\r"+
-		"\2\2KN\3\2\2\2LN\7 \2\2MB\3\2\2\2MC\3\2\2\2MD\3\2\2\2ME\3\2\2\2MF\3\2"+
-		"\2\2MG\3\2\2\2MH\3\2\2\2ML\3\2\2\2N\21\3\2\2\2OP\5\24\13\2PQ\7\f\2\2Q"+
-		"V\5\4\3\2RS\7\25\2\2SU\5\4\3\2TR\3\2\2\2UX\3\2\2\2VT\3\2\2\2VW\3\2\2\2"+
-		"WY\3\2\2\2XV\3\2\2\2YZ\7\r\2\2Z\23\3\2\2\2[\\\t\4\2\2\\\25\3\2\2\2]^\t"+
-		"\5\2\2^\27\3\2\2\2\b\"-\67@MV";
+		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\"\u0080\4\2\t\2\4"+
+		"\3\t\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7\4\b\t\b\4\t\t\t\4\n\t\n\4\13\t"+
+		"\13\4\f\t\f\4\r\t\r\4\16\t\16\4\17\t\17\4\20\t\20\3\2\7\2\"\n\2\f\2\16"+
+		"\2%\13\2\3\2\3\2\3\3\3\3\3\3\3\3\3\4\3\4\5\4/\n\4\3\5\3\5\3\5\3\5\3\5"+
+		"\3\5\3\5\3\5\5\59\n\5\3\6\3\6\3\7\3\7\5\7?\n\7\3\b\3\b\3\b\3\b\3\b\3\b"+
+		"\3\b\3\b\5\bI\n\b\3\t\3\t\3\n\3\n\5\nO\n\n\3\13\3\13\3\13\3\13\3\13\3"+
+		"\13\3\13\3\13\5\13Y\n\13\3\f\3\f\3\f\3\f\3\f\3\f\5\fa\n\f\3\r\3\r\3\r"+
+		"\3\r\3\r\3\r\3\r\3\r\3\r\3\r\3\r\5\rn\n\r\3\16\3\16\3\16\3\16\3\16\7\16"+
+		"u\n\16\f\16\16\16x\13\16\3\16\3\16\3\17\3\17\3\20\3\20\3\20\2\2\21\2\4"+
+		"\6\b\n\f\16\20\22\24\26\30\32\34\36\2\6\3\2\16\17\3\2\20\21\3\2\3\13\3"+
+		"\2\22\24\2\u0082\2#\3\2\2\2\4(\3\2\2\2\6.\3\2\2\2\b8\3\2\2\2\n:\3\2\2"+
+		"\2\f>\3\2\2\2\16H\3\2\2\2\20J\3\2\2\2\22N\3\2\2\2\24X\3\2\2\2\26`\3\2"+
+		"\2\2\30m\3\2\2\2\32o\3\2\2\2\34{\3\2\2\2\36}\3\2\2\2 \"\7\2\2\3! \3\2"+
+		"\2\2\"%\3\2\2\2#!\3\2\2\2#$\3\2\2\2$&\3\2\2\2%#\3\2\2\2&\'\5\4\3\2\'\3"+
+		"\3\2\2\2()\5\6\4\2)*\5\36\20\2*+\5\6\4\2+\5\3\2\2\2,/\5\f\7\2-/\5\b\5"+
+		"\2.,\3\2\2\2.-\3\2\2\2/\7\3\2\2\2\60\61\5\f\7\2\61\62\5\n\6\2\62\63\5"+
+		"\f\7\2\639\3\2\2\2\64\65\5\f\7\2\65\66\5\n\6\2\66\67\5\b\5\2\679\3\2\2"+
+		"\28\60\3\2\2\28\64\3\2\2\29\t\3\2\2\2:;\t\2\2\2;\13\3\2\2\2<?\5\22\n\2"+
+		"=?\5\16\b\2><\3\2\2\2>=\3\2\2\2?\r\3\2\2\2@A\5\22\n\2AB\5\20\t\2BC\5\22"+
+		"\n\2CI\3\2\2\2DE\5\22\n\2EF\5\20\t\2FG\5\16\b\2GI\3\2\2\2H@\3\2\2\2HD"+
+		"\3\2\2\2I\17\3\2\2\2JK\t\3\2\2K\21\3\2\2\2LO\5\26\f\2MO\5\24\13\2NL\3"+
+		"\2\2\2NM\3\2\2\2O\23\3\2\2\2PQ\5\26\f\2QR\7\27\2\2RS\5\26\f\2SY\3\2\2"+
+		"\2TU\5\26\f\2UV\7\27\2\2VW\5\24\13\2WY\3\2\2\2XP\3\2\2\2XT\3\2\2\2Y\25"+
+		"\3\2\2\2Z[\7\16\2\2[a\5\26\f\2\\]\7\17\2\2]a\5\26\f\2^a\5\32\16\2_a\5"+
+		"\30\r\2`Z\3\2\2\2`\\\3\2\2\2`^\3\2\2\2`_\3\2\2\2a\27\3\2\2\2bn\7\37\2"+
+		"\2cn\7\32\2\2dn\7\31\2\2en\7\33\2\2fn\7\36\2\2gn\7\30\2\2hi\7\f\2\2ij"+
+		"\5\6\4\2jk\7\r\2\2kn\3\2\2\2ln\7 \2\2mb\3\2\2\2mc\3\2\2\2md\3\2\2\2me"+
+		"\3\2\2\2mf\3\2\2\2mg\3\2\2\2mh\3\2\2\2ml\3\2\2\2n\31\3\2\2\2op\5\34\17"+
+		"\2pq\7\f\2\2qv\5\6\4\2rs\7\25\2\2su\5\6\4\2tr\3\2\2\2ux\3\2\2\2vt\3\2"+
+		"\2\2vw\3\2\2\2wy\3\2\2\2xv\3\2\2\2yz\7\r\2\2z\33\3\2\2\2{|\t\4\2\2|\35"+
+		"\3\2\2\2}~\t\5\2\2~\37\3\2\2\2\f#.8>HNX`mv";
 	public static final ATN _ATN =
 		new ATNDeserializer().deserialize(_serializedATN.toCharArray());
 	static {

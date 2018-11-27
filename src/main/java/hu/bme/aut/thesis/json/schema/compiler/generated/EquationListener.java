@@ -8,6 +8,16 @@ import org.antlr.v4.runtime.tree.ParseTreeListener;
  */
 public interface EquationListener extends ParseTreeListener {
 	/**
+	 * Enter a parse tree produced by {@link EquationParser#equationwa}.
+	 * @param ctx the parse tree
+	 */
+	void enterEquationwa(EquationParser.EquationwaContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link EquationParser#equationwa}.
+	 * @param ctx the parse tree
+	 */
+	void exitEquationwa(EquationParser.EquationwaContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link EquationParser#equation}.
 	 * @param ctx the parse tree
 	 */
@@ -27,6 +37,16 @@ public interface EquationListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitExpression(EquationParser.ExpressionContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link EquationParser#plusOrMinusExpression}.
+	 * @param ctx the parse tree
+	 */
+	void enterPlusOrMinusExpression(EquationParser.PlusOrMinusExpressionContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link EquationParser#plusOrMinusExpression}.
+	 * @param ctx the parse tree
+	 */
+	void exitPlusOrMinusExpression(EquationParser.PlusOrMinusExpressionContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link EquationParser#plusOrMinus}.
 	 * @param ctx the parse tree
@@ -48,6 +68,16 @@ public interface EquationListener extends ParseTreeListener {
 	 */
 	void exitMultiplyingExpression(EquationParser.MultiplyingExpressionContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link EquationParser#timesOrDivExpression}.
+	 * @param ctx the parse tree
+	 */
+	void enterTimesOrDivExpression(EquationParser.TimesOrDivExpressionContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link EquationParser#timesOrDivExpression}.
+	 * @param ctx the parse tree
+	 */
+	void exitTimesOrDivExpression(EquationParser.TimesOrDivExpressionContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link EquationParser#timesOrDiv}.
 	 * @param ctx the parse tree
 	 */
@@ -57,6 +87,16 @@ public interface EquationListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitTimesOrDiv(EquationParser.TimesOrDivContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link EquationParser#poweredExpression}.
+	 * @param ctx the parse tree
+	 */
+	void enterPoweredExpression(EquationParser.PoweredExpressionContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link EquationParser#poweredExpression}.
+	 * @param ctx the parse tree
+	 */
+	void exitPoweredExpression(EquationParser.PoweredExpressionContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link EquationParser#powExpression}.
 	 * @param ctx the parse tree
