@@ -95,6 +95,13 @@ signedAtom
    | atom
    ;
 
+
+array
+   : '[' atom (',' atom)* ']'
+   | '[' ']'
+   ;
+
+
 atom
    : JSON_POINTER
    | NUMBER
@@ -104,6 +111,7 @@ atom
    | THIS
    | LPAREN expression RPAREN
    | STRING
+   | array
    ;
 
 func

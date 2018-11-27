@@ -21,7 +21,7 @@ public class JsonVisitor extends JSONBaseVisitor<SchemaNode> {
         if (Objects.nonNull(obj)) {
             return obj.accept(new ObjectVisitor());
         } else {
-            LOGGER.debug("ERROR: Top level element of json schema is not an object.");
+            LOGGER.warn("Top level element of json schema is not an object!");
             warnValue(value, LOGGER);
             throw new SchemaException("Top level element of json schema should be an object!");
         }

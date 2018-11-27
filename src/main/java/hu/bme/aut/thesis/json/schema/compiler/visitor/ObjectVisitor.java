@@ -78,18 +78,18 @@ public class ObjectVisitor extends JSONBaseVisitor<SchemaNode> {
         ExtraRestriction extraRestriction;
         if (metaKeywords.contains(pairKey)) return;
         if ((restrictionInitiator = restrictionMap.get(pairKey)) != null) {
-            LOGGER.debug("Found restriction initiator for key '{}'.", pairKey);
+            LOGGER.debug("Restriction initiator for key '{}' recognized.", pairKey);
             Restriction restriction = restrictionInitiator.initiate(pair.value());
             if (restriction == null) {
                 LOGGER.warn("Failed to initiate restriction for key '{}'. Skipping...", pairKey);
                 warnValue(pair.value(), LOGGER);
                 return;
             }
-            schemaNode.addRestriction(restriction);
             LOGGER.debug("Adding restriction: " + pairKey);
+            schemaNode.addRestriction(restriction);
         } else if ((extraRestriction = ExtraRestriction.get(pairKey)) != null) {
-            schemaNode.addExtraRestriction(extraRestriction, pair.value());
             LOGGER.debug("Adding extra restriction: " + pairKey);
+            schemaNode.addExtraRestriction(extraRestriction, pair.value());
         } else {
             LOGGER.warn("Key '{}' not recognized!", pairKey);
         }

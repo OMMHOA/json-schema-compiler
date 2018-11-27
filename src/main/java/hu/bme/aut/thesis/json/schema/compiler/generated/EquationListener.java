@@ -118,6 +118,16 @@ public interface EquationListener extends ParseTreeListener {
 	 */
 	void exitSignedAtom(EquationParser.SignedAtomContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link EquationParser#array}.
+	 * @param ctx the parse tree
+	 */
+	void enterArray(EquationParser.ArrayContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link EquationParser#array}.
+	 * @param ctx the parse tree
+	 */
+	void exitArray(EquationParser.ArrayContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link EquationParser#atom}.
 	 * @param ctx the parse tree
 	 */

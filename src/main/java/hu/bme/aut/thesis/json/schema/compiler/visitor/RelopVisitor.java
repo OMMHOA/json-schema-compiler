@@ -15,15 +15,15 @@ public class RelopVisitor extends EquationBaseVisitor<EquationRestriction> {
     @Override
     public EquationRestriction visitRelop(EquationParser.RelopContext relop) {
         if (relop.EQ() != null) {
-            LOGGER.debug("Recognized equals relop.");
+            LOGGER.debug("Equals relop recognized.");
             return new EqualsRestriction();
         }
         if (relop.LT() != null) {
-            LOGGER.debug("Recognized less than relop.");
+            LOGGER.debug("Less Than relop recognized.");
             return new LessThanRestriction();
         }
         if (relop.GT() != null) {
-            LOGGER.debug("Recognized more than relop.");
+            LOGGER.debug("More Than relop recognized.");
             return new MoreThanRestriction();
         }
         LOGGER.warn("No relop recognized.");

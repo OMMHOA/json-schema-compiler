@@ -77,6 +77,12 @@ public interface EquationVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitSignedAtom(EquationParser.SignedAtomContext ctx);
 	/**
+	 * Visit a parse tree produced by {@link EquationParser#array}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitArray(EquationParser.ArrayContext ctx);
+	/**
 	 * Visit a parse tree produced by {@link EquationParser#atom}.
 	 * @param ctx the parse tree
 	 * @return the visitor result

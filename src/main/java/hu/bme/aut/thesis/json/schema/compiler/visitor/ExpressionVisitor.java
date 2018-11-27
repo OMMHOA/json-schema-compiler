@@ -4,6 +4,7 @@ import hu.bme.aut.thesis.json.schema.compiler.generated.EquationBaseVisitor;
 import hu.bme.aut.thesis.json.schema.compiler.generated.EquationParser;
 import hu.bme.aut.thesis.json.schema.compiler.model.equation.PartOfEquation;
 import hu.bme.aut.thesis.json.schema.compiler.model.equation.operator.Operator;
+import hu.bme.aut.thesis.json.schema.compiler.model.equation.operator.PowOperator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -95,9 +96,29 @@ public class ExpressionVisitor extends EquationBaseVisitor<PartOfEquation> {
         }
         if (expression.signedAtom() != null) {
             LOGGER.debug("Single signedAtom recognized.");
-            return expression.signedAtom().accept(new SignedAtomVisitor());
+            return expression.signedAtom().accept(new AtomVisitor());
         }
         LOGGER.warn("No expression recognized. Skipping...");
         return null;
+    }
+
+    @Override
+    public PartOfEquation visitPowExpression(EquationParser.PowExpressionContext expression) {
+        LOGGER.debug("Getting pow operator.");
+        Operator operator = new PowOperator();
+        PartOfEquation part = expression.signedAtom(0).accept(new AtomVisitor());
+        if (part == null) {
+            LOGGER.warn("Failed to set left. Skipping...");
+            return null;
+        }
+        operator.setLeft(part);
+        part = expression.powExpression() != null ? expression.powExpression().accept(this) :
+                expression.signedAtom(1).accept(new AtomVisitor());
+        if (part == null) {
+            LOGGER.warn("Failed to set right. Skipping...");
+            return null;
+        }
+        operator.setRight(part);
+        return operator;
     }
 }

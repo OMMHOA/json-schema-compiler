@@ -12,28 +12,28 @@ public class OperatorVisitor extends EquationBaseVisitor<Operator> {
     @Override
     public Operator visitPlusOrMinus(EquationParser.PlusOrMinusContext plusOrMinus) {
         if (plusOrMinus.PLUS() != null) {
-            LOGGER.debug("Found PlusOperator.");
+            LOGGER.debug("PlusOperator recognized.");
             return new PlusOperator();
         }
         if (plusOrMinus.MINUS() != null) {
-            LOGGER.debug("Found MinusOperator.");
+            LOGGER.debug("MinusOperator recognized.");
             return new MinusOperator();
         }
-        LOGGER.warn("Plus or Minus Operator not found!");
+        LOGGER.warn("Plus or Minus Operator not recognized!");
         return null;
     }
 
     @Override
     public Operator visitTimesOrDiv(EquationParser.TimesOrDivContext timesOrDiv) {
         if (timesOrDiv.TIMES() != null) {
-            LOGGER.debug("Found TimesOperator.");
+            LOGGER.debug("TimesOperator recognized.");
             return new TimesOperator();
         }
         if (timesOrDiv.DIV() != null) {
-            LOGGER.debug("Found DivOperator");
+            LOGGER.debug("DivOperator recognized");
             return new DivOperator();
         }
-        LOGGER.warn("Times or Div Operator not found!");
+        LOGGER.warn("Times or Div Operator not recognized!");
         return null;
     }
 }
