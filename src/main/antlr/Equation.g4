@@ -249,9 +249,8 @@ INT
    : '0' | [1-9] [0-9]*
    ;
 
-
 NUMBER
-   : '-'? INT ('.' [0-9] +)? EXP?
+   : MINUS? INT ('.' [0-9] +)? EXP?
    ;
 
 
@@ -281,23 +280,17 @@ NULL
 
 
 JSON_POINTER
-   : '/' STRING_CONTENT*
+   : '#/' [A-Za-z0-9/]+
    ;
 
 
 STRING
-   : '\\"' STRING_CONTENT* '\\"'
-   ;
-
-
-STRING_CONTENT
-   : ESC
-   | SAFECODEPOINT
+   : '\\"' (ESC | SAFECODEPOINT)* '\\"'
    ;
 
 
 fragment ESC
-   : '\\' (["\\/bfnrt] | UNICODE)
+   : '\\' ([\\/bfnrt] | UNICODE)
    ;
 
 

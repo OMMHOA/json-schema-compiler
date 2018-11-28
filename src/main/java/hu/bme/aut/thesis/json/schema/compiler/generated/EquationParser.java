@@ -20,8 +20,7 @@ public class EquationParser extends Parser {
 		T__0=1, T__1=2, COS=3, SIN=4, TAN=5, ACOS=6, ASIN=7, ATAN=8, LN=9, LOG=10, 
 		SQRT=11, LPAREN=12, RPAREN=13, PLUS=14, MINUS=15, TIMES=16, DIV=17, GT=18, 
 		LT=19, EQ=20, COMMA=21, POINT=22, POW=23, THIS=24, INT=25, NUMBER=26, 
-		BOOLEAN=27, TRUE=28, FALSE=29, NULL=30, JSON_POINTER=31, STRING=32, STRING_CONTENT=33, 
-		WS=34;
+		BOOLEAN=27, TRUE=28, FALSE=29, NULL=30, JSON_POINTER=31, STRING=32, WS=33;
 	public static final int
 		RULE_equationwa = 0, RULE_equation = 1, RULE_expression = 2, RULE_plusOrMinusExpression = 3, 
 		RULE_plusOrMinus = 4, RULE_multiplyingExpression = 5, RULE_timesOrDivExpression = 6, 
@@ -44,7 +43,7 @@ public class EquationParser extends Parser {
 		null, null, null, "COS", "SIN", "TAN", "ACOS", "ASIN", "ATAN", "LN", "LOG", 
 		"SQRT", "LPAREN", "RPAREN", "PLUS", "MINUS", "TIMES", "DIV", "GT", "LT", 
 		"EQ", "COMMA", "POINT", "POW", "THIS", "INT", "NUMBER", "BOOLEAN", "TRUE", 
-		"FALSE", "NULL", "JSON_POINTER", "STRING", "STRING_CONTENT", "WS"
+		"FALSE", "NULL", "JSON_POINTER", "STRING", "WS"
 	};
 	public static final Vocabulary VOCABULARY = new VocabularyImpl(_LITERAL_NAMES, _SYMBOLIC_NAMES);
 
@@ -1193,7 +1192,7 @@ public class EquationParser extends Parser {
 	}
 
 	public static final String _serializedATN =
-		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3$\u008e\4\2\t\2\4"+
+		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3#\u008e\4\2\t\2\4"+
 		"\3\t\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7\4\b\t\b\4\t\t\t\4\n\t\n\4\13\t"+
 		"\13\4\f\t\f\4\r\t\r\4\16\t\16\4\17\t\17\4\20\t\20\4\21\t\21\3\2\7\2$\n"+
 		"\2\f\2\16\2\'\13\2\3\2\3\2\3\3\3\3\3\3\3\3\3\4\3\4\5\4\61\n\4\3\5\3\5"+
