@@ -2,7 +2,11 @@ package hu.bme.aut.thesis.json.schema.compiler;
 
 import hu.bme.aut.thesis.json.schema.compiler.model.SchemaException;
 import hu.bme.aut.thesis.json.schema.compiler.model.SchemaNode;
+import hu.bme.aut.thesis.json.schema.compiler.model.equation.EquationValue;
+import hu.bme.aut.thesis.json.schema.compiler.restriction.Restriction;
 import org.junit.Test;
+
+import java.io.IOException;
 
 import static org.junit.Assert.*;
 
@@ -50,6 +54,33 @@ public class ParserTest extends TestFixture {
     public void schema7() {
         SchemaNode node = Parser.parse(schema7);
         assertTrue(node.validate(input7Node));
+    }
+
+    @Test
+    public void equations() throws IOException {
+        String[] equations = getResource("equations").split("\n");
+        Restriction restriction;
+
+        restriction = Parser.parseEquation(equations[0]);
+        assertTrue(restriction.validate(null));
+
+        restriction = Parser.parseEquation(equations[1]);
+        assertTrue(restriction.validate(null));
+
+        restriction = Parser.parseEquation(equations[2]);
+        assertTrue(restriction.validate(null));
+
+        restriction = Parser.parseEquation(equations[3]);
+        assertFalse(restriction.validate(null));
+
+        restriction = Parser.parseEquation(equations[4]);
+        assertTrue(restriction.validate(null));
+
+        restriction = Parser.parseEquation(equations[5]);
+        assertTrue(restriction.validate(null));
+
+        restriction = Parser.parseEquation(equations[6]);
+        assertTrue(restriction.validate(input1Node.get("age")));
     }
 
     @Test(expected = SchemaException.class)

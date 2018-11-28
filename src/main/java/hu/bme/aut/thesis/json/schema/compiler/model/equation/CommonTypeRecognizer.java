@@ -28,10 +28,10 @@ public class CommonTypeRecognizer {
 
     public static EquationValue operate(EquationValue left, EquationValue right, Operator operator) {
         if (left.sameType(right)) {
-            LOGGER.debug("Left and right part of operation '" + operator.getClass().getName() + "' are of the same type: " + left.getType());
+            LOGGER.debug("Left and right part of operation '" + operator.getClass().getSimpleName() + "' are of the same type: " + left.getType());
             return operateSameType(left, right, operator);
         }
-        LOGGER.debug("Left and right part of operation '" + operator.getClass().getName() + "' are of different type. Left: " + left.getType()
+        LOGGER.debug("Left and right part of operation '" + operator.getClass().getSimpleName() + "' are of different type. Left: " + left.getType()
                 + " Right: " + right.getType());
         return operateDifferentType(left, right, operator);
     }

@@ -5,10 +5,13 @@ import hu.bme.aut.thesis.json.schema.compiler.model.equation.CommonTypeRecognize
 import hu.bme.aut.thesis.json.schema.compiler.model.equation.EquationValue;
 import hu.bme.aut.thesis.json.schema.compiler.model.equation.PartOfEquation;
 import hu.bme.aut.thesis.json.schema.compiler.model.type.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.List;
 
 public abstract class Operator implements PartOfEquation {
+    private static Logger LOGGER = LoggerFactory.getLogger(Operator.class);
     private PartOfEquation left;
     private PartOfEquation right;
     protected JsonNode jsonNode;
@@ -40,6 +43,7 @@ public abstract class Operator implements PartOfEquation {
     }
 
     public EquationValue operate(List<EquationValue> left, List<EquationValue> right) {
+        LOGGER.debug(this.getClass().getSimpleName() + ": Left: " + left + " Right: " + right);
         return new EquationValue.Builder()
                 .setListValue(calculate(left, right))
                 .setType(new ListType())
@@ -47,6 +51,7 @@ public abstract class Operator implements PartOfEquation {
                 .build();
     }
     public EquationValue operate(Boolean left, Boolean right){
+        LOGGER.debug(this.getClass().getSimpleName() + ": Left: " + left + " Right: " + right);
         return new EquationValue.Builder()
                 .setBooleanValue(calculate(left, right))
                 .setType(new BooleanType())
@@ -54,6 +59,7 @@ public abstract class Operator implements PartOfEquation {
                 .build();
     }
     public EquationValue operate(Integer left, Integer right){
+        LOGGER.debug(this.getClass().getSimpleName() + ": Left: " + left + " Right: " + right);
         return new EquationValue.Builder()
                 .setIntegerValue(calculate(left, right))
                 .setType(new IntegerType())
@@ -61,6 +67,7 @@ public abstract class Operator implements PartOfEquation {
                 .build();
     }
     public EquationValue operate(Double left, Double right){
+        LOGGER.debug(this.getClass().getSimpleName() + ": Left: " + left + " Right: " + right);
         return new EquationValue.Builder()
                 .setDoubleValue(calculate(left, right))
                 .setType(new DoubleType())
@@ -68,6 +75,7 @@ public abstract class Operator implements PartOfEquation {
                 .build();
     }
     public EquationValue operate(String left, String right){
+        LOGGER.debug(this.getClass().getSimpleName() + ": Left: " + left + " Right: " + right);
         return new EquationValue.Builder()
                 .setStringValue(calculate(left, right))
                 .setType(new StringType())

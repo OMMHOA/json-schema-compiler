@@ -55,6 +55,7 @@ public class EquationValue implements PartOfEquation {
         for (Type type : CommonTypeRecognizer.TYPES.values()) {
             if (type.isType(node)) {
                 this.type = type;
+                return;
             }
         }
         throw new RuntimeException("JsonNode type not recognized! JsonNode: " + node);
