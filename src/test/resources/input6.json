@@ -1,0 +1,14 @@
+{
+  "one": {
+    "oneField1": "text1",
+    "oneField2": "text2",
+    "oneField3": "text",
+    "two": {
+      "twoField1": "text2",
+      "twoField2": [1, "2", false],
+      "three": {
+        "threeField1": "text1"
+      }
+    }
+  }
+}

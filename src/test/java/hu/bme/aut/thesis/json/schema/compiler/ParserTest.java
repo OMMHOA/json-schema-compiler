@@ -3,6 +3,7 @@ package hu.bme.aut.thesis.json.schema.compiler;
 import hu.bme.aut.thesis.json.schema.compiler.model.SchemaException;
 import hu.bme.aut.thesis.json.schema.compiler.model.SchemaNode;
 import hu.bme.aut.thesis.json.schema.compiler.restriction.Restriction;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import java.io.IOException;
@@ -51,6 +52,13 @@ public class ParserTest extends TestFixture {
     }
 
     @Test
+    @Ignore // TODO: why does this fail when running all but succeeds when running alone?
+    public void schema6() {
+        SchemaNode schemaNode = Parser.parse(schema6);
+        assertTrue(schemaNode.validate(input6Node));
+    }
+
+    @Test
     public void schema7() {
         SchemaNode node = Parser.parse(schema7);
         assertTrue(node.validate(input7Node));
@@ -96,6 +104,21 @@ public class ParserTest extends TestFixture {
 
         restriction = Parser.parseEquation(equations[11]);
         assertTrue(restriction.validate(input1Node.get("first_name")));
+
+        restriction = Parser.parseEquation(equations[12]);
+        assertTrue(restriction.validate(input1Node));
+
+        restriction = Parser.parseEquation(equations[13]);
+        assertTrue(restriction.validate(input6Node));
+
+        restriction = Parser.parseEquation(equations[14]);
+        assertTrue(restriction.validate(input6Node));
+
+        restriction = Parser.parseEquation(equations[15]);
+        assertTrue(restriction.validate(input6Node));
+
+        restriction = Parser.parseEquation(equations[16]);
+        assertTrue(restriction.validate(input6Node));
     }
 
     @Test(expected = SchemaException.class)

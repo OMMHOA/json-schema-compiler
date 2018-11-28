@@ -1,6 +1,7 @@
 package hu.bme.aut.thesis.json.schema.compiler.model.equation;
 
 import com.google.common.collect.ImmutableMap;
+import hu.bme.aut.thesis.json.schema.compiler.model.SchemaException;
 import hu.bme.aut.thesis.json.schema.compiler.model.equation.operator.Operator;
 import hu.bme.aut.thesis.json.schema.compiler.model.type.*;
 import org.slf4j.Logger;
@@ -56,7 +57,6 @@ public class CommonTypeRecognizer {
     }
 
     private static EquationValue operateDifferentType(EquationValue left, EquationValue right, Operator operator) {
-        // TODO
-        return null;
+        throw new SchemaException("Operating between different types is currently not supported!");
     }
 }

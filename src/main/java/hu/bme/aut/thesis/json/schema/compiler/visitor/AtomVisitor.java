@@ -36,8 +36,7 @@ public class AtomVisitor extends EquationBaseVisitor<PartOfEquation> {
         EquationValue.Builder builder = new EquationValue.Builder();
         if (atom.array() != null) {
             LOGGER.debug("Array recognized.");
-            builder.setPreEvaluationListValue(getArrayValues(atom.array()))
-                    .setType(new ListType());
+            builder.setPreEvaluationListValue(getArrayValues(atom.array()));
         } else if (atom.BOOLEAN() != null) {
             LOGGER.debug("Boolean recognized.");
             builder.setBooleanValue(Boolean.parseBoolean(atom.BOOLEAN().getText()))
@@ -59,7 +58,8 @@ public class AtomVisitor extends EquationBaseVisitor<PartOfEquation> {
             builder.setThisValue(true);
         } else if (atom.JSON_POINTER() != null) {
             LOGGER.debug("JsonPointer recognized.");
-            builder.setPointerValue(JsonPointer.compile(unquote(atom.JSON_POINTER().getText())));
+            // remove # with substring
+            builder.setPointerValue(JsonPointer.compile(atom.JSON_POINTER().getText().substring(1)));
         } else if (atom.expression() != null) {
             LOGGER.debug("Expression in parentheses recognized.");
             return atom.expression().accept(new ExpressionVisitor());

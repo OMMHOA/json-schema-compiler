@@ -38,9 +38,9 @@ public class EquationValue implements PartOfEquation {
             setTypeAndValue(node.at(pointerValue));
             return this;
         } else if (preEvaluationListValue != null) {
-            listValue = preEvaluationListValue.stream()
+            setListValue(preEvaluationListValue.stream()
                     .map(part -> part.evaluate(node))
-                    .collect(Collectors.toList());
+                    .collect(Collectors.toList()));
             return this;
         }
         throw new RuntimeException("Anomaly occurred during evaluation! No type recognized. JsonNode: " + node);
@@ -217,13 +217,11 @@ public class EquationValue implements PartOfEquation {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         EquationValue value = (EquationValue) o;
-        return thisValue == value.thisValue &&
-                Objects.equals(listValue, value.listValue) &&
+        return Objects.equals(listValue, value.listValue) &&
                 Objects.equals(booleanValue, value.booleanValue) &&
                 Objects.equals(integerValue, value.integerValue) &&
                 Objects.equals(doubleValue, value.doubleValue) &&
-                Objects.equals(stringValue, value.stringValue) &&
-                Objects.equals(pointerValue, value.pointerValue);
+                Objects.equals(stringValue, value.stringValue);
     }
 
     @Override
@@ -233,20 +231,20 @@ public class EquationValue implements PartOfEquation {
 
     @Override
     public String toString() {
-        return "EquationValue{" +
-                "listValue=" + listValue +
-                ", booleanValue=" + booleanValue +
-                ", integerValue=" + integerValue +
-                ", doubleValue=" + doubleValue +
-                ", stringValue='" + stringValue + '\'' +
-                ", nullValue=" + nullValue +
-                ", objectValue=" + objectValue +
-                ", preEvaluationListValue=" + preEvaluationListValue +
-                ", thisValue=" + thisValue +
-                ", pointerValue=" + pointerValue +
-                ", type=" + type +
-                ", isEvaluated=" + isEvaluated +
-                '}';
+        final StringBuilder sb = new StringBuilder("EquationValue{");
+        if (listValue != null) sb.append("listValue=").append(listValue);
+        if (booleanValue != null) sb.append(", booleanValue=").append(booleanValue);
+        if (integerValue != null) sb.append(", integerValue=").append(integerValue);
+        if (doubleValue != null) sb.append(", doubleValue=").append(doubleValue);
+        if (stringValue != null) sb.append(", stringValue='").append(stringValue).append('\'');
+        if (nullValue) sb.append(", nullValue=").append(nullValue);
+        if (objectValue != null) sb.append(", objectValue=").append(objectValue);
+        if (preEvaluationListValue != null) sb.append(", preEvaluationListValue=").append(preEvaluationListValue);
+        if (thisValue) sb.append(", thisValue=").append(thisValue);
+        if (pointerValue != null) sb.append(", pointerValue=").append(pointerValue);
+        if (type != null) sb.append(", type=").append(type);
+        sb.append('}');
+        return sb.toString();
     }
 
     private EquationValue(List<EquationValue> listValue, Boolean booleanValue, Integer integerValue, Double doubleValue,

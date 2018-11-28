@@ -29,7 +29,7 @@ public class FuncVisitor extends EquationBaseVisitor<Function> {
         if (funcname.SQRT() != null) {
             LOGGER.debug("'sqrt' function recognized.");
             return new SqrtFunction();
-        } // TODO: implement missing
+        }
         LOGGER.warn("No function name recognized!");
         return null;
     }
