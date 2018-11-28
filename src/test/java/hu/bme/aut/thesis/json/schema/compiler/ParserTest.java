@@ -87,6 +87,12 @@ public class ParserTest extends TestFixture {
 
         restriction = Parser.parseEquation(equations[8]);
         assertTrue(restriction.validate(null));
+
+        restriction = Parser.parseEquation(equations[9]);
+        assertTrue(restriction.validate(input1Node.get("age")));
+
+        restriction = Parser.parseEquation(equations[10]);
+        assertTrue(restriction.validate(null));
     }
 
     @Test(expected = SchemaException.class)
