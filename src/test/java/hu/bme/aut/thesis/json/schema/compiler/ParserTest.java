@@ -1,5 +1,6 @@
 package hu.bme.aut.thesis.json.schema.compiler;
 
+import com.fasterxml.jackson.databind.JsonNode;
 import hu.bme.aut.thesis.json.schema.compiler.model.SchemaException;
 import hu.bme.aut.thesis.json.schema.compiler.model.SchemaNode;
 import hu.bme.aut.thesis.json.schema.compiler.restriction.Restriction;
@@ -8,6 +9,7 @@ import org.junit.Test;
 
 import java.io.IOException;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
@@ -59,9 +61,19 @@ public class ParserTest extends TestFixture {
     }
 
     @Test
-    public void schema7() {
-        SchemaNode node = Parser.parse(schema7);
-        assertTrue(node.validate(input7Node));
+    public void schemaEquations() throws IOException {
+        String[] inputs = getResource("schemaEquations").split("\\n");
+        String schema = "";
+        for (String i : inputs) {
+            String[] input_result = i.split(";");
+            if (input_result.length == 1) {
+                schema = input_result[0];
+                continue;
+            }
+            JsonNode input = OBJECT_MAPPER.readTree(input_result[0]);
+            boolean expected = Boolean.parseBoolean(input_result[1]);
+            assertEquals("" + input, expected, Parser.parse(schema).validate(input));
+        }
     }
 
     @Test

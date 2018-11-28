@@ -1,0 +1,6 @@
+{"value": "this=3"}
+3;true
+4;false
+{"value": "#/one/oneField1 / 2 = #/two/twoField1"}
+{"one":{"oneField1":4},"two":{"twoField1":2}};true
+{"one":{"oneField1":6},"two":{"twoField1":2}};false

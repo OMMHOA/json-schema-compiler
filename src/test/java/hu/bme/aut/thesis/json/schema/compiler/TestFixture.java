@@ -24,8 +24,6 @@ public class TestFixture {
     protected static JsonNode input5Node;
     protected static String input6;
     protected static JsonNode input6Node;
-    protected static String input7;
-    protected static JsonNode input7Node;
 
     protected static String wrongInput11;
     protected static JsonNode wrongInput11Node;
@@ -43,10 +41,6 @@ public class TestFixture {
     protected static JsonNode wrongInput51Node;
     protected static String wrongInput52;
     protected static JsonNode wrongInput52Node;
-    protected static String wrongInput71;
-    protected static JsonNode wrongInput71Node;
-    protected static String wrongInput72;
-    protected static JsonNode wrongInput72Node;
 
     protected static String schema1;
     protected static JsonNode schema1Node;
@@ -60,9 +54,6 @@ public class TestFixture {
     protected static JsonNode schema5Node;
     protected static String schema6;
     protected static JsonNode schema6Node;
-    protected static String schema7;
-    protected static JsonNode schema7Node;
-
 
 
     @Before
@@ -73,7 +64,6 @@ public class TestFixture {
         input4 = getResource("input4.json");
         input5 = getResource("input5.json");
         input6 = getResource("input6.json");
-        input7 = getResource("input7.json");
         wrongInput11 = getResource("wrongInput11.json");
         wrongInput12 = getResource("wrongInput12.json");
         wrongInput31 = getResource("wrongInput31.json");
@@ -82,15 +72,12 @@ public class TestFixture {
         wrongInput42 = getResource("wrongInput42.json");
         wrongInput51 = getResource("wrongInput51.json");
         wrongInput52 = getResource("wrongInput52.json");
-        wrongInput71 = getResource("wrongInput71.json");
-        wrongInput72 = getResource("wrongInput72.json");
         schema1 = getResource("schema1.json");
         schema2 = getResource("schema2.json");
         schema3 = getResource("schema3.json");
         schema4 = getResource("schema4.json");
         schema5 = getResource("schema5.json");
         schema6 = getResource("schema6.json");
-        schema7 = getResource("schema7.json");
 
         input1Node = OBJECT_MAPPER.readTree(input1);
         input2Node = OBJECT_MAPPER.readTree(input2);
@@ -98,7 +85,6 @@ public class TestFixture {
         input4Node = OBJECT_MAPPER.readTree(input4);
         input5Node = OBJECT_MAPPER.readTree(input5);
         input6Node = OBJECT_MAPPER.readTree(input6);
-        input7Node = OBJECT_MAPPER.readTree(input7);
         wrongInput11Node = OBJECT_MAPPER.readTree(wrongInput11);
         wrongInput12Node = OBJECT_MAPPER.readTree(wrongInput12);
         wrongInput31Node = OBJECT_MAPPER.readTree(wrongInput31);
@@ -107,15 +93,12 @@ public class TestFixture {
         wrongInput42Node = OBJECT_MAPPER.readTree(wrongInput42);
         wrongInput51Node = OBJECT_MAPPER.readTree(wrongInput51);
         wrongInput52Node = OBJECT_MAPPER.readTree(wrongInput52);
-        wrongInput71Node = OBJECT_MAPPER.readTree(wrongInput71);
-        wrongInput72Node = OBJECT_MAPPER.readTree(wrongInput72);
         schema1Node = OBJECT_MAPPER.readTree(schema1);
         schema2Node = OBJECT_MAPPER.readTree(schema2);
         schema3Node = OBJECT_MAPPER.readTree(schema3);
         schema4Node = OBJECT_MAPPER.readTree(schema4);
         schema5Node = OBJECT_MAPPER.readTree(schema5);
         schema6Node = OBJECT_MAPPER.readTree(schema6);
-        schema7Node = OBJECT_MAPPER.readTree(schema7);
     }
 
     public SchemaNode getSchemaNode(JsonNode jsonNode) throws JsonProcessingException {
