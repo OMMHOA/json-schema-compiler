@@ -89,15 +89,13 @@ powExpression
 
 
 signedAtom
-   : PLUS signedAtom
-   | MINUS signedAtom
-   | func
+   : func
    | atom
    ;
 
 
 array
-   : '[' atom (',' atom)* ']'
+   : '[' expression (',' expression)* ']'
    | '[' ']'
    ;
 

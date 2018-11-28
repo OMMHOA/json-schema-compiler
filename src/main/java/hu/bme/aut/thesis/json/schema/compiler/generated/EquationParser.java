@@ -717,11 +717,6 @@ public class EquationParser extends Parser {
 	}
 
 	public static class SignedAtomContext extends ParserRuleContext {
-		public TerminalNode PLUS() { return getToken(EquationParser.PLUS, 0); }
-		public SignedAtomContext signedAtom() {
-			return getRuleContext(SignedAtomContext.class,0);
-		}
-		public TerminalNode MINUS() { return getToken(EquationParser.MINUS, 0); }
 		public FuncContext func() {
 			return getRuleContext(FuncContext.class,0);
 		}
@@ -751,27 +746,9 @@ public class EquationParser extends Parser {
 		SignedAtomContext _localctx = new SignedAtomContext(_ctx, getState());
 		enterRule(_localctx, 20, RULE_signedAtom);
 		try {
-			setState(96);
+			setState(92);
 			_errHandler.sync(this);
 			switch (_input.LA(1)) {
-			case PLUS:
-				enterOuterAlt(_localctx, 1);
-				{
-				setState(90);
-				match(PLUS);
-				setState(91);
-				signedAtom();
-				}
-				break;
-			case MINUS:
-				enterOuterAlt(_localctx, 2);
-				{
-				setState(92);
-				match(MINUS);
-				setState(93);
-				signedAtom();
-				}
-				break;
 			case COS:
 			case SIN:
 			case TAN:
@@ -781,9 +758,9 @@ public class EquationParser extends Parser {
 			case LN:
 			case LOG:
 			case SQRT:
-				enterOuterAlt(_localctx, 3);
+				enterOuterAlt(_localctx, 1);
 				{
-				setState(94);
+				setState(90);
 				func();
 				}
 				break;
@@ -796,9 +773,9 @@ public class EquationParser extends Parser {
 			case NULL:
 			case JSON_POINTER:
 			case STRING:
-				enterOuterAlt(_localctx, 4);
+				enterOuterAlt(_localctx, 2);
 				{
-				setState(95);
+				setState(91);
 				atom();
 				}
 				break;
@@ -818,11 +795,11 @@ public class EquationParser extends Parser {
 	}
 
 	public static class ArrayContext extends ParserRuleContext {
-		public List<AtomContext> atom() {
-			return getRuleContexts(AtomContext.class);
+		public List<ExpressionContext> expression() {
+			return getRuleContexts(ExpressionContext.class);
 		}
-		public AtomContext atom(int i) {
-			return getRuleContext(AtomContext.class,i);
+		public ExpressionContext expression(int i) {
+			return getRuleContext(ExpressionContext.class,i);
 		}
 		public ArrayContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
@@ -848,42 +825,42 @@ public class EquationParser extends Parser {
 		enterRule(_localctx, 22, RULE_array);
 		int _la;
 		try {
-			setState(111);
+			setState(107);
 			_errHandler.sync(this);
 			switch ( getInterpreter().adaptivePredict(_input,9,_ctx) ) {
 			case 1:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(98);
+				setState(94);
 				match(T__0);
-				setState(99);
-				atom();
-				setState(104);
+				setState(95);
+				expression();
+				setState(100);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 				while (_la==COMMA) {
 					{
 					{
-					setState(100);
+					setState(96);
 					match(COMMA);
-					setState(101);
-					atom();
+					setState(97);
+					expression();
 					}
 					}
-					setState(106);
+					setState(102);
 					_errHandler.sync(this);
 					_la = _input.LA(1);
 				}
-				setState(107);
+				setState(103);
 				match(T__1);
 				}
 				break;
 			case 2:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(109);
+				setState(105);
 				match(T__0);
-				setState(110);
+				setState(106);
 				match(T__1);
 				}
 				break;
@@ -939,73 +916,73 @@ public class EquationParser extends Parser {
 		AtomContext _localctx = new AtomContext(_ctx, getState());
 		enterRule(_localctx, 24, RULE_atom);
 		try {
-			setState(125);
+			setState(121);
 			_errHandler.sync(this);
 			switch (_input.LA(1)) {
 			case JSON_POINTER:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(113);
+				setState(109);
 				match(JSON_POINTER);
 				}
 				break;
 			case NUMBER:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(114);
+				setState(110);
 				match(NUMBER);
 				}
 				break;
 			case INT:
 				enterOuterAlt(_localctx, 3);
 				{
-				setState(115);
+				setState(111);
 				match(INT);
 				}
 				break;
 			case BOOLEAN:
 				enterOuterAlt(_localctx, 4);
 				{
-				setState(116);
+				setState(112);
 				match(BOOLEAN);
 				}
 				break;
 			case NULL:
 				enterOuterAlt(_localctx, 5);
 				{
-				setState(117);
+				setState(113);
 				match(NULL);
 				}
 				break;
 			case THIS:
 				enterOuterAlt(_localctx, 6);
 				{
-				setState(118);
+				setState(114);
 				match(THIS);
 				}
 				break;
 			case LPAREN:
 				enterOuterAlt(_localctx, 7);
 				{
-				setState(119);
+				setState(115);
 				match(LPAREN);
-				setState(120);
+				setState(116);
 				expression();
-				setState(121);
+				setState(117);
 				match(RPAREN);
 				}
 				break;
 			case STRING:
 				enterOuterAlt(_localctx, 8);
 				{
-				setState(123);
+				setState(119);
 				match(STRING);
 				}
 				break;
 			case T__0:
 				enterOuterAlt(_localctx, 9);
 				{
-				setState(124);
+				setState(120);
 				array();
 				}
 				break;
@@ -1066,29 +1043,29 @@ public class EquationParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(127);
+			setState(123);
 			funcname();
-			setState(128);
+			setState(124);
 			match(LPAREN);
-			setState(129);
+			setState(125);
 			expression();
-			setState(134);
+			setState(130);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			while (_la==COMMA) {
 				{
 				{
-				setState(130);
+				setState(126);
 				match(COMMA);
-				setState(131);
+				setState(127);
 				expression();
 				}
 				}
-				setState(136);
+				setState(132);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 			}
-			setState(137);
+			setState(133);
 			match(RPAREN);
 			}
 		}
@@ -1139,7 +1116,7 @@ public class EquationParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(139);
+			setState(135);
 			_la = _input.LA(1);
 			if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << COS) | (1L << SIN) | (1L << TAN) | (1L << ACOS) | (1L << ASIN) | (1L << ATAN) | (1L << LN) | (1L << LOG) | (1L << SQRT))) != 0)) ) {
 			_errHandler.recoverInline(this);
@@ -1192,7 +1169,7 @@ public class EquationParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(141);
+			setState(137);
 			_la = _input.LA(1);
 			if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << GT) | (1L << LT) | (1L << EQ))) != 0)) ) {
 			_errHandler.recoverInline(this);
@@ -1216,45 +1193,42 @@ public class EquationParser extends Parser {
 	}
 
 	public static final String _serializedATN =
-		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3$\u0092\4\2\t\2\4"+
+		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3$\u008e\4\2\t\2\4"+
 		"\3\t\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7\4\b\t\b\4\t\t\t\4\n\t\n\4\13\t"+
 		"\13\4\f\t\f\4\r\t\r\4\16\t\16\4\17\t\17\4\20\t\20\4\21\t\21\3\2\7\2$\n"+
 		"\2\f\2\16\2\'\13\2\3\2\3\2\3\3\3\3\3\3\3\3\3\4\3\4\5\4\61\n\4\3\5\3\5"+
 		"\3\5\3\5\3\5\3\5\3\5\3\5\5\5;\n\5\3\6\3\6\3\7\3\7\5\7A\n\7\3\b\3\b\3\b"+
 		"\3\b\3\b\3\b\3\b\3\b\5\bK\n\b\3\t\3\t\3\n\3\n\5\nQ\n\n\3\13\3\13\3\13"+
-		"\3\13\3\13\3\13\3\13\3\13\5\13[\n\13\3\f\3\f\3\f\3\f\3\f\3\f\5\fc\n\f"+
-		"\3\r\3\r\3\r\3\r\7\ri\n\r\f\r\16\rl\13\r\3\r\3\r\3\r\3\r\5\rr\n\r\3\16"+
-		"\3\16\3\16\3\16\3\16\3\16\3\16\3\16\3\16\3\16\3\16\3\16\5\16\u0080\n\16"+
-		"\3\17\3\17\3\17\3\17\3\17\7\17\u0087\n\17\f\17\16\17\u008a\13\17\3\17"+
-		"\3\17\3\20\3\20\3\21\3\21\3\21\2\2\22\2\4\6\b\n\f\16\20\22\24\26\30\32"+
-		"\34\36 \2\6\3\2\20\21\3\2\22\23\3\2\5\r\3\2\24\26\2\u0096\2%\3\2\2\2\4"+
-		"*\3\2\2\2\6\60\3\2\2\2\b:\3\2\2\2\n<\3\2\2\2\f@\3\2\2\2\16J\3\2\2\2\20"+
-		"L\3\2\2\2\22P\3\2\2\2\24Z\3\2\2\2\26b\3\2\2\2\30q\3\2\2\2\32\177\3\2\2"+
-		"\2\34\u0081\3\2\2\2\36\u008d\3\2\2\2 \u008f\3\2\2\2\"$\7\2\2\3#\"\3\2"+
-		"\2\2$\'\3\2\2\2%#\3\2\2\2%&\3\2\2\2&(\3\2\2\2\'%\3\2\2\2()\5\4\3\2)\3"+
-		"\3\2\2\2*+\5\6\4\2+,\5 \21\2,-\5\6\4\2-\5\3\2\2\2.\61\5\f\7\2/\61\5\b"+
-		"\5\2\60.\3\2\2\2\60/\3\2\2\2\61\7\3\2\2\2\62\63\5\f\7\2\63\64\5\n\6\2"+
-		"\64\65\5\f\7\2\65;\3\2\2\2\66\67\5\f\7\2\678\5\n\6\289\5\b\5\29;\3\2\2"+
-		"\2:\62\3\2\2\2:\66\3\2\2\2;\t\3\2\2\2<=\t\2\2\2=\13\3\2\2\2>A\5\22\n\2"+
-		"?A\5\16\b\2@>\3\2\2\2@?\3\2\2\2A\r\3\2\2\2BC\5\22\n\2CD\5\20\t\2DE\5\22"+
-		"\n\2EK\3\2\2\2FG\5\22\n\2GH\5\20\t\2HI\5\16\b\2IK\3\2\2\2JB\3\2\2\2JF"+
-		"\3\2\2\2K\17\3\2\2\2LM\t\3\2\2M\21\3\2\2\2NQ\5\26\f\2OQ\5\24\13\2PN\3"+
-		"\2\2\2PO\3\2\2\2Q\23\3\2\2\2RS\5\26\f\2ST\7\31\2\2TU\5\26\f\2U[\3\2\2"+
-		"\2VW\5\26\f\2WX\7\31\2\2XY\5\24\13\2Y[\3\2\2\2ZR\3\2\2\2ZV\3\2\2\2[\25"+
-		"\3\2\2\2\\]\7\20\2\2]c\5\26\f\2^_\7\21\2\2_c\5\26\f\2`c\5\34\17\2ac\5"+
-		"\32\16\2b\\\3\2\2\2b^\3\2\2\2b`\3\2\2\2ba\3\2\2\2c\27\3\2\2\2de\7\3\2"+
-		"\2ej\5\32\16\2fg\7\27\2\2gi\5\32\16\2hf\3\2\2\2il\3\2\2\2jh\3\2\2\2jk"+
-		"\3\2\2\2km\3\2\2\2lj\3\2\2\2mn\7\4\2\2nr\3\2\2\2op\7\3\2\2pr\7\4\2\2q"+
-		"d\3\2\2\2qo\3\2\2\2r\31\3\2\2\2s\u0080\7!\2\2t\u0080\7\34\2\2u\u0080\7"+
-		"\33\2\2v\u0080\7\35\2\2w\u0080\7 \2\2x\u0080\7\32\2\2yz\7\16\2\2z{\5\6"+
-		"\4\2{|\7\17\2\2|\u0080\3\2\2\2}\u0080\7\"\2\2~\u0080\5\30\r\2\177s\3\2"+
-		"\2\2\177t\3\2\2\2\177u\3\2\2\2\177v\3\2\2\2\177w\3\2\2\2\177x\3\2\2\2"+
-		"\177y\3\2\2\2\177}\3\2\2\2\177~\3\2\2\2\u0080\33\3\2\2\2\u0081\u0082\5"+
-		"\36\20\2\u0082\u0083\7\16\2\2\u0083\u0088\5\6\4\2\u0084\u0085\7\27\2\2"+
-		"\u0085\u0087\5\6\4\2\u0086\u0084\3\2\2\2\u0087\u008a\3\2\2\2\u0088\u0086"+
-		"\3\2\2\2\u0088\u0089\3\2\2\2\u0089\u008b\3\2\2\2\u008a\u0088\3\2\2\2\u008b"+
-		"\u008c\7\17\2\2\u008c\35\3\2\2\2\u008d\u008e\t\4\2\2\u008e\37\3\2\2\2"+
-		"\u008f\u0090\t\5\2\2\u0090!\3\2\2\2\16%\60:@JPZbjq\177\u0088";
+		"\3\13\3\13\3\13\3\13\3\13\5\13[\n\13\3\f\3\f\5\f_\n\f\3\r\3\r\3\r\3\r"+
+		"\7\re\n\r\f\r\16\rh\13\r\3\r\3\r\3\r\3\r\5\rn\n\r\3\16\3\16\3\16\3\16"+
+		"\3\16\3\16\3\16\3\16\3\16\3\16\3\16\3\16\5\16|\n\16\3\17\3\17\3\17\3\17"+
+		"\3\17\7\17\u0083\n\17\f\17\16\17\u0086\13\17\3\17\3\17\3\20\3\20\3\21"+
+		"\3\21\3\21\2\2\22\2\4\6\b\n\f\16\20\22\24\26\30\32\34\36 \2\6\3\2\20\21"+
+		"\3\2\22\23\3\2\5\r\3\2\24\26\2\u0090\2%\3\2\2\2\4*\3\2\2\2\6\60\3\2\2"+
+		"\2\b:\3\2\2\2\n<\3\2\2\2\f@\3\2\2\2\16J\3\2\2\2\20L\3\2\2\2\22P\3\2\2"+
+		"\2\24Z\3\2\2\2\26^\3\2\2\2\30m\3\2\2\2\32{\3\2\2\2\34}\3\2\2\2\36\u0089"+
+		"\3\2\2\2 \u008b\3\2\2\2\"$\7\2\2\3#\"\3\2\2\2$\'\3\2\2\2%#\3\2\2\2%&\3"+
+		"\2\2\2&(\3\2\2\2\'%\3\2\2\2()\5\4\3\2)\3\3\2\2\2*+\5\6\4\2+,\5 \21\2,"+
+		"-\5\6\4\2-\5\3\2\2\2.\61\5\f\7\2/\61\5\b\5\2\60.\3\2\2\2\60/\3\2\2\2\61"+
+		"\7\3\2\2\2\62\63\5\f\7\2\63\64\5\n\6\2\64\65\5\f\7\2\65;\3\2\2\2\66\67"+
+		"\5\f\7\2\678\5\n\6\289\5\b\5\29;\3\2\2\2:\62\3\2\2\2:\66\3\2\2\2;\t\3"+
+		"\2\2\2<=\t\2\2\2=\13\3\2\2\2>A\5\22\n\2?A\5\16\b\2@>\3\2\2\2@?\3\2\2\2"+
+		"A\r\3\2\2\2BC\5\22\n\2CD\5\20\t\2DE\5\22\n\2EK\3\2\2\2FG\5\22\n\2GH\5"+
+		"\20\t\2HI\5\16\b\2IK\3\2\2\2JB\3\2\2\2JF\3\2\2\2K\17\3\2\2\2LM\t\3\2\2"+
+		"M\21\3\2\2\2NQ\5\26\f\2OQ\5\24\13\2PN\3\2\2\2PO\3\2\2\2Q\23\3\2\2\2RS"+
+		"\5\26\f\2ST\7\31\2\2TU\5\26\f\2U[\3\2\2\2VW\5\26\f\2WX\7\31\2\2XY\5\24"+
+		"\13\2Y[\3\2\2\2ZR\3\2\2\2ZV\3\2\2\2[\25\3\2\2\2\\_\5\34\17\2]_\5\32\16"+
+		"\2^\\\3\2\2\2^]\3\2\2\2_\27\3\2\2\2`a\7\3\2\2af\5\6\4\2bc\7\27\2\2ce\5"+
+		"\6\4\2db\3\2\2\2eh\3\2\2\2fd\3\2\2\2fg\3\2\2\2gi\3\2\2\2hf\3\2\2\2ij\7"+
+		"\4\2\2jn\3\2\2\2kl\7\3\2\2ln\7\4\2\2m`\3\2\2\2mk\3\2\2\2n\31\3\2\2\2o"+
+		"|\7!\2\2p|\7\34\2\2q|\7\33\2\2r|\7\35\2\2s|\7 \2\2t|\7\32\2\2uv\7\16\2"+
+		"\2vw\5\6\4\2wx\7\17\2\2x|\3\2\2\2y|\7\"\2\2z|\5\30\r\2{o\3\2\2\2{p\3\2"+
+		"\2\2{q\3\2\2\2{r\3\2\2\2{s\3\2\2\2{t\3\2\2\2{u\3\2\2\2{y\3\2\2\2{z\3\2"+
+		"\2\2|\33\3\2\2\2}~\5\36\20\2~\177\7\16\2\2\177\u0084\5\6\4\2\u0080\u0081"+
+		"\7\27\2\2\u0081\u0083\5\6\4\2\u0082\u0080\3\2\2\2\u0083\u0086\3\2\2\2"+
+		"\u0084\u0082\3\2\2\2\u0084\u0085\3\2\2\2\u0085\u0087\3\2\2\2\u0086\u0084"+
+		"\3\2\2\2\u0087\u0088\7\17\2\2\u0088\35\3\2\2\2\u0089\u008a\t\4\2\2\u008a"+
+		"\37\3\2\2\2\u008b\u008c\t\5\2\2\u008c!\3\2\2\2\16%\60:@JPZ^fm{\u0084";
 	public static final ATN _ATN =
 		new ATNDeserializer().deserialize(_serializedATN.toCharArray());
 	static {

@@ -3,6 +3,7 @@ package hu.bme.aut.thesis.json.schema.compiler.model.equation;
 import com.fasterxml.jackson.databind.JsonNode;
 import hu.bme.aut.thesis.json.schema.compiler.generated.JSONParser;
 import hu.bme.aut.thesis.json.schema.compiler.model.equation.operator.Operator;
+import hu.bme.aut.thesis.json.schema.compiler.model.type.BooleanType;
 import hu.bme.aut.thesis.json.schema.compiler.restriction.ExtraRestriction;
 import hu.bme.aut.thesis.json.schema.compiler.restriction.Restriction;
 
@@ -20,7 +21,11 @@ public abstract class EquationRestriction extends Operator implements Restrictio
     }
 
     protected EquationValue getValue(boolean booleanValue) {
-        return new EquationValue.Builder().setBooleanValue(booleanValue).build();
+        return new EquationValue.Builder()
+                .setBooleanValue(booleanValue)
+                .setType(new BooleanType())
+                .setIsEvaluated(true)
+                .build();
     }
 
     @Override

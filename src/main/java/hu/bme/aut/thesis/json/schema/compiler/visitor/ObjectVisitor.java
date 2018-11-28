@@ -85,10 +85,10 @@ public class ObjectVisitor extends JSONBaseVisitor<SchemaNode> {
                 warnValue(pair.value(), LOGGER);
                 return;
             }
-            LOGGER.debug("Adding restriction: " + pairKey);
+            LOGGER.debug("Adding restriction for key: " + pairKey);
             schemaNode.addRestriction(restriction);
         } else if ((extraRestriction = ExtraRestriction.get(pairKey)) != null) {
-            LOGGER.debug("Adding extra restriction: " + pairKey);
+            LOGGER.debug("Adding extra restriction for key: " + pairKey);
             schemaNode.addExtraRestriction(extraRestriction, pair.value());
         } else {
             LOGGER.warn("Key '{}' not recognized!", pairKey);

@@ -21,4 +21,12 @@ public class Constants {
     public static final String TYPE = "type";
     public static final String UNIQUE_ITEMS = "uniqueItems";
     public static final String VALUE = "value";
+
+    public static final String ARRAY = "array";
+    public static final String BOOLEAN = "boolean";
+    public static final String INTEGER = "integer";
+    public static final String NULL = "null";
+    public static final String NUMBER = "number";
+    public static final String OBJECT = "object";
+    public static final String STRING = "string";
 }

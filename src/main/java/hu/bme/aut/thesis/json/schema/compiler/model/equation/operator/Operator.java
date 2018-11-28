@@ -1,10 +1,10 @@
 package hu.bme.aut.thesis.json.schema.compiler.model.equation.operator;
 
 import com.fasterxml.jackson.databind.JsonNode;
-import hu.bme.aut.thesis.json.schema.compiler.model.SchemaException;
 import hu.bme.aut.thesis.json.schema.compiler.model.equation.CommonTypeRecognizer;
 import hu.bme.aut.thesis.json.schema.compiler.model.equation.EquationValue;
 import hu.bme.aut.thesis.json.schema.compiler.model.equation.PartOfEquation;
+import hu.bme.aut.thesis.json.schema.compiler.model.type.*;
 
 import java.util.List;
 
@@ -40,19 +40,39 @@ public abstract class Operator implements PartOfEquation {
     }
 
     public EquationValue operate(List<EquationValue> left, List<EquationValue> right) {
-        return new EquationValue.Builder().setListValue(calculate(left, right)).build();
+        return new EquationValue.Builder()
+                .setListValue(calculate(left, right))
+                .setType(new ListType())
+                .setIsEvaluated(true)
+                .build();
     }
     public EquationValue operate(Boolean left, Boolean right){
-        return new EquationValue.Builder().setBooleanValue(calculate(left, right)).build();
+        return new EquationValue.Builder()
+                .setBooleanValue(calculate(left, right))
+                .setType(new BooleanType())
+                .setIsEvaluated(true)
+                .build();
     }
     public EquationValue operate(Integer left, Integer right){
-        return new EquationValue.Builder().setIntegerValue(calculate(left, right)).build();
+        return new EquationValue.Builder()
+                .setIntegerValue(calculate(left, right))
+                .setType(new IntegerType())
+                .setIsEvaluated(true)
+                .build();
     }
     public EquationValue operate(Double left, Double right){
-        return new EquationValue.Builder().setDoubleValue(calculate(left, right)).build();
+        return new EquationValue.Builder()
+                .setDoubleValue(calculate(left, right))
+                .setType(new DoubleType())
+                .setIsEvaluated(true)
+                .build();
     }
     public EquationValue operate(String left, String right){
-        return new EquationValue.Builder().setStringValue(calculate(left, right)).build();
+        return new EquationValue.Builder()
+                .setStringValue(calculate(left, right))
+                .setType(new StringType())
+                .setIsEvaluated(true)
+                .build();
     }
 
     protected abstract List<EquationValue> calculate(List<EquationValue> left, List<EquationValue> right);
