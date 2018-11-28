@@ -7,6 +7,9 @@ public class Utils {
     public static String unquote(String text) {
         if (text.startsWith("\"") && text.endsWith("\""))
             return text.substring(1, text.length() - 1);
+        if (text.startsWith("\\\"") && text.endsWith("\\\"")) {
+            return text.substring(2, text.length() - 2);
+        }
         return text;
     }
 

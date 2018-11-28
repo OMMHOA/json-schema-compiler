@@ -24,6 +24,7 @@ public class UtilsTest extends TestFixture {
         assertEquals("text", Utils.unquote("\"text\""));
         assertEquals("text", Utils.unquote("text"));
         assertEquals("te\"xt", Utils.unquote("te\"xt"));
+        assertEquals("text", Utils.unquote("\\\"text\\\""));
     }
 
     @Test

@@ -2,13 +2,13 @@ package hu.bme.aut.thesis.json.schema.compiler;
 
 import hu.bme.aut.thesis.json.schema.compiler.model.SchemaException;
 import hu.bme.aut.thesis.json.schema.compiler.model.SchemaNode;
-import hu.bme.aut.thesis.json.schema.compiler.model.equation.EquationValue;
 import hu.bme.aut.thesis.json.schema.compiler.restriction.Restriction;
 import org.junit.Test;
 
 import java.io.IOException;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 public class ParserTest extends TestFixture {
 
@@ -93,6 +93,9 @@ public class ParserTest extends TestFixture {
 
         restriction = Parser.parseEquation(equations[10]);
         assertTrue(restriction.validate(null));
+
+        restriction = Parser.parseEquation(equations[11]);
+        assertTrue(restriction.validate(input1Node.get("first_name")));
     }
 
     @Test(expected = SchemaException.class)
