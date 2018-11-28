@@ -3,6 +3,7 @@ package hu.bme.aut.thesis.json.schema.compiler.model.type;
 import com.fasterxml.jackson.databind.JsonNode;
 import hu.bme.aut.thesis.json.schema.compiler.model.equation.EquationValue;
 
+import java.util.List;
 import java.util.Objects;
 
 public abstract class Type {
@@ -62,6 +63,31 @@ public abstract class Type {
 
     public boolean canBeString() {
         return isString();
+    }
+
+    public List<EquationValue> asList(EquationValue value) {
+        if (!canBeList()) return null;
+        throw new RuntimeException(this.getClass().getSimpleName() + ": List converter not implemented.");
+    }
+
+    public Boolean asBoolean(EquationValue value) {
+        if (!canBeBoolean()) return null;
+        throw new RuntimeException(this.getClass().getSimpleName() + ": Boolean converter not implemented.");
+    }
+
+    public Integer asInteger(EquationValue value) {
+        if (!canBeInteger()) return null;
+        throw new RuntimeException(this.getClass().getSimpleName() + ": Integer converter not implemented.");
+    }
+
+    public Double asDouble(EquationValue value) {
+        if (!canBeDouble()) return null;
+        throw new RuntimeException(this.getClass().getSimpleName() + ": Double converter not implemented.");
+    }
+
+    public String asString(EquationValue value) {
+        if (!canBeString()) return null;
+        throw new RuntimeException(this.getClass().getSimpleName() + ": String converter not implemented.");
     }
 
     @Override

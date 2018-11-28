@@ -31,12 +31,27 @@ public class IntegerType extends Type  {
     }
 
     @Override
+    public Boolean asBoolean(EquationValue value) {
+        return value.getIntegerValue() != 0;
+    }
+
+    @Override
     public boolean canBeDouble() {
         return true;
     }
 
     @Override
+    public Double asDouble(EquationValue value) {
+        return value.getIntegerValue().doubleValue();
+    }
+
+    @Override
     public boolean canBeString() {
         return true;
+    }
+
+    @Override
+    public String asString(EquationValue value) {
+        return "" + value.getIntegerValue();
     }
 }

@@ -56,6 +56,7 @@ public class CommonTypeRecognizer {
     }
 
     private static EquationValue operateDifferentType(EquationValue left, EquationValue right, Operator operator) {
+        // TODO
         return null;
     }
 }

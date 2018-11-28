@@ -23,7 +23,10 @@ public class AtomVisitor extends EquationBaseVisitor<PartOfEquation> {
             LOGGER.debug("Atom recognized.");
             return signedAtom.atom().accept(this);
         }
-        // TODO: add missing
+        if (signedAtom.func() != null) {
+            LOGGER.debug("Function recognized.");
+            return signedAtom.func().accept(new FuncVisitor());
+        }
         LOGGER.warn("No SignedAtom recognized. Skipping...");
         return null;
     }

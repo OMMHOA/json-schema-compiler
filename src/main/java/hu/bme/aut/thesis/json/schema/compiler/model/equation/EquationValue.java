@@ -97,6 +97,46 @@ public class EquationValue implements PartOfEquation {
         return type.isNull();
     }
 
+    public boolean canBeList() {
+        return type.canBeList();
+    }
+
+    public boolean canBeBoolean() {
+        return type.canBeBoolean();
+    }
+
+    public boolean canBeInteger() {
+        return type.canBeInteger();
+    }
+
+    public boolean canBeDouble() {
+        return type.canBeDouble();
+    }
+
+    public boolean canBeString() {
+        return type.canBeString();
+    }
+
+    public List<EquationValue> asList() {
+        return type.asList(this);
+    }
+
+    public Boolean asBoolean() {
+        return type.asBoolean(this);
+    }
+
+    public Integer asInteger() {
+        return type.asInteger(this);
+    }
+
+    public Double asDouble() {
+        return type.asDouble(this);
+    }
+
+    public String asString() {
+        return type.asString(this);
+    }
+
     public List<EquationValue> getListValue() {
         if (!isEvaluated) throw new RuntimeException("EquationValue was not evaluated yet!");
         return Collections.unmodifiableList(listValue);
@@ -191,10 +231,28 @@ public class EquationValue implements PartOfEquation {
         return Objects.hash(listValue, booleanValue, integerValue, doubleValue, stringValue, thisValue, pointerValue);
     }
 
-    EquationValue(List<EquationValue> listValue, Boolean booleanValue, Integer integerValue, Double doubleValue,
-                         String stringValue, boolean nullValue, JsonNode objectValue,
-                         List<PartOfEquation> preEvaluationListValue, boolean thisValue, JsonPointer pointerValue,
-                         Type type, boolean isEvaluated) {
+    @Override
+    public String toString() {
+        return "EquationValue{" +
+                "listValue=" + listValue +
+                ", booleanValue=" + booleanValue +
+                ", integerValue=" + integerValue +
+                ", doubleValue=" + doubleValue +
+                ", stringValue='" + stringValue + '\'' +
+                ", nullValue=" + nullValue +
+                ", objectValue=" + objectValue +
+                ", preEvaluationListValue=" + preEvaluationListValue +
+                ", thisValue=" + thisValue +
+                ", pointerValue=" + pointerValue +
+                ", type=" + type +
+                ", isEvaluated=" + isEvaluated +
+                '}';
+    }
+
+    private EquationValue(List<EquationValue> listValue, Boolean booleanValue, Integer integerValue, Double doubleValue,
+                          String stringValue, boolean nullValue, JsonNode objectValue,
+                          List<PartOfEquation> preEvaluationListValue, boolean thisValue, JsonPointer pointerValue,
+                          Type type, boolean isEvaluated) {
         this.listValue = listValue;
         this.booleanValue = booleanValue;
         this.integerValue = integerValue;
