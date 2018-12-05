@@ -1,0 +1,21 @@
+{
+  "people":[
+    {
+      "personid":"XH12345",
+      "firstname":"János",
+      "lastname":"Kovács",
+      "age":34,
+      "profession":"Civil Engineer"
+    },
+    {
+      "personid":"XH12346",
+      "firstname":"Zsuzsa",
+      "lastname":"Kovács",
+      "age":34
+    }
+  ],
+  "winner":{
+    "id":"XH12346",
+    "amount":34000000
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "type":"object",
+  "required": ["people"],
+  "properties":{
+    "people":{
+      "type":"array",
+      "items":{
+        "type":"object",
+        "required":[
+          "personid",
+          "firstname",
+          "lastname",
+          "age"
+        ],
+        "properties":{
+          "personid":{
+            "type":"string",
+            "pattern":"^[A-Z]{2}[0-9]{5}$"
+          },
+          "firstname":{
+            "type":"string"
+          },
+          "lastname":{
+            "type":"string"
+          },
+          "age":{
+            "type":"integer",
+            "minimum":0,
+            "maximum":120
+          },
+          "profession":{
+            "type":"string"
+          }
+        }
+      }
+    },
+    "winner":{
+      "type":"object",
+      "required":[
+        "id",
+        "amount"
+      ]
+    }
+  },
+  "value":"#/people/1/personid = #/winner/id",
+  "value":"#/winner/amount = #/people/1/age * 1000000"
+}

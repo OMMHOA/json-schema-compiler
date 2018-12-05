@@ -61,6 +61,12 @@ public class ParserTest extends TestFixture {
     }
 
     @Test
+    public void schema7() throws IOException {
+        SchemaNode schemaNode = Parser.parse(getResource("schema7.json"));
+        assertTrue(schemaNode.validate(OBJECT_MAPPER.readTree(getResource("input7.json"))));
+    }
+
+    @Test
     public void schemaEquations() throws IOException {
         String[] inputs = getResource("schemaEquations").split("\\n");
         String schema = "";
